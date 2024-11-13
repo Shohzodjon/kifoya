@@ -19,6 +19,7 @@ const isLoading = ref(true);
 const isLoad = ref(false);
 const router = useRouter();
 const phone = ref("");
+
 router.beforeEach((to, from, next) => {
   isLoading.value = true;
   next();
@@ -84,7 +85,11 @@ const activeKey = ref(""); // Initial open panel
     <div class="purpose_section">
       <div class="container">
         <div class="purpose_flex">
-          <ul class="purpose_list">
+          <ul
+            class="purpose_list"
+            data-aos="fade-up-right"
+            data-aos-delay="400" data-aos-duration="1500"
+          >
             <li>
               <div class="list_img">
                 <img src="@/assets/images/ambition.png" alt="abition" />
@@ -126,11 +131,11 @@ const activeKey = ref(""); // Initial open panel
               </PurposeDesc>
             </li>
           </ul>
-          <MainCard />
+          <MainCard data-aos="fade-down-left" data-aos-delay="400" data-aos-duration="1500" />
         </div>
         <div class="invest__flex">
-          <MainCard />
-          <div class="invest__desc">
+          <MainCard data-aos="fade-right" data-aos-delay="300" />
+          <div class="invest__desc" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1500">
             <h3>Invstitsiya <span>maqsadlari</span></h3>
             <p class="invest__info">
               Mustaqil Moliya KMIT – ko’pgina maqsadlar uchun jamg’arish
@@ -147,7 +152,7 @@ const activeKey = ref(""); // Initial open panel
           </div>
         </div>
         <div class="finance_flex" id="team">
-          <div class="finance_left">
+          <div class="finance_left" data-aos="flip-left" data-aos-delay="400" data-aos-duration="1500">
             <h2>Mustaqil Moliya bilan investitsiya <span>manfaatlari</span></h2>
             <div class="accordion_box">
               <a-collapse
@@ -188,7 +193,11 @@ const activeKey = ref(""); // Initial open panel
               </a-collapse>
             </div>
           </div>
-          <div class="finance_img"></div>
+          <div
+            class="finance_img"
+            data-aos="flip-right"
+            data-aos-delay="300"
+          ></div>
         </div>
       </div>
     </div>
@@ -201,6 +210,10 @@ const activeKey = ref(""); // Initial open panel
             :key="i"
             :title="item.title"
             :desc="item.desc"
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+            :data-aos-delay="(i + 1) * 300"
+            data-aos-duration="1500"
           />
         </div>
       </div>
@@ -209,14 +222,19 @@ const activeKey = ref(""); // Initial open panel
     <section class="order_section" id="contact">
       <div class="container">
         <main>
-          <div class="order_desc">
+          <div class="order_desc" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1500">
             <h2>Заказать обратный звонок</h2>
             <p>
               Заполните форму, и мы с радостью проконсультируем вас и поможем
               сделать выбор.
             </p>
           </div>
-          <form action="" class="order_form">
+          <form
+            action=""
+            class="order_form"
+            data-aos="fade-left"
+            data-aos-delay="100"
+          >
             <div>
               <input
                 type="text"
@@ -304,15 +322,15 @@ const activeKey = ref(""); // Initial open panel
     </section>
     <section class="app_section">
       <div class="container">
-        <div class="app_box">
+        <div class="app_box" data-aos="zoom-out-up" data-aos-delay="500" data-aos-duration="1500">
           <h2>
             <span>Kifoya ilovasini</span> yuklab oling va kelajagingizga sarmoya
             kiriting
           </h2>
 
           <div class="app_group">
-            <a href="#"><img src="@/assets/images/app.png" alt="app"></a>
-            <a href="#"><img src="@/assets/images/play.png" alt="app"></a>
+            <a href="#"><img src="@/assets/images/app.png" alt="app" /></a>
+            <a href="#"><img src="@/assets/images/play.png" alt="app" /></a>
           </div>
         </div>
       </div>
@@ -367,5 +385,14 @@ const activeKey = ref(""); // Initial open panel
 .rotate-icon {
   transform: rotate(180deg);
   transition: transform 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .custom-collapse .ant-collapse-item .ant-collapse-content-box {
+    background: var(--gray-300);
+    max-width: 99%;
+    margin: 0 auto;
+    margin-left: 8px !important;
+  }
 }
 </style>

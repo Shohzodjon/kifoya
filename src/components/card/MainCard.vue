@@ -28,5 +28,19 @@
     top: 12%;
     left: 0;
   }
+
+  @media (max-width: 1200px) {
+    padding: 60px 25px;
+  }
+
+  @media (max-width:1024px) {
+      max-width: 100%;
+  }
+  @media (max-width:768px) {
+    padding: 20px;
+  }
+  @media (max-width:576px) {
+    padding: 10px;
+  }
 }
 </style>

@@ -41,7 +41,22 @@ defineProps({
     font-size: 2rem;
     line-height: 23.87px;
     color: var(--dark-blue);
-    max-width: 90%;
+    max-width: 88%;
+  }
+
+
+  @media (max-width:576px) {
+    span {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+    line-height: 18px;
+  }
+    p {
+    font-size: 1.6rem;
+    line-height: 20px;
+    max-width: 80%;
+  }
   }
 }
 </style>

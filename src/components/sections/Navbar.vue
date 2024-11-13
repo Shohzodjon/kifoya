@@ -5,7 +5,7 @@ import { RouterLink, useRoute } from "vue-router";
 import ru from "../../assets/images/ru.png";
 import uz from "../../assets/images/uz.png";
 import en from "../../assets/images/en.png";
-
+import { MenuOutlined } from "@ant-design/icons-vue";
 const locale = ref("uz");
 const langFlag = ref(uz);
 onMounted(async () => {});
@@ -61,8 +61,8 @@ watch(locale, (old, newVal) => {
               <option value="ru">Русский</option>
             </select>
           </div>
-
           <button class="">Biz bilan aloqa</button>
+          <button class="menu_btn"><MenuOutlined /></button>
         </div>
       </div>
     </div>
