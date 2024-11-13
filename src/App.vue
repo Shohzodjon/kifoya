@@ -79,9 +79,9 @@ const activeKey = ref(""); // Initial open panel
   <section>
     <div class="page__header">
       <Navbar />
-      <!-- <HomePage /> -->
+      <HomePage />
     </div>
-    <!-- <div class="purpose_section">
+    <div class="purpose_section">
       <div class="container">
         <div class="purpose_flex">
           <ul class="purpose_list">
@@ -191,8 +191,8 @@ const activeKey = ref(""); // Initial open panel
           <div class="finance_img"></div>
         </div>
       </div>
-    </div> -->
-    <!-- <div class="construction_section" id="constraction">
+    </div>
+    <div class="construction_section" id="constraction">
       <div class="container">
         <h2 class="title">Bu qanday ishlaydi</h2>
         <div class="construction_flex">
@@ -204,9 +204,9 @@ const activeKey = ref(""); // Initial open panel
           />
         </div>
       </div>
-    </div> -->
+    </div>
 
-    <!-- <section class="order_section" id="contact">
+    <section class="order_section" id="contact">
       <div class="container">
         <main>
           <div class="order_desc">
@@ -301,8 +301,8 @@ const activeKey = ref(""); // Initial open panel
           </ul>
         </div>
       </div>
-    </section> -->
-    <!-- <section class="app_section">
+    </section>
+    <section class="app_section">
       <div class="container">
         <div class="app_box">
           <h2>
@@ -316,8 +316,8 @@ const activeKey = ref(""); // Initial open panel
           </div>
         </div>
       </div>
-    </section> -->
-    <!-- <Footer /> -->
+    </section>
+    <Footer />
   </section>
 </template>
 
