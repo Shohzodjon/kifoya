@@ -23,10 +23,10 @@ router.beforeEach((to, from, next) => {
   const storedLocale = localStorage.getItem("locale");
 
   if (storedLocale && lang !== storedLocale) {
-    return next({
-      path: `/${storedLocale}${to.path.slice(3)}`,
-      query: to.query, 
-    });
+    // return next({
+    //   path: `/${storedLocale}${to.path.slice(3)}`,
+    //   query: to.query, 
+    // });
   }
   if (!lang) {
     return next({
