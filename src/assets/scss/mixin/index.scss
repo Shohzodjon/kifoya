@@ -1,0 +1,17 @@
+@mixin baseButton($color) {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 18px;
+  border-radius: 7px;
+  border: none;
+  background: none;
+  color: $color;
+  text-align: center;
+  padding: 14px 24px;
+  cursor: pointer;
+
+  @media (max-width:$xl) {
+    padding: 12px 20px;
+  }
+
+}

@@ -1,0 +1,35 @@
+<script setup>
+defineProps({
+  title: {
+    type: String,
+    default: "",
+  },
+  desc: {
+    type: String,
+    default: "",
+  },
+});
+</script>
+<template>
+  <div class="purpose_card">
+    <h2>{{ title }}</h2>
+    <p v-if="desc">{{ desc }}</p>
+    <slot name="content"/>
+  </div>
+</template>
+<style scoped lang="scss">
+   .purpose_card{
+    h2{
+      font-size: 2.4rem;
+      line-height: 28.94px;
+      font-weight: 800;
+      color: var(--dark-blue);
+    }
+    p{
+      font-size: 1.6rem;
+      color: var(--dark-blue);
+      line-height: 28.8px;
+      font-weight: 400;
+    }
+   }
+</style>

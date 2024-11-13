@@ -1,0 +1,176 @@
+@import "__variables", "mixin", "sections", "pages";
+
+@font-face {
+  font-family: 'MuseoSansCyrl';
+  src: url('../fonts/museo-font/MuseoSansCyrl-500.eot');
+  src: local('../fonts/museo-font/MuseoSansCyrl-500'),
+    url('../fonts/museo-font/MuseoSansCyrl-500.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/museo-font/MuseoSansCyrl-500.woff') format('woff'),
+    url('../fonts/museo-font/MuseoSansCyrl-500.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'MuseoSansCyrl';
+  src: url('../fonts/museo-font/MuseoSansCyrl-900.eot');
+  src: local('MuseoSansCyrl-900'),
+    url('../fonts/museo-font/MuseoSansCyrl-900.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/museo-font/MuseoSansCyrl-900.woff') format('woff'),
+    url('../fonts/museo-font/MuseoSansCyrl-900.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MuseoSansCyrl';
+  src: url('../fonts/museo-font/MuseoSansCyrl-700.eot');
+  src: local('../fonts/museo-font/MuseoSansCyrl-700'),
+    url('../fonts/museo-font/MuseoSansCyrl-700.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/museo-font/MuseoSansCyrl-700.woff') format('woff'),
+    url('../fonts/museo-font/MuseoSansCyrl-700.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MuseoSansCyrl';
+  src: url('../fonts/museo-font/MuseoSansCyrl-300.eot');
+  src: local('../fonts/museo-font/MuseoSansCyrl-300'),
+    url('../fonts/museo-font/MuseoSansCyrl-300.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/museo-font/MuseoSansCyrl-300.woff') format('woff'),
+    url('../fonts/museo-font/MuseoSansCyrl-300.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MuseoSansCyrl';
+  src: url('../fonts/museo-font/MuseoSansCyrl-100.eot');
+  src: local('../fonts/museo-font/MuseoSansCyrl-100'),
+    url('../fonts/museo-font/MuseoSansCyrl-100.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/museo-font/MuseoSansCyrl-100.woff') format('woff'),
+    url('../fonts/museo-font/MuseoSansCyrl-100.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // font-family: 'MuseoSans';
+  scroll-behavior: smooth;
+
+}
+
+body {
+  font-family: 'MuseoSansCyrl', sans-serif;
+  font-weight: 300;
+  /* Thin */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  font-family: 'MuseoSansCyrl', sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+  /* Bold */
+}
+
+// p {
+//   font-weight: 500;
+//   /* Medium */
+// }
+
+html {
+  font-size: 10px;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
+.ant-collapse-item {
+  border: none !important;
+}
+
+.ant-collapse-item .ant-collapse-header .ant-collapse-expand-icon .ant-collapse-arrow {
+  display: none !important;
+}
+
+.ant-collapse-header .ant-collapse-header-text {
+  color: var(--blue-700);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.ant-collapse-content {
+  border-top: none !important;
+  border-radius: 0 !important;
+}
+
+.ant-pagination-options {
+  display: none !important;
+}
+
+.ant-pagination {
+  margin: 3rem auto 0;
+
+  .ant-pagination-item {
+    min-width: 30px;
+    min-height: 30px;
+    line-height: 29px;
+  }
+}
+
+.ant-modal-content {
+  width: 110% !important;
+  padding: 1rem 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.vel-img-wrapper {
+  img {
+    width: 600px;
+    height: 400px;
+  }
+}
+
+.ant-modal-mask {
+  background: rgba(37, 37, 37, 0.7) !important;
+}
+
+.ant-modal-close,
+.ant-modal-footer {
+  display: none;
+}
+
+@media (max-width:1365px) {
+  .container {
+    padding: 0 15px;
+  }
+}

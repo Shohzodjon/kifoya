@@ -1,0 +1,19 @@
+.construction_section {
+    background: var(--bg-color), url();
+    padding-top: 60px;
+
+    .title {
+        font-size: 5.6rem;
+        font-weight: 600;
+        line-height: 66.83px;
+        color: var(--dark-blue);
+        margin-bottom: 40px;
+    }
+    .construction_flex{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+    }
+}
+
