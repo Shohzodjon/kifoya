@@ -1,189 +1,190 @@
 <script setup>
-import { reactive, onMounted, onUnmounted } from 'vue';
-import { RouterLink } from 'vue-router';
-import { CloseOutlined, RightOutlined } from '@ant-design/icons-vue';
-import $i18n from "@/plugins/i18n";
-defineProps({
-    data: {
-        type: Array,
-        default: []
-    }
-});
-const childList = reactive({
-    title: '',
-    list: [],
-});
-const langList = reactive([
-    { label: "O'z", locale: 'oz', active: true, id: 1 },
-    { label: "Ўз", locale: 'uz', active: false, id: 2 },
-    { label: "Ру", locale: 'ru', active: false, id: 3 },
-    { label: "En", locale: 'en', active: false, id: 4 },
-])
-const grandChildList = reactive({
-    title: '',
-    list: [],
-});
-let locale = '';
-onMounted(() => {
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    let storeLocale = localStorage.getItem('locale');
-    if (storeLocale) {
-        locale = storeLocale;
-    } else {
-        locale = 'oz'
-    }
-});
+import { onMounted, reactive, ref, watch } from "vue";
+import { useRoute } from "vue-router";
+import { gsap } from "gsap";
+import { useMenuStore } from "@/stores/menu";
+const route = useRoute();
+const currentPath = ref(route.path);
+const counterStore = useMenuStore();
 
-onUnmounted(() => {
-    window.removeEventListener("resize", handleResize);
-});
-
-const handleClick = (child, title) => {
-    const parentMenu = document.querySelector('.parent__menu');
-    const childMenu = document.querySelector('.second__menu')
-    childList.title = title;
-    childList.list = child;
-    parentMenu.classList.toggle('unactive-menu');
-    childMenu.classList.toggle('active-menu');
+const tl = gsap.timeline();
+onMounted(async () => {});
+watch(
+  () => route.path,
+  (newPath) => {
+    counterStore.resnav = false;
+  }
+);
+watch(
+  () => counterStore.resnav,
+  (newVal) => {
+    if (newVal) {
+      tl.from(".menu-bg span", {
+        duration: 1,
+        x: "100%",
+        stagger: 0.2,
+        ease: "Expo.easyInOut",
+      });
+      tl.from(".main-menu li a", {
+        duration: 1.5,
+        y: "100%",
+        stagger: 0.1,
+        ease: "Expo.easyInOut",
+      });
+    }
+  }
+);
+const handleToggle = () => {
+  counterStore.toggleMenu();
 };
-const closeSecondMenu = () => {
-    const parentMenu = document.querySelector('.parent__menu');
-    const childMenu = document.querySelector('.second__menu')
-    parentMenu.classList.toggle('unactive-menu');
-    childMenu.classList.toggle('active-menu');
-}
 
-const thirdMenuShow = (title, data) => {
-    const parentMenu = document.querySelector('.second__menu');
-    const childMenu = document.querySelector('.third__menu')
-    grandChildList.title = title;
-    grandChildList.list = data;
-    parentMenu.classList.toggle('unactive-menu');
-    childMenu.classList.toggle('active-menu');
-}
-
-const closeThirdMenu = () => {
-  
-    const parentMenu = document.querySelector('.second__menu');
-    const childMenu = document.querySelector('.third__menu')
-    parentMenu.classList.toggle('unactive-menu');
-    childMenu.classList.toggle('active-menu');
-}
-const menuToggle = () => {
-    menuStore.toggleFunc();
-}
-
-const chooseLang = (event) => {
-    let element = event.target;
-    let chooseLocale = element.dataset.lang;
-    if (chooseLocale == locale) return;
-    $i18n.global.locale.value = chooseLocale;
-    localStorage.setItem('locale', chooseLocale)
-    window.location.reload();
-}
-
-const closeMenu=()=>{
-    const parentMenu = document.querySelector('.parent__menu');
-    const secondMenu = document.querySelector('.second__menu');
-    const childMenu = document.querySelector('.third__menu')
-    parentMenu.classList.remove('unactive-menu');
-    secondMenu.classList.remove('unactive-menu');
-    secondMenu.classList.remove('active-menu');
-    childMenu.classList.remove('active-menu');
-    menuStore.toggleFunc();
-}
-
-
+const setActive = (id) => {};
 </script>
 <template>
-    <div :class="['responsive-nav', { 'active-res': menuStore.show }]">
-        <div class="responsive-nav__container">
-            <span class="responsive-nav__overlay" @click="menuToggle"></span>
-            <ul class="responsive-nav__box">
-                <li class="responsive-nav__header">
-                    <div class="lang">
-                        <span v-for="item in langList" :key="item.id" :data-lang="item.locale"
-                            @click="(e) => chooseLang(e)">{{ item.label }}</span>
-                    </div>
-                    <span class="close-icon" @click="menuToggle">
-                        <CloseOutlined />
-                    </span>
-                </li>
-                <li class="responsive-nav__body">
-                    <div class="responsive-nav__main">
-                        <div class="parent__menu">
-                            <div class="responsive-nav__body-top">
-                                <span>Menu</span>
-                            </div>
-                            <div class="responsive-nav__list">
-                                <ol class="responsive-nav__list-parent">
-                                    <li class="parent-item" v-for="item in data"
-                                        @click="handleClick(item.children, item.title)">
-                                        <span class="parent-title">{{ item.title }}</span>
-                                        <RightOutlined class="arrow-icon" v-if="item.children.length != 0" />
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-                        <ul v-if="childList" class="child__menu second__menu ">
-                            <li class="child__menu-header" @click="closeSecondMenu">
-                                <RightOutlined style="transform: rotate(-180deg);" />
-                                <span>{{ childList.title }}</span>
-                            </li>
-                            <li v-for="child in childList.list" :key="child.id" class="child__menu-item">
-                                <div class="item__box" v-if="child.children.length != 0"
-                                    @click="thirdMenuShow(child.title, child.children)">
-                                    <span>{{ child.title }}</span>
-                                    <RightOutlined class="arrow-icon" />
-                                </div>
-                                <div v-else>
-                                    <router-link v-if="child.link"
-                                        :to="{ name: child.link, query: { alias: child.alias } }"
-                                        @click="closeMenu">
-                                        {{ child.title }}
-                                    </router-link>
-                                    <router-link v-else :to="{ name: 'static-page', query: { alias: child.alias } }"
-                                        @click="closeMenu">
-                                        {{ child.title }}
-                                    </router-link>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul v-if="grandChildList" class="child__menu third__menu ">
-                            <li class="child__menu-header" @click="closeThirdMenu">
-                                <RightOutlined style="transform: rotate(-180deg);" />
-                                <span>{{ grandChildList.title }}</span>
-                            </li>
-                            <li v-for="item in grandChildList.list" :key="item.id" class="child__menu-item">
-                                <router-link v-if="item.link" :to="{ name: item.link, query: { alias: item.alias } }"
-                                    @click="closeMenu">
-                                    {{ item.title }}
-                                </router-link>
-                                <router-link v-else :to="{ name: 'static-page', query: { alias: item.alias } }"
-                                    @click="closeMenu">
-                                    {{ item.title }}
-                                </router-link>
-                            </li>
-                        </ul>
-                    </div>
-
-                </li>
-            </ul>
-        </div>
+  <section
+    class="fullpage-menu"
+    :class="[counterStore.resnav ? 'active-res-nav' : 'unactive-res-nav']"
+  >
+    <button @click="handleToggle" class="close-btn">
+      <i class="icon-cancel"></i>
+    </button>
+    <div class="fullpage-menu-inner">
+      <div class="menu-bg">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+        <ul class="main-menu">
+          <li>
+            <a href="#about" @click="handleToggle">Biz haqimizda</a>
+          </li>
+          <li>
+            <a href="#constraction" @click="handleToggle"
+              >Bu qanday ishlaydi?</a
+            >
+          </li>
+          <li>
+            <a href="#team" @click="handleToggle">Bizning jamoa</a>
+          </li>
+          <li>
+            <a href="#contact" @click="handleToggle">Biz bilan aloqa</a>
+          </li>
+        </ul>
+      </nav>
     </div>
+  </section>
 </template>
 <style scoped>
-.active-res {
-    opacity: 1;
-    transform: translateX(0%);
+.active-res-nav {
+  transform: translateX(0%) !important;
+}
+.unactive-res-nav {
+  transform: translateX(100%) !important;
 }
 
-.active-menu {
-    transform: translateX(0%);
+.fullpage-menu {
+  transition: transform 300ms ease-in-out 0s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999999;
+}
+.close-btn {
+  border: none;
+  background: none;
+  position: relative;
+  z-index: 10;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  float: right;
+  margin-right: 60px;
+  font-size: 30px;
+  color: #fff;
+}
+.fullpage-menu-inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 50px;
+}
+.menu-bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.menu-bg span {
+  display: block;
+  height: 25%;
+  width: 100%;
+  background: #0d1b2a;
+  margin: 0;
+}
+nav {
+  position: relative;
+  z-index: 99;
+}
+nav li {
+  overflow: hidden;
+  transition: transform 300ms ease-in-out 0s;
+}
+nav li + li {
+  margin-top: 30px;
+}
+nav li a {
+  font-size: 3rem;
+  line-height: 130%;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #fff;
+  display: inline-block;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+nav li:hover {
+  transform: translateX(50px);
 }
 
-.unactive-menu {
-    transform: translateX(-50%);
+@media (max-width:1800px) {
+    .fullpage-menu{
+    display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .fullpage-menu{
+        display: block;
+    }
+  nav li a {
+    font-size: 2.8rem;
+  }
+}
+@media (max-width: 991px) {
+    nav li + li {
+  margin-top: 25px;
+}
+  nav li a {
+    font-size: 2.5rem;
+  }
+
+}
+@media (max-width: 768px) {
+  .fullpage-menu-inner {
+    padding: 20px;
+  }
+  nav li a {
+    font-size: 2rem;
+  }
 }
 </style>

@@ -1,7 +1,8 @@
 <script setup>
-import { onMounted, ref, watch } from "vue";
-import { useRouter } from "vue-router";
+import { onMounted, onBeforeUnmount, ref, watch } from "vue";
+import { useRouter, useRoute } from "vue-router";
 import Navbar from "@/components/sections/Navbar.vue";
+
 // import Loader from '@/views/Loader.vue';
 import Footer from "@/components/sections/Footer.vue";
 import HomePage from "./views/HomePage.vue";
@@ -14,11 +15,14 @@ import {
   YoutubeFilled,
 } from "@ant-design/icons-vue";
 import ConstructionCard from "./components/card/ConstructionCard.vue";
+import ResponsiveNavbar from "./components/responsive/ResponsiveNavbar.vue";
 
 const isLoading = ref(true);
 const isLoad = ref(false);
 const router = useRouter();
 const phone = ref("");
+const status = ref(false);
+const activeKey = ref("");
 
 router.beforeEach((to, from, next) => {
   isLoading.value = true;
@@ -31,15 +35,11 @@ router.afterEach(() => {
   }, 600);
 });
 
-onMounted(async () => {
-  isLoad.value = true;
-});
-
 function formatPhone(value) {
   if (!value.startsWith("+998")) {
     phone.value = "+998";
   } else if (value.length > 13) {
-    phone.value = value.slice(0, 13); // Limit to 17 characters
+    phone.value = value.slice(0, 13);
   }
 }
 
@@ -73,13 +73,13 @@ const constructionList = [
 ];
 
 const text = `A dog is a type of domesticated animal.Known for its loyalty and faithfulness,it can be found as a welcome guest in many households across the world.`;
-const activeKey = ref(""); // Initial open panel
 </script>
 
 <template>
   <section>
     <div class="page__header">
       <Navbar />
+      <ResponsiveNavbar />
       <HomePage />
     </div>
     <div class="purpose_section">
@@ -88,7 +88,8 @@ const activeKey = ref(""); // Initial open panel
           <ul
             class="purpose_list"
             data-aos="fade-up-right"
-            data-aos-delay="400" data-aos-duration="1500"
+            data-aos-delay="400"
+            data-aos-duration="1500"
           >
             <li>
               <div class="list_img">
@@ -131,11 +132,20 @@ const activeKey = ref(""); // Initial open panel
               </PurposeDesc>
             </li>
           </ul>
-          <MainCard data-aos="fade-down-left" data-aos-delay="400" data-aos-duration="1500" />
+          <MainCard
+            data-aos="fade-down-left"
+            data-aos-delay="400"
+            data-aos-duration="1500"
+          />
         </div>
         <div class="invest__flex">
           <MainCard data-aos="fade-right" data-aos-delay="300" />
-          <div class="invest__desc" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1500">
+          <div
+            class="invest__desc"
+            data-aos="fade-left"
+            data-aos-delay="400"
+            data-aos-duration="1500"
+          >
             <h3>Invstitsiya <span>maqsadlari</span></h3>
             <p class="invest__info">
               Mustaqil Moliya KMIT – ko’pgina maqsadlar uchun jamg’arish
@@ -152,7 +162,12 @@ const activeKey = ref(""); // Initial open panel
           </div>
         </div>
         <div class="finance_flex" id="team">
-          <div class="finance_left" data-aos="flip-left" data-aos-delay="400" data-aos-duration="1500">
+          <div
+            class="finance_left"
+            data-aos="flip-left"
+            data-aos-delay="400"
+            data-aos-duration="1500"
+          >
             <h2>Mustaqil Moliya bilan investitsiya <span>manfaatlari</span></h2>
             <div class="accordion_box">
               <a-collapse
@@ -222,7 +237,12 @@ const activeKey = ref(""); // Initial open panel
     <section class="order_section" id="contact">
       <div class="container">
         <main>
-          <div class="order_desc" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1500">
+          <div
+            class="order_desc"
+            data-aos="fade-right"
+            data-aos-delay="400"
+            data-aos-duration="1500"
+          >
             <h2>Заказать обратный звонок</h2>
             <p>
               Заполните форму, и мы с радостью проконсультируем вас и поможем
@@ -259,7 +279,7 @@ const activeKey = ref(""); // Initial open panel
               ></textarea>
             </div>
             <div class="form_flex">
-              <a-checkbox value="1" name="type"></a-checkbox>
+              <a-checkbox name="type"></a-checkbox>
               <p>Я соглашаюсь с Политикой конфиденциальности</p>
             </div>
             <button class="form_btn" type="button">Отправить</button>
@@ -322,7 +342,12 @@ const activeKey = ref(""); // Initial open panel
     </section>
     <section class="app_section">
       <div class="container">
-        <div class="app_box" data-aos="zoom-out-up" data-aos-delay="500" data-aos-duration="1500">
+        <div
+          class="app_box"
+          data-aos="zoom-out-up"
+          data-aos-delay="500"
+          data-aos-duration="1500"
+        >
           <h2>
             <span>Kifoya ilovasini</span> yuklab oling va kelajagingizga sarmoya
             kiriting
@@ -350,10 +375,10 @@ const activeKey = ref(""); // Initial open panel
   opacity: 0;
 }
 
-.active__loader {
-  opacity: 1;
-  display: block;
+.navbar__section.hidden {
+  transform: translateY(-100%);
 }
+
 .custom-collapse .ant-collapse-header-text {
   display: flex;
   justify-content: space-between;

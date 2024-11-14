@@ -2,12 +2,17 @@
 import { ref, onMounted, watch } from "vue";
 import { lang } from "@/uitiles/currentLang";
 import { RouterLink, useRoute } from "vue-router";
+import { useMenuStore } from "@/stores/menu";
 import ru from "../../assets/images/ru.png";
 import uz from "../../assets/images/uz.png";
 import en from "../../assets/images/en.png";
 import { MenuOutlined } from "@ant-design/icons-vue";
 const locale = ref("uz");
 const langFlag = ref(uz);
+const menuStore =useMenuStore();
+
+
+
 onMounted(async () => {});
 
 watch(locale, (old, newVal) => {
@@ -26,6 +31,12 @@ watch(locale, (old, newVal) => {
     }
   }
 });
+
+const toggle=()=>{
+  menuStore.toggleMenu();
+}
+
+
 </script>
 <template>
   <nav class="navbar">
@@ -62,10 +73,13 @@ watch(locale, (old, newVal) => {
             </select>
           </div>
           <button class="">Biz bilan aloqa</button>
-          <button class="menu_btn"><MenuOutlined /></button>
+          <button class="menu_btn" @click="toggle"><MenuOutlined /></button>
         </div>
       </div>
     </div>
   </nav>
 </template>
-<style scoped></style>
+<style scoped>
+
+
+</style>
