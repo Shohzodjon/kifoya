@@ -1,0 +1,40 @@
+// employee section
+.employee__section {
+    padding-top: 20px;
+
+    h2 {
+        margin-bottom: 25px;
+        color: var(--dark-blue);
+        font-weight: 700;
+        line-height: 67.77px;
+        font-size: 5.6rem;
+    }
+
+    .employee__flex {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width:$lg) {
+        h2 {
+            margin-bottom: 25px;
+            line-height: 50px;
+            font-size: 5rem;
+        }
+    }
+    @media (max-width:$md) {
+        h2 {
+            line-height: 50px;
+            font-size: 4.5rem;
+        }
+    }
+    @media (max-width:$xs) {
+        h2 {
+            line-height: 40px;
+            font-size: 3rem;
+        }
+    }
+
+}

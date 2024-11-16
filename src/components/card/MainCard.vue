@@ -1,7 +1,9 @@
 <script setup></script>
 <template>
   <div class="card">
-    <div class="card__img"></div>
+    <div class="card__img">
+      <slot name="img" />
+    </div>
     <span class="card__shape">
       <img src="@/assets/images/card_shape.png" alt="card shape" />
     </span>
@@ -22,6 +24,13 @@
     border-radius: var(--border-radius);
     position: relative;
     z-index: 999;
+    overflow: hidden;
+
+    img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover;
+    }
   }
   &__shape {
     position: absolute;
@@ -33,13 +42,20 @@
     padding: 60px 25px;
   }
 
-  @media (max-width:1024px) {
-      max-width: 100%;
+  @media (max-width: 1024px) {
+    max-width: 100%;
+    &__img {
+      max-width: 85%;
+      margin: 0 auto;
+    }
   }
-  @media (max-width:768px) {
+  @media (max-width: 768px) {
     padding: 20px;
+    &__img {
+      max-width: 100%;
+    }
   }
-  @media (max-width:576px) {
+  @media (max-width: 576px) {
     padding: 10px;
   }
 }

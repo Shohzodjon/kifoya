@@ -16,6 +16,9 @@ import {
 } from "@ant-design/icons-vue";
 import ConstructionCard from "./components/card/ConstructionCard.vue";
 import ResponsiveNavbar from "./components/responsive/ResponsiveNavbar.vue";
+import img from "@/assets/images/employee.jfif";
+import EmployeeCard from "./components/card/EmployeeCard.vue";
+import CouncilCard from "./components/card/CouncilCard.vue";
 
 const isLoading = ref(true);
 const isLoad = ref(false);
@@ -72,7 +75,49 @@ const constructionList = [
   },
 ];
 
-const text = `A dog is a type of domesticated animal.Known for its loyalty and faithfulness,it can be found as a welcome guest in many households across the world.`;
+const text = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore minima veritatis maxime, sed incidunt aut hic vitae unde ipsum amet nobis sunt, quo commodi illum quia magni neque nihil! Eveniet.`;
+
+const employeeList = [
+  {
+    img: img,
+    title: "Bekzod Shamshiev",
+    position: "Chairman of the Board",
+    desc: "CEO and Co-founder of Mustaqil Moliya",
+  },
+  {
+    img: img,
+    title: "Bekzod Shamshiev",
+    position: "Chairman of the Board",
+    desc: "CEO and Co-founder of Mustaqil Moliya",
+  },
+  {
+    img: img,
+    title: "Bekzod Shamshiev",
+    position: "Chairman of the Board",
+    desc: "CEO and Co-founder of Mustaqil Moliya",
+  },
+  {
+    img: img,
+    title: "Bekzod Shamshiev",
+    position: "Chairman of the Board",
+    desc: "CEO and Co-founder of Mustaqil Moliya",
+  },
+];
+
+const councilList = [
+  {
+    title: "Prof Dr Ashraf Md Hashim",
+    desc: "Chairman",
+  },
+  {
+    title: "Prof Dr Ashraf Md Hashim",
+    desc: "Chairman",
+  },
+  {
+    title: "Prof Dr Ashraf Md Hashim",
+    desc: "Chairman",
+  },
+];
 </script>
 
 <template>
@@ -233,7 +278,6 @@ const text = `A dog is a type of domesticated animal.Known for its loyalty and f
         </div>
       </div>
     </div>
-
     <section class="order_section" id="contact">
       <div class="container">
         <main>
@@ -357,6 +401,76 @@ const text = `A dog is a type of domesticated animal.Known for its loyalty and f
             <a href="#"><img src="@/assets/images/app.png" alt="app" /></a>
             <a href="#"><img src="@/assets/images/play.png" alt="app" /></a>
           </div>
+        </div>
+      </div>
+    </section>
+    <section class="employee__section">
+      <div class="container">
+        <h2>Board of Directors</h2>
+        <div class="employee__flex">
+          <EmployeeCard
+            v-for="(item, i) in employeeList"
+            :key="i"
+            :title="item.title"
+            :img="item.img"
+            :desc="item.desc"
+            :position="item.position"
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+            :data-aos-delay="(i + 1) * 300"
+            data-aos-duration="1500"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="council">
+      <div class="container">
+        <div
+          class="council__flex"
+          data-aos="fade-right"
+          data-aos-delay="600"
+          data-aos-duration="1500"
+        >
+          <div class="left__side">
+            <h2>Shariah Council</h2>
+            <div class="list__flex">
+              <CouncilCard
+                v-for="(item, i) in councilList"
+                :key="i"
+                :title="item.title"
+                :desc="item.desc"
+                
+              />
+            </div>
+          </div>
+          <MainCard>
+            <template #img>
+              <img
+                src="@/assets/images/employee.jfif"
+                alt="img"
+                style="width: 100%; height: 100%"
+              />
+            </template>
+          </MainCard>
+        </div>
+      </div>
+    </section>
+
+    <section class="employee__section">
+      <div class="container">
+        <h2>Senior Management</h2>
+        <div class="employee__flex">
+          <EmployeeCard
+            v-for="(item, i) in employeeList"
+            :key="i"
+            :title="item.title"
+            :img="item.img"
+            :position="item.position"
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+            :data-aos-delay="(i + 1) * 300"
+            data-aos-duration="1500"
+          />
         </div>
       </div>
     </section>
