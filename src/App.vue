@@ -46,6 +46,21 @@ function formatPhone(value) {
   }
 }
 
+const isScrolled = ref(false);
+
+function handleScroll() {
+  isScrolled.value = window.scrollY > 100;
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
+
 const investData = [
   { title: "Uy sotib olish" },
   { title: "Mashina sotib olish" },
@@ -121,15 +136,15 @@ const councilList = [
 </script>
 
 <template>
-  <section>
+  <section >
     <div class="page__header">
-      <Navbar />
+      <Navbar :class="{ 'scrolled': isScrolled }" />
       <ResponsiveNavbar />
       <HomePage />
     </div>
-    <div class="purpose_section">
+    <div class="purpose_section" >
       <div class="container">
-        <div class="purpose_flex">
+        <div class="purpose_flex" >
           <ul
             class="purpose_list"
             data-aos="fade-up-right"
@@ -182,8 +197,8 @@ const councilList = [
             data-aos-delay="400"
             data-aos-duration="1500"
           />
-        </div>
-        <div class="invest__flex">
+        </div> 
+        <div class="invest__flex" >
           <MainCard data-aos="fade-right" data-aos-delay="300" />
           <div
             class="invest__desc"
@@ -206,7 +221,7 @@ const councilList = [
             </div>
           </div>
         </div>
-        <div class="finance_flex" id="team">
+        <div class="finance_flex" id="team" >
           <div
             class="finance_left"
             data-aos="flip-left"
@@ -260,8 +275,8 @@ const councilList = [
           ></div>
         </div>
       </div>
-    </div>
-    <div class="construction_section" id="constraction">
+    </div> 
+     <div class="construction_section" id="constraction">
       <div class="container">
         <h2 class="title">Bu qanday ishlaydi</h2>
         <div class="construction_flex">
@@ -277,7 +292,7 @@ const councilList = [
           />
         </div>
       </div>
-    </div>
+    </div> 
     <section class="order_section" id="contact">
       <div class="container">
         <main>

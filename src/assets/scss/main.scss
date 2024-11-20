@@ -68,11 +68,7 @@
 
 }
 
-body {
-  font-family: 'MuseoSansCyrl', sans-serif;
-  font-weight: 300;
-  /* Thin */
-}
+
 
 h1,
 h2,
@@ -90,18 +86,19 @@ h1 {
   /* Bold */
 }
 
-// p {
-//   font-weight: 500;
-//   /* Medium */
-// }
+
 
 html {
   font-size: 10px;
-  overflow-x: hidden;
+  
 }
 
 body{
   background: var(--bg-color);
+  height: 100%;
+  font-family: 'MuseoSansCyrl', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
 }
 ul {
   list-style: none;
