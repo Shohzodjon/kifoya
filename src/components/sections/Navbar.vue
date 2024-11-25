@@ -4,21 +4,31 @@ import { lang } from "@/uitiles/currentLang";
 import { RouterLink, useRoute } from "vue-router";
 import { useMenuStore } from "@/stores/menu";
 import ru from "../../assets/images/ru.png";
-import uz from "../../assets/images/uz.png";
+import oz from "../../assets/images/uz.png";
 import en from "../../assets/images/en.png";
 import { MenuOutlined } from "@ant-design/icons-vue";
+import $i18n from "@/plugins/i18n";
 const locale = ref("uz");
-const langFlag = ref(uz);
+const langFlag = ref(oz);
 const menuStore =useMenuStore();
 
+const handleClick = (event) => {
+    let element = event.target;
+    console.log(element.value)
+    if (element.value == locale) return;
+    $i18n.global.locale.value = element.value;
+    localStorage.setItem('locale', element.value)
+    window.location.reload();
+}
 
-
-onMounted(async () => {});
+onMounted( () => {
+locale.value=localStorage.getItem('locale')
+});
 
 watch(locale, (old, newVal) => {
   switch (old) {
-    case "uz": {
-      langFlag.value = uz;
+    case "oz": {
+      langFlag.value = oz;
       return;
     }
     case "en": {
@@ -50,29 +60,29 @@ const toggle=()=>{
 
         <ul class="navbar-list">
           <li>
-            <a href="#about">Biz haqimizda</a>
+            <a href="#about">{{ $t('about') }}</a>
           </li>
           <li>
-            <a href="#constraction">Bu qanday ishlaydi?</a>
+            <a href="#constraction">{{ $t('howWorked') }}</a>
           </li>
           <li>
-            <a href="#team">Bizning jamoa</a>
+            <a href="#team">{{ $t('team') }}</a>
           </li>
           <li>
-            <a href="#contact">Biz bilan aloqa</a>
+            <a href="#contact">{{ $t('contact') }}</a>
           </li>
         </ul>
 
         <div class="navbar-lang">
           <div class="lang-box">
             <span><img :src="langFlag" alt="flag" /></span>
-            <select name="" id="" v-model="locale">
-              <option value="uz">O'zbek</option>
+            <select name="" id="" v-model="locale" @change="handleClick">
+              <option value="oz">O'zbek</option>
               <option value="en">English</option>
               <option value="ru">Русский</option>
             </select>
           </div>
-          <button class="">Biz bilan aloqa</button>
+          <button class="">{{ $t('contact') }}</button>
           <button class="menu_btn" @click="toggle"><MenuOutlined /></button>
         </div>
       </div>

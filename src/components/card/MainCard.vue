@@ -15,7 +15,7 @@
   border-radius: var(--border-radius);
   width: 100%;
   max-width: 50%;
-  padding: 99px 40px;
+  padding: 70px 35px;
   position: relative;
   overflow: hidden;
   &__img {
@@ -39,24 +39,37 @@
   }
 
   @media (max-width: 1200px) {
-    padding: 60px 25px;
-  }
+    padding: 50px 20px;
 
-  @media (max-width: 1024px) {
-    max-width: 100%;
     &__img {
-      max-width: 85%;
+      height: 500px;
+      max-width: 95%;
       margin: 0 auto;
     }
   }
+
+  @media (max-width: 1024px) {
+    max-width: 90%;
+    &__img {
+      max-width: 94%;
+      margin: 0 auto;
+      height: 520px;
+    }
+  }
   @media (max-width: 768px) {
-    padding: 20px;
+    padding:30px 20px;
     &__img {
       max-width: 100%;
+      height: 480px;
     }
   }
   @media (max-width: 576px) {
-    padding: 10px;
+    padding:20px 15px;
+    max-width: 100%;
+    &__img {
+      max-width: 96%;
+      height: 440px;
+    }
   }
 }
 </style>

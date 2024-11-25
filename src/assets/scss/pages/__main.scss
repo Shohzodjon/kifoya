@@ -20,25 +20,25 @@
         max-width: 50%;
         display: flex;
         flex-direction: column;
-        gap: 25px;
+        gap: 20px;
 
         li {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 25px;
 
             .list_img {
                 display: flex;
-                width: 110px;
-                height: 110px !important;
+                width: 85px;
+                height: 85px !important;
                 align-items: center;
                 justify-content: center;
                 background: var(--green-200);
                 border-radius: 100%;
 
                 img {
-                    max-width: 56px;
-                    max-height: 56px;
+                    max-width: 40px;
+                    max-height: 40px;
                 }
             }
 
@@ -53,7 +53,7 @@
                 li {
                     list-style-type: decimal !important;
                     font-size: 1.6rem;
-                    line-height: 28.8px;
+                    line-height: 26px;
                     font-weight: 400;
                     color: var(--dark-blue);
                 }
@@ -154,7 +154,7 @@
 
 
 
-    @media (max-width:$xl) {
+    @media (max-width:1200px) {
         .purpose_flex {
             gap: 25px;
         }
@@ -163,24 +163,21 @@
             gap: 20px;
 
             li {
-                gap: 25px;
+                gap: 20px;
 
                 .list_img {
-                    width: 100px;
-                    height: 100px !important;
+                    width: 80px;
+                    height: 80px !important;
 
                     img {
-                        max-width: 50px;
-                        max-height: 50px;
+                        max-width: 40px;
+                        max-height: 40px;
                     }
                 }
 
                 .list_desc {
                     max-width: 374px;
                 }
-
-
-
             }
 
 
@@ -218,10 +215,13 @@
 
         }
 
-
+        .finance_img {
+            height: 650px;
+        }
+    
     }
 
-    @media (max-width:$lg) {
+    @media (max-width:1024px) {
         .purpose_flex {
             gap: 25px;
             flex-direction: column;
@@ -235,6 +235,18 @@
             li {
                 gap: 25px;
 
+                
+                .list_img {
+                    width: 70px;
+                    height: 70px !important;
+
+                    img {
+                        max-width: 35px;
+                        max-height: 35px;
+                    }
+                }
+
+              
                 .list_desc {
                     max-width: 80%;
                 }
@@ -276,13 +288,12 @@
         }
 
         .finance_img {
-            max-width: 100%;
-            width: 100%;
-            height: 600px !important;
+            max-width: 85%;
+            height: 550px !important;
         }
     }
 
-    @media (max-width:$xs) {
+    @media (max-width:768px) {
         .purpose_list {
             gap: 25px;
 
@@ -290,13 +301,13 @@
                 gap: 30px;
 
                 .list_img {
-                    width: 80px;
-                    height: 80px !important;
+                    width: 70px;
+                    height: 70px !important;
                     border-radius: 100%;
 
                     img {
-                        max-width: 40px;
-                        max-height: 40px;
+                        max-width: 35px;
+                        max-height: 35px;
                     }
                 }
 
@@ -333,9 +344,14 @@
                 line-height: 40px;
             }
         }
+        .finance_img {
+            // height: 450px !important;
+            max-width: 90%;
+            margin: 0 auto;
+        }
     }
 
-    @media (max-width:$sm) {
+    @media (max-width:576px) {
         .purpose_list {
             gap: 20px;
 
@@ -343,12 +359,12 @@
                 gap: 15px;
 
                 .list_img {
-                    width: 60px;
-                    height: 60px !important;
+                    width:50px;
+                    height: 50px !important;
 
                     img {
-                        max-width: 35px;
-                        max-height: 35px;
+                        max-width: 26px;
+                        max-height: 26px;
                     }
                 }
 
@@ -369,7 +385,6 @@
             }
 
         }
-
         .finance_left {
             width: 100%;
             max-width: 100%;
@@ -378,6 +393,14 @@
                 font-size: 2.8rem;
                 line-height: 30px;
             }
+            .accordion_box {
+                height: 270px;
+            }
+        }
+        .finance_img {
+            height: 450px !important;
+            max-width: 95%;
+            margin: 0 auto;
         }
     }
 

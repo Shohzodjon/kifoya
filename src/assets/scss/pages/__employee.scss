@@ -1,7 +1,7 @@
 // employee section
 .employee__section {
     padding-top: 20px;
-
+margin-top: 70px;
     h2 {
         margin-bottom: 25px;
         color: var(--dark-blue);
@@ -17,20 +17,20 @@
         flex-wrap: wrap;
     }
 
-    @media (max-width:$lg) {
+    @media (max-width:1024px) {
         h2 {
             margin-bottom: 25px;
             line-height: 50px;
             font-size: 5rem;
         }
     }
-    @media (max-width:$md) {
+    @media (max-width:992px) {
         h2 {
             line-height: 50px;
             font-size: 4.5rem;
         }
     }
-    @media (max-width:$xs) {
+    @media (max-width:768px) {
         h2 {
             line-height: 40px;
             font-size: 3rem;

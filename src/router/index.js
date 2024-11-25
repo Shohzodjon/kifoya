@@ -18,23 +18,23 @@ const router = createRouter({
     },
   ],
 });
-// router.beforeEach((to, from, next) => {
-//   const lang = to.params.lang;
-//   const storedLocale = localStorage.getItem("locale");
+router.beforeEach((to, from, next) => {
+  const lang = to.params.lang;
+  const storedLocale = localStorage.getItem("locale");
 
-//   if (storedLocale && lang !== storedLocale) {
-//     return next({
-//       path: `/${storedLocale}${to.path.slice(3)}`,
-//       query: to.query, 
-//     });
-//   }
-//   if (!lang) {
-//     return next({
-//       path: `/${storedLocale || "oz"}`,
-//       query: to.query, 
-//     });
-//   }
-//   next();
-// });
+  if (storedLocale && lang !== storedLocale) {
+    return next({
+      path: `/${storedLocale}${to.path.slice(3)}`,
+      query: to.query, 
+    });
+  }
+  if (!lang) {
+    return next({
+      path: `/${storedLocale || "oz"}`,
+      query: to.query, 
+    });
+  }
+  next();
+});
 
 export default router;

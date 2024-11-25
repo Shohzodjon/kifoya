@@ -94,10 +94,17 @@
 
 
 
+/* 
+$sm: 576px;
+$xs: 768px;
+$md: 992px;
+$lg: 1024px;
+$xl: 1200px;
+$xxl: 1500px;
+*/
 
 
-
-    @media (max-width:$xl) {
+    @media (max-width:1200px) {
         &-logo {
             max-width: 132px;
             height: 56px;
@@ -108,7 +115,7 @@
         }
     }
 
-    @media (max-width:$lg) {
+    @media (max-width:1024px) {
 
         &-list {
             display: none;
@@ -125,7 +132,7 @@
         }
     }
 
-    @media (max-width:$sm) {
+    @media (max-width:576px) {
         &-logo {
             max-width: 122px;
             height: 46px;

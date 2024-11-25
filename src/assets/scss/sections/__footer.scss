@@ -137,7 +137,15 @@
         }
     }
 
-    @media (max-width:$xs) {
+    /* 
+$sm: 576px;
+$xs: 768px;
+$md: 992px;
+$lg: 1024px;
+$xl: 1200px;
+$xxl: 1500px;
+*/
+    @media (max-width:768px) {
         &_top {
 
             align-items: flex-start;

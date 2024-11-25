@@ -6,8 +6,7 @@ let locale = '';
 const langList = ref([
     { label: 'Русский', active: false, locale: 'ru' },
     { label: 'English', active: false, locale: 'en' },
-    { label: 'Ўзбекча', active: false, locale: 'uz' },
-    { label: "O'zbekcha", active: true, locale: 'oz' },
+    { label: "O'zbek", active: true, locale: 'oz' },
 ])
 onMounted(() => {
     let storeLocale = localStorage.getItem('locale');
@@ -30,14 +29,12 @@ const handleClick = (event) => {
     if (chooseLocale == locale) return;
     $i18n.global.locale.value = chooseLocale;
     localStorage.setItem('locale', chooseLocale)
-    window.location.reload();
 }
 
 </script>
 <template>
     <ul class="lang-comp">
         <li v-for="(item, i) in langList" :key="i">
-            <!-- <GlobalOutlined v-if="i == 0" /> -->
             <i class="icon-lang" style="font-size: 16px;" v-if="i == 0"></i>
             <button :data-lang="item.locale" @click="(e) => handleClick(e)" class="lang-btn"
                 :class="item.active ? 'active-lang' : ''">{{ item.label }}</button>

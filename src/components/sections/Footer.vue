@@ -15,12 +15,12 @@ import {
           <a href="#">
             <img src="@/assets/images/logo.png" alt="footer logo" />
           </a>
-          <p>Islom moliyasiga asoslangan kuchmas mulkka investitsiya.</p>
+          <p>{{ $t('footerDesc') }}</p>
         </div>
 
         <div class="footer_contact">
           <div class="social">
-            <h2>Obuna bo’ling</h2>
+            <h2>{{ $t('subscribe') }}</h2>
             <ul>
               <li>
                 <a href="#"
@@ -98,7 +98,7 @@ import {
             </ul>
           </div>
           <div class="contact">
-            <h2>Aloqa uchun</h2>
+            <h2>{{ $t('footerContact') }}</h2>
             <a href="tel:+998900096009">+998900096009</a>
           </div>
         </div>
@@ -107,10 +107,10 @@ import {
       <div class="footer_bottom">
         <p>© 2024 All Rights Reserved</p>
         <ul>
-            <li><a href="#">Investor Relations</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Use</a></li>
-            <li><a href="#">Public offer</a></li>
+            <li><a href="#">{{ $t('investorContact') }}</a></li>
+            <li><a href="#">{{ $t('privacy') }}</a></li>
+            <li><a href="#">{{ $t('useOf') }}</a></li>
+            <li><a href="#">{{ $t('public') }}</a></li>
         </ul>
       </div>
     </div>

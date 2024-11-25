@@ -60,33 +60,29 @@ onBeforeUnmount(() => {
   window.removeEventListener("scroll", handleScroll);
 });
 
-
 const investData = [
-  { title: "Uy sotib olish" },
-  { title: "Mashina sotib olish" },
-  { title: "Nafaqa yoshi uchun pul jamg’arish" },
-  { title: "Haj yoki umra safari uchun pul jamg’arish" },
-  {
-    title:
-      "Qimmatbaho maishiy texnikalarni (xolodilnik, televizor, gas plitasi, kir yuvish mashinasi va hokazolar) sotib olish",
-  },
-  { title: "Farzandlaringizning ta'limi uchun pul jamg’arish" },
-  { title: "Tuy marosimlari uchun" },
-  { title: "Boylikni samarali o’stirish" },
+  { title: "buyHouse" },
+  { title: "buyCar" },
+  { title: "pension" },
+  { title: "umra" },
+  { title: "technology" },
+  { title: "education" },
+  { title: "wedding" },
+  { title: "wealth" },
 ];
 
 const constructionList = [
   {
-    title: "Investitsiya kiriting",
-    desc: "Daromad keltiradigan kuchmas mulklarga egalik qiladigan Mustaqil Moliya KMIT ga investitsiya kiriting. Investitsiyani 1 million so'mdan boshlab kiritishingiz mumkin.",
+    title: "investTwo",
+    desc: "investDescTwo",
   },
   {
-    title: "O’sish",
-    desc: "Daromad keltiradigan kuchmas mulklarga egalik qiladigan Mustaqil Moliya KMIT ga investitsiya kiriting. Investitsiyani 1 million so'mdan boshlab kiritishingiz mumkin.",
+    title: "grow",
+    desc: "growDesc",
   },
   {
-    title: "Dividend",
-    desc: "Daromad keltiradigan kuchmas mulklarga egalik qiladigan Mustaqil Moliya KMIT ga investitsiya kiriting. Investitsiyani 1 million so'mdan boshlab kiritishingiz mumkin.",
+    title: "divident",
+    desc: "dividentDesc",
   },
 ];
 
@@ -136,28 +132,23 @@ const councilList = [
 </script>
 
 <template>
-  <section >
+  <section>
     <div class="page__header">
-      <Navbar :class="{ 'scrolled': isScrolled }" />
+      <Navbar :class="{ scrolled: isScrolled }" />
       <ResponsiveNavbar />
       <HomePage />
     </div>
-    <div class="purpose_section" >
+    <div class="purpose_section">
       <div class="container">
-        <div class="purpose_flex" >
-          <ul
-            class="purpose_list"
-            data-aos="fade-up-right"
-            data-aos-delay="400"
-            data-aos-duration="1500"
-          >
+        <div class="purpose_flex">
+          <ul class="purpose_list">
             <li>
               <div class="list_img">
                 <img src="@/assets/images/ambition.png" alt="abition" />
               </div>
               <PurposeDesc
-                title="Oliy maqsad"
-                desc="Dunyoning yetakchi, barqaror va islom moliyasi tamoyillariga asoslangan moliyaviy hizmatlarni taqdim etadigan moliya tashkiloti bo'lish."
+                :title="$t('ambition')"
+                :desc="$t('ambitionDesc')"
                 class="list_desc"
               />
             </li>
@@ -166,8 +157,8 @@ const councilList = [
                 <img src="@/assets/images/mission.png" alt="mission" />
               </div>
               <PurposeDesc
-                title="Missiya"
-                desc="Doimiy tarzda jamiyatimiz uchun barqarorlikka asoslangan qiymat yaratish."
+                :title="$t('mission')"
+                :desc="$t('missionDesc')"
                 class="list_desc"
               />
             </li>
@@ -175,60 +166,46 @@ const councilList = [
               <div class="list_img">
                 <img src="@/assets/images/values.png" alt="value" />
               </div>
-              <PurposeDesc class="list_desc" title="Qadriyatlar : ">
+              <PurposeDesc class="list_desc" :title="$t('value')">
                 <template #content>
                   <ul class="sub_list">
                     <li>
-                      Halollik va holislikka asoslangan moliyaviy tashkilot
+                      {{ $t("honest") }}
                     </li>
-                    <li>Innovatsion tashkilot</li>
-                    <li>Malakali mutaxassislar jamoasi</li>
+                    <li>{{ $t("innovation") }}</li>
+                    <li>{{ $t("profession") }}</li>
                     <li>
-                      Islom moliyasi tamoyillariga asoslangan barqaror moliyaviy
-                      xizmatlar
+                      {{ $t("services") }}
                     </li>
                   </ul>
                 </template>
               </PurposeDesc>
             </li>
           </ul>
-          <MainCard
-            data-aos="fade-down-left"
-            data-aos-delay="400"
-            data-aos-duration="1500"
-          />
-        </div> 
-        <div class="invest__flex" >
-          <MainCard data-aos="fade-right" data-aos-delay="300" />
-          <div
-            class="invest__desc"
-            data-aos="fade-left"
-            data-aos-delay="400"
-            data-aos-duration="1500"
-          >
-            <h3>Invstitsiya <span>maqsadlari</span></h3>
+
+          <MainCard />
+        </div>
+        <div class="invest__flex">
+          <MainCard />
+
+          <div class="invest__desc">
+            <h3 v-html="$t('invest')"></h3>
             <p class="invest__info">
-              Mustaqil Moliya KMIT – ko’pgina maqsadlar uchun jamg’arish
-              imkoniyatini taqdim etadi:
+              {{ $t("investDesc") }}
             </p>
             <div>
               <InvestCard
                 v-for="(item, i) in investData"
-                :title="item.title"
+                :title="$t(item.title)"
                 :order="i + 1"
                 :key="i"
               />
             </div>
           </div>
         </div>
-        <div class="finance_flex" id="team" >
-          <div
-            class="finance_left"
-            data-aos="flip-left"
-            data-aos-delay="400"
-            data-aos-duration="1500"
-          >
-            <h2>Mustaqil Moliya bilan investitsiya <span>manfaatlari</span></h2>
+        <div class="finance_flex" >
+          <div class="finance_left">
+            <h2 v-html="$t('financeTitle')"></h2>
             <div class="accordion_box">
               <a-collapse
                 v-model:activeKey="activeKey"
@@ -237,7 +214,7 @@ const councilList = [
               >
                 <a-collapse-panel key="1">
                   <template #header>
-                    <span>This is panel header 1</span>
+                    <span>{{ $t("serviceType") }}</span>
                     <DownOutlined
                       style="font-size: 16px; color: #23b123"
                       :class="{ 'rotate-icon': activeKey.includes('1') }"
@@ -247,7 +224,7 @@ const councilList = [
                 </a-collapse-panel>
                 <a-collapse-panel key="2">
                   <template #header>
-                    <span>This is panel header 2</span>
+                    <span>{{ $t("allInvest") }}</span>
                     <DownOutlined
                       style="font-size: 16px; color: #23b123"
                       :class="{ 'rotate-icon': activeKey.includes('2') }"
@@ -257,7 +234,7 @@ const councilList = [
                 </a-collapse-panel>
                 <a-collapse-panel key="3">
                   <template #header>
-                    <span>This is panel header 3</span>
+                    <span>{{ $t("safeInvest") }}</span>
                     <DownOutlined
                       style="font-size: 16px; color: #23b123"
                       :class="{ 'rotate-icon': activeKey.includes('3') }"
@@ -268,56 +245,97 @@ const councilList = [
               </a-collapse>
             </div>
           </div>
-          <div
-            class="finance_img"
-            data-aos="flip-right"
-            data-aos-delay="300"
-          ></div>
+
+          <div class="finance_img"></div>
         </div>
       </div>
-    </div> 
-     <div class="construction_section" id="constraction">
+    </div>
+    <div class="construction_section" id="constraction">
       <div class="container">
-        <h2 class="title">Bu qanday ishlaydi</h2>
+        <h2 class="title">{{ $t("howWorked") }}</h2>
         <div class="construction_flex">
           <ConstructionCard
             v-for="(item, i) in constructionList"
             :key="i"
-            :title="item.title"
-            :desc="item.desc"
-            data-aos="fade-up"
-            data-aos-anchor-placement="bottom-bottom"
-            :data-aos-delay="(i + 1) * 300"
-            data-aos-duration="1500"
+            :title="$t(item.title)"
+            :desc="$t(item.desc)"
           />
         </div>
       </div>
-    </div> 
+    </div>
+
+    <section class="employee__section" id="team">
+      <div class="container">
+        <h2>{{ $t('chief') }}</h2>
+        <div class="employee__flex">
+          <EmployeeCard
+            v-for="(item, i) in employeeList"
+            :key="i"
+            :title="item.title"
+            :img="item.img"
+            :desc="item.desc"
+            :position="item.position"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="council">
+      <div class="container">
+        <div class="council__flex">
+          <div class="left__side">
+            <h2>{{ $t('council') }}</h2>
+            <div class="list__flex">
+              <CouncilCard
+                v-for="(item, i) in councilList"
+                :key="i"
+                :title="item.title"
+                :desc="item.desc"
+              />
+            </div>
+          </div>
+          <MainCard>
+            <template #img>
+              <img
+                src="@/assets/images/employee.jfif"
+                alt="img"
+                style="width: 100%; height: 100%"
+              />
+            </template>
+          </MainCard>
+        </div>
+      </div>
+    </section>
+
+    <section class="employee__section">
+      <div class="container">
+        <h2>{{ $t('managment') }}</h2>
+        <div class="employee__flex">
+          <EmployeeCard
+            v-for="(item, i) in employeeList"
+            :key="i"
+            :title="item.title"
+            :img="item.img"
+            :position="item.position"
+          />
+        </div>
+      </div>
+    </section>
+
     <section class="order_section" id="contact">
       <div class="container">
         <main>
-          <div
-            class="order_desc"
-            data-aos="fade-right"
-            data-aos-delay="400"
-            data-aos-duration="1500"
-          >
-            <h2>Заказать обратный звонок</h2>
+          <div class="order_desc">
+            <h2>{{ $t("callBack") }}</h2>
             <p>
-              Заполните форму, и мы с радостью проконсультируем вас и поможем
-              сделать выбор.
+              {{ $t("callBackDesc") }}
             </p>
           </div>
-          <form
-            action=""
-            class="order_form"
-            data-aos="fade-left"
-            data-aos-delay="100"
-          >
+
+          <form action="" class="order_form">
             <div>
               <input
                 type="text"
-                placeholder="Ваше имя"
+                placeholder="Name"
                 class="custom_input input"
               />
             </div>
@@ -341,11 +359,11 @@ const councilList = [
               <a-checkbox name="type"></a-checkbox>
               <p>Я соглашаюсь с Политикой конфиденциальности</p>
             </div>
-            <button class="form_btn" type="button">Отправить</button>
+            <button class="form_btn" type="button">{{ $t("submit") }}</button>
           </form>
         </main>
         <div class="order_bottom">
-          <p>Подписывайтесь на наши соц сетях и будьте в курсе о новостях</p>
+          <p>{{ $t("social") }}</p>
           <ul>
             <li>
               <a href="#">
@@ -401,16 +419,8 @@ const councilList = [
     </section>
     <section class="app_section">
       <div class="container">
-        <div
-          class="app_box"
-          data-aos="zoom-out-up"
-          data-aos-delay="500"
-          data-aos-duration="1500"
-        >
-          <h2>
-            <span>Kifoya ilovasini</span> yuklab oling va kelajagingizga sarmoya
-            kiriting
-          </h2>
+        <div class="app_box">
+          <h2 v-html="$t('app')"></h2>
 
           <div class="app_group">
             <a href="#"><img src="@/assets/images/app.png" alt="app" /></a>
@@ -419,76 +429,7 @@ const councilList = [
         </div>
       </div>
     </section>
-    <section class="employee__section">
-      <div class="container">
-        <h2>Board of Directors</h2>
-        <div class="employee__flex">
-          <EmployeeCard
-            v-for="(item, i) in employeeList"
-            :key="i"
-            :title="item.title"
-            :img="item.img"
-            :desc="item.desc"
-            :position="item.position"
-            data-aos="fade-up"
-            data-aos-anchor-placement="bottom-bottom"
-            :data-aos-delay="(i + 1) * 300"
-            data-aos-duration="1500"
-          />
-        </div>
-      </div>
-    </section>
-    <section class="council">
-      <div class="container">
-        <div
-          class="council__flex"
-          data-aos="fade-right"
-          data-aos-delay="600"
-          data-aos-duration="1500"
-        >
-          <div class="left__side">
-            <h2>Shariah Council</h2>
-            <div class="list__flex">
-              <CouncilCard
-                v-for="(item, i) in councilList"
-                :key="i"
-                :title="item.title"
-                :desc="item.desc"
-                
-              />
-            </div>
-          </div>
-          <MainCard>
-            <template #img>
-              <img
-                src="@/assets/images/employee.jfif"
-                alt="img"
-                style="width: 100%; height: 100%"
-              />
-            </template>
-          </MainCard>
-        </div>
-      </div>
-    </section>
-
-    <section class="employee__section">
-      <div class="container">
-        <h2>Senior Management</h2>
-        <div class="employee__flex">
-          <EmployeeCard
-            v-for="(item, i) in employeeList"
-            :key="i"
-            :title="item.title"
-            :img="item.img"
-            :position="item.position"
-            data-aos="fade-up"
-            data-aos-anchor-placement="bottom-bottom"
-            :data-aos-delay="(i + 1) * 300"
-            data-aos-duration="1500"
-          />
-        </div>
-      </div>
-    </section>
+  
     <Footer />
   </section>
 </template>
@@ -550,3 +491,7 @@ const councilList = [
   }
 }
 </style>
+<!--     data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+            :data-aos-delay="(i + 1) * 300"
+            data-aos-duration="1500" -->

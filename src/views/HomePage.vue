@@ -21,19 +21,15 @@ onBeforeUnmount(() => {
   <section class="home" id="about">
     <div class="container">
       <h2 class="home_title">
-        Islom moliyasiga asoslangan kuchmas mulkka investitsiya
+       {{ $t('homeTitle') }}
       </h2>
       <p class="home_desc">
-        Mustaqil Moliya KMIT – sizga Uzbekistonning mulk bozoriga oson kirish
-        imkonini beruvchi va raqobatbardosh daromad olish imkonini beruvchi va
-        O’zbekistonda birinchi “ko'chmas mulk investitsiya trasti” (KMIT)
-        hisoblanadi. Ta’kidlash lozimki, Mustaqil Moliya KMIT faoliyati Islom
-        moliyasi tamoyillariga asoslangandir.
+       {{ $t('homeDesc') }}
       </p>
 
       <div class="home_btn_group">
-        <button class="home_btn_left">Biz bilan aloqa</button>
-        <button class="home_btn_right">Biz bilan aloqa</button>
+        <button class="home_btn_left">{{ $t('contact') }}</button>
+        <button class="home_btn_right">{{ $t('contact') }}</button>
       </div>
 
       <Vue3Marquee

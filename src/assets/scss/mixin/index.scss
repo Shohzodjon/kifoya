@@ -10,11 +10,11 @@
   padding: 14px 24px;
   cursor: pointer;
 
-  @media (max-width:$xl) {
+  @media (max-width:1200px) {
     padding: 12px 20px;
   }
 
-  @media (max-width:$xs) {
+  @media (max-width:768px) {
     padding: 8px 10px;
     font-size: 1.4rem;
   }

@@ -68,8 +68,6 @@
 
 }
 
-
-
 h1,
 h2,
 h3,
@@ -98,7 +96,9 @@ body{
   height: 100%;
   font-family: 'MuseoSansCyrl', sans-serif;
   font-weight: 300;
-  overflow-x: hidden;
+  // overflow: hidden;
+  // border: 1px solid red;
+  height: 100%;
 }
 ul {
   list-style: none;
@@ -119,6 +119,9 @@ a {
 
 .ant-collapse-item .ant-collapse-header .ant-collapse-expand-icon .ant-collapse-arrow {
   display: none !important;
+}
+.ant-collapse-item .ant-collapse-header{
+  padding: 12px 0 !important;
 }
 
 .ant-collapse-header .ant-collapse-header-text {
@@ -171,6 +174,17 @@ a {
 
 @media (max-width:1365px) {
   .container {
-    padding: 0 15px;
+    padding: 0 20px;
+  }
+}
+@media (max-width:576px) {
+  .ant-collapse-item .ant-collapse-header{
+    padding: 8px 0 !important;
+  }
+  .ant-collapse-item .ant-collapse-header-text{
+    padding: 14px 20px !important;
+  }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+  .ant-collapse-header .ant-collapse-header-text span{
+    font-size: 18px !important;
   }
 }
