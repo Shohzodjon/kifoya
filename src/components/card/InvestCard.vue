@@ -38,25 +38,33 @@ defineProps({
   }
   p {
     font-weight: 500;
-    font-size: 2rem;
-    line-height: 23.87px;
+    font-size: 1.6rem;
+    line-height: 20px;
     color: var(--dark-blue);
     max-width: 88%;
   }
 
-
-  @media (max-width:576px) {
+  @media (max-width: 1200px) {
     span {
-    width: 40px;
-    height: 40px;
-    font-size: 1.4rem;
-    line-height: 18px;
+      width: 40px;
+      height: 40px;
+      font-size: 1.6rem;
+    }
+  
   }
+
+  @media (max-width: 576px) {
+    span {
+      width: 40px;
+      height: 40px;
+      font-size: 1.4rem;
+      line-height: 18px;
+    }
     p {
-    font-size: 1.6rem;
-    line-height: 20px;
-    max-width: 80%;
-  }
+      font-size: 1.6rem;
+      line-height: 20px;
+      max-width: 80%;
+    }
   }
 }
 </style>

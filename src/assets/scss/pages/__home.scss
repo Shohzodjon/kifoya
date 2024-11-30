@@ -2,9 +2,9 @@
     margin-top: 150px;
 
     &_title {
-        font-size: 6.6rem;
+        font-size: 6rem;
         text-align: center;
-        line-height: 66.83px;
+        line-height: 66px;
         color: var(--green-900);
         margin-bottom: 20px;
     }
@@ -29,14 +29,11 @@
     &_btn_left {
         @include baseButton(var(--green-900));
         background: var(--green-500);
-        padding: 14px 36px;
+        padding: 15px 36px;
+        width: 100%;
+        max-width: 230px;
     }
 
-    &_btn_right {
-        @include baseButton(var(--green-900));
-        border: 1px solid var(--green-900);
-        padding: 14px 36px;
-    }
 
     .desc_grid {
         display: grid;
@@ -90,12 +87,20 @@ $lg: 1024px;
 $xl: 1200px;
 $xxl: 1500px;
 */
+@media (max-width:1400px) {
+    &_title {
+        font-size: 5rem;
+        line-height: 60px;
+        max-width: 90%;
+        margin: 0 auto 20px;
+    }
+}
     @media (max-width:1200px) {
         margin-top: 130px;
 
         &_title {
-            font-size: 5.6rem;
-            line-height: 60px;
+            font-size: 4.5rem;
+            line-height:55px;
         }
 
         .desc_grid {
@@ -124,6 +129,7 @@ $xxl: 1500px;
         &_title {
             font-size: 3.8rem;
             line-height: 48px;
+            max-width: 100%;
         }
 
         &_desc {
@@ -132,6 +138,11 @@ $xxl: 1500px;
             max-width: 800px;
             margin: 10px auto;
         }
+
+        // &_btn_left {
+        //     width:28%;
+        // }
+
     }
 
     @media (max-width:768px) {
@@ -142,6 +153,9 @@ $xxl: 1500px;
             line-height: 38px;
             margin-bottom: 10px;
         }
+        &_btn_left {
+            padding: 13px 0;
+        }
     }
 
     @media (max-width:576px) {
@@ -149,12 +163,16 @@ $xxl: 1500px;
 
         &_title {
             font-size: 2rem;
-            line-height: 30px;
+            line-height: 25px;
         }
 
         &_desc {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             line-height: 18px;
+        }
+        &_btn_left {
+            max-width: 200px;
+            padding: 13px 0;
         }
     }
 

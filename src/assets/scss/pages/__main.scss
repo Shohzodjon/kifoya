@@ -29,8 +29,8 @@
 
             .list_img {
                 display: flex;
-                width: 85px;
-                height: 85px !important;
+                width: 80px;
+                height: 80px !important;
                 align-items: center;
                 justify-content: center;
                 background: var(--green-200);
@@ -53,7 +53,7 @@
                 li {
                     list-style-type: decimal !important;
                     font-size: 1.6rem;
-                    line-height: 26px;
+                    line-height: 24px;
                     font-weight: 400;
                     color: var(--dark-blue);
                 }
@@ -72,9 +72,7 @@
 
         .invest__desc {
             h3 {
-                font-size: 5.6rem;
-                font-weight: 600;
-                line-height: 66.83px;
+                @include sectionTitle();
                 color: var(--dark-blue);
 
                 span {
@@ -106,9 +104,7 @@
         max-width: 50%;
 
         h2 {
-            font-size: 5.6rem;
-            line-height: 66.83px;
-            font-weight: 600;
+            @include sectionTitle();
             color: var(--dark-blue);
 
             span {
@@ -116,31 +112,6 @@
             }
         }
 
-        .accordion_box {
-            height: 310px;
-            overflow-y: auto;
-
-            &::-webkit-scrollbar {
-                width: 10px;
-            }
-
-            /* Track */
-            &::-webkit-scrollbar-track {
-                background: var(--green-200);
-            }
-
-            /* Handle */
-            &::-webkit-scrollbar-thumb {
-                background: var(--green-800);
-                border-radius: 10px;
-            }
-
-            /* Handle on hover */
-            &::-webkit-scrollbar-thumb:hover {
-                background: var(--green-200);
-            }
-
-        }
     }
 
     .finance_img {
@@ -148,10 +119,37 @@
         width: 100%;
         background-color: var(--gray-800);
         border-radius: var(--border-radius);
-        height: 760px;
+        height: 700px;
+        max-height: 700px;
+
     }
 
+    @media (max-width:1400px) {
+        .purpose_list {
+            gap: 20px;
+            padding-left: 15px;
 
+            li {
+
+                .list_img {
+                    width: 68px;
+                    height: 68px !important;
+                    border-radius: 100%;
+
+                    img {
+                        max-width: 33px;
+                        max-height: 33px;
+                    }
+                }
+
+                .list_desc {
+                    max-width: 374px;
+                }
+            }
+
+
+        }
+    }
 
 
     @media (max-width:1200px) {
@@ -166,12 +164,12 @@
                 gap: 20px;
 
                 .list_img {
-                    width: 80px;
-                    height: 80px !important;
+                    width: 65px;
+                    height: 65px !important;
 
                     img {
-                        max-width: 40px;
-                        max-height: 40px;
+                        max-width: 30px;
+                        max-height: 30px;
                     }
                 }
 
@@ -187,14 +185,6 @@
         .invest__flex {
             margin: 80px 0;
             gap: 60px;
-
-            .invest__desc {
-                h3 {
-                    font-size: 5rem;
-                    line-height: 60px;
-                }
-            }
-
         }
 
         // finance
@@ -206,19 +196,12 @@
         .finance_left {
             width: 100%;
             max-width: 50%;
-
-            h2 {
-                font-size: 5rem;
-                line-height: 60px;
-            }
-
-
         }
 
         .finance_img {
-            height: 650px;
+            height: 600px;
         }
-    
+
     }
 
     @media (max-width:1024px) {
@@ -235,24 +218,20 @@
             li {
                 gap: 25px;
 
-                
                 .list_img {
-                    width: 70px;
-                    height: 70px !important;
+                    width: 65px;
+                    height: 65px !important;
 
                     img {
-                        max-width: 35px;
-                        max-height: 35px;
+                        max-width: 30px;
+                        max-height: 30px;
                     }
                 }
 
-              
                 .list_desc {
                     max-width: 80%;
                 }
             }
-
-
         }
 
 
@@ -262,9 +241,9 @@
             gap: 60px;
 
             .invest__desc {
+                padding-left: 15px;
+
                 h3 {
-                    font-size: 4.8rem;
-                    line-height: 60px;
                     text-align: center;
                 }
             }
@@ -280,34 +259,30 @@
         .finance_left {
             width: 100%;
             max-width: 100%;
-
-            h2 {
-                font-size: 5rem;
-                line-height: 60px;
-            }
         }
 
         .finance_img {
-            max-width: 85%;
-            height: 550px !important;
+            max-width: 75%;
+            height: 600px !important;
         }
     }
 
     @media (max-width:768px) {
         .purpose_list {
             gap: 25px;
+            padding-left: 0px;
 
             li {
                 gap: 30px;
 
                 .list_img {
-                    width: 70px;
-                    height: 70px !important;
+                    width: 58px;
+                    height: 58px !important;
                     border-radius: 100%;
 
                     img {
-                        max-width: 35px;
-                        max-height: 35px;
+                        max-width: 28px;
+                        max-height: 28px;
                     }
                 }
 
@@ -315,11 +290,14 @@
                     max-width: 80%;
                 }
 
+                .sub_list {
 
-
+                    li {
+                        font-size: 1.4rem;
+                        line-height: 20px;
+                    }
+                }
             }
-
-
         }
 
         .invest__flex {
@@ -327,8 +305,6 @@
 
             .invest__desc {
                 h3 {
-                    font-size: 4rem;
-                    line-height: 50px;
                     text-align: center;
                 }
             }
@@ -338,12 +314,8 @@
         .finance_left {
             width: 100%;
             max-width: 100%;
-
-            h2 {
-                font-size: 3.5rem;
-                line-height: 40px;
-            }
         }
+
         .finance_img {
             // height: 450px !important;
             max-width: 90%;
@@ -359,7 +331,7 @@
                 gap: 15px;
 
                 .list_img {
-                    width:50px;
+                    width: 50px;
                     height: 50px !important;
 
                     img {
@@ -376,27 +348,19 @@
 
         }
 
-        .invest__flex {
-            .invest__desc {
-                h3 {
-                    font-size: 3rem;
-                    line-height: 40px;
-                }
-            }
 
-        }
+
         .finance_left {
             width: 100%;
             max-width: 100%;
 
-            h2 {
-                font-size: 2.8rem;
-                line-height: 30px;
-            }
+
+
             .accordion_box {
                 height: 270px;
             }
         }
+
         .finance_img {
             height: 450px !important;
             max-width: 95%;

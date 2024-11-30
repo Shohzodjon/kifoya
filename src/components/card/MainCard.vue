@@ -38,6 +38,11 @@
     left: 0;
   }
 
+  @media (max-width:1400px) {
+  max-width: 48%;
+  padding: 50px 35px;
+  }
+
   @media (max-width: 1200px) {
     padding: 50px 20px;
 

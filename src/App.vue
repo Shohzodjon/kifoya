@@ -203,10 +203,10 @@ const councilList = [
             </div>
           </div>
         </div>
-        <div class="finance_flex" >
+        <div class="finance_flex">
           <div class="finance_left">
             <h2 v-html="$t('financeTitle')"></h2>
-            <div class="accordion_box">
+            <!-- <div class="accordion_box"> -->
               <a-collapse
                 v-model:activeKey="activeKey"
                 ghost="false"
@@ -243,7 +243,7 @@ const councilList = [
                   <p>{{ text }}</p>
                 </a-collapse-panel>
               </a-collapse>
-            </div>
+            <!-- </div> -->
           </div>
 
           <div class="finance_img"></div>
@@ -266,7 +266,7 @@ const councilList = [
 
     <section class="employee__section" id="team">
       <div class="container">
-        <h2>{{ $t('chief') }}</h2>
+        <h2>{{ $t("chief") }}</h2>
         <div class="employee__flex">
           <EmployeeCard
             v-for="(item, i) in employeeList"
@@ -283,7 +283,7 @@ const councilList = [
       <div class="container">
         <div class="council__flex">
           <div class="left__side">
-            <h2>{{ $t('council') }}</h2>
+            <h2>{{ $t("council") }}</h2>
             <div class="list__flex">
               <CouncilCard
                 v-for="(item, i) in councilList"
@@ -308,7 +308,7 @@ const councilList = [
 
     <section class="employee__section">
       <div class="container">
-        <h2>{{ $t('managment') }}</h2>
+        <h2>{{ $t("managment") }}</h2>
         <div class="employee__flex">
           <EmployeeCard
             v-for="(item, i) in employeeList"
@@ -429,7 +429,7 @@ const councilList = [
         </div>
       </div>
     </section>
-  
+
     <Footer />
   </section>
 </template>
@@ -454,11 +454,11 @@ const councilList = [
   justify-content: space-between;
   background-color: var(--gray-300);
   align-items: center;
-  padding: 24px 30px;
+  padding: 20px 30px;
   border-radius: 10px;
 }
 .custom-collapse .ant-collapse-header-text span:nth-child(1) {
-  font-size: 2.4rem;
+  font-size: 2rem;
   color: var(--dark-blue);
   font-weight: 400;
   line-height: 28.64px;
@@ -468,9 +468,9 @@ const councilList = [
 }
 .custom-collapse .ant-collapse-item .ant-collapse-content-box {
   background: var(--gray-300);
-  max-width: 93%;
+  max-width: 100%;
   margin: 0 auto;
-  margin-left: 30px !important;
+  margin-left: 13px !important;
 }
 
 .custom-collapse .ant-collapse-arrow {
@@ -482,6 +482,12 @@ const councilList = [
   transition: transform 0.3s ease;
 }
 
+@media (max-width:1200px){
+  .custom-collapse .ant-collapse-header-text {
+  padding: 18px 25px;
+} 
+}
+
 @media (max-width: 1024px) {
   .custom-collapse .ant-collapse-item .ant-collapse-content-box {
     background: var(--gray-300);
@@ -489,9 +495,26 @@ const councilList = [
     margin: 0 auto;
     margin-left: 8px !important;
   }
+  .custom-collapse .ant-collapse-header-text {
+  padding: 18px 25px;
+}
+}
+@media (max-width: 992px) {
+  .custom-collapse .ant-collapse-header-text {
+    padding: 18px 25px;
+  }
+  .custom-collapse .ant-collapse-header-text span:nth-child(1) {
+    font-size: 2rem;
+    line-height: 25px;
+  }
+}
+@media (max-width: 768px) {
+  .custom-collapse .ant-collapse-header-text {
+    padding: 15px 20px;
+  }
+  .custom-collapse .ant-collapse-header-text span:nth-child(1) {
+    font-size: 1.7rem;
+    line-height: 20px;
+  }
 }
 </style>
-<!--     data-aos="fade-up"
-            data-aos-anchor-placement="bottom-bottom"
-            :data-aos-delay="(i + 1) * 300"
-            data-aos-duration="1500" -->

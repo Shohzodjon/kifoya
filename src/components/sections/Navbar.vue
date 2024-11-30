@@ -8,17 +8,16 @@ import oz from "../../assets/images/uz.png";
 import en from "../../assets/images/en.png";
 import { MenuOutlined } from "@ant-design/icons-vue";
 import $i18n from "@/plugins/i18n";
-const locale = ref("uz");
+const locale = ref("oz");
 const langFlag = ref(oz);
 const menuStore =useMenuStore();
 
 const handleClick = (event) => {
     let element = event.target;
-    console.log(element.value)
     if (element.value == locale) return;
     $i18n.global.locale.value = element.value;
     localStorage.setItem('locale', element.value)
-    window.location.reload();
+    // window.location.reload();
 }
 
 onMounted( () => {
@@ -82,7 +81,7 @@ const toggle=()=>{
               <option value="ru">Русский</option>
             </select>
           </div>
-          <button class="">{{ $t('contact') }}</button>
+          <!-- <button class="">{{ $t('contact') }}</button> -->
           <button class="menu_btn" @click="toggle"><MenuOutlined /></button>
         </div>
       </div>

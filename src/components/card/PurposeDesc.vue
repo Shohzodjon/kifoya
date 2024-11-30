@@ -20,22 +20,24 @@ defineProps({
 <style scoped lang="scss">
 .purpose_card {
   h2 {
-    font-size: 2.4rem;
-    line-height: 28.94px;
+    font-size: 2rem;
+    line-height: 25px;
     font-weight: 800;
     color: var(--dark-blue);
+    margin-bottom: 5px;
   }
   p {
     font-size: 1.6rem;
     color: var(--dark-blue);
-    line-height: 28.8px;
+    line-height: 24px;
     font-weight: 400;
   }
 
   @media (max-width: 768px) {
     h2 {
-      font-size: 2rem;
-      line-height: 24px;
+      font-size: 1.8rem;
+      line-height: 22px;
+ 
     }
     p {
       font-size: 1.4rem;

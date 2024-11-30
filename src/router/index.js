@@ -13,7 +13,7 @@ const router = createRouter({
           name: "home",
           component: () => import("../views/HomePage.vue"),
         },
-        
+
       ],
     },
   ],
@@ -25,13 +25,13 @@ router.beforeEach((to, from, next) => {
   if (storedLocale && lang !== storedLocale) {
     return next({
       path: `/${storedLocale}${to.path.slice(3)}`,
-      query: to.query, 
+      query: to.query,
     });
   }
   if (!lang) {
     return next({
       path: `/${storedLocale || "oz"}`,
-      query: to.query, 
+      query: to.query,
     });
   }
   next();
