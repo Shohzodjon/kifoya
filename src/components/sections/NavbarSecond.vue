@@ -47,7 +47,7 @@ const toggle = () => {
   <nav class="navbar">
     <div class="container">
       <div class="navbar-flex">
-        <RouterLink :to="`/${lang}`" class="navbar-logo">
+        <RouterLink :to="`/`" class="navbar-logo">
           <div class="navbar-logo__img">
             <img src="@/assets/images/logo.png" alt="logo" />
           </div>
@@ -55,10 +55,10 @@ const toggle = () => {
 
         <ul class="navbar-list">
           <li>
-            <RouterLink :to="`/${lang}`">{{ $t("about") }}</RouterLink>
+            <RouterLink :to="`/`">{{ $t("about") }}</RouterLink>
           </li>
           <li>
-            <RouterLink :to="`/${lang}`">{{ $t("howWorked") }}</RouterLink>
+            <RouterLink :to="`/`">{{ $t("howWorked") }}</RouterLink>
           </li>
           <li>
             <a-dropdown>
@@ -69,13 +69,13 @@ const toggle = () => {
               <template #overlay>
                 <a-menu>
                   <a-menu-item key="0">
-                    <RouterLink :to="`/${lang}/board`">Board</RouterLink>
+                    <RouterLink :to="`/board`">Board</RouterLink>
                   </a-menu-item>
                   <a-menu-item key="1">
-                    <RouterLink :to="`/${lang}/council`"> Council</RouterLink>
+                    <RouterLink :to="`/council`"> Council</RouterLink>
                   </a-menu-item>
                   <a-menu-item>
-                    <RouterLink :to="`/${lang}/managment`"
+                    <RouterLink :to="`/managment`"
                       >Managment</RouterLink
                     >
                   </a-menu-item>
@@ -84,7 +84,7 @@ const toggle = () => {
             </a-dropdown>
           </li>
           <li>
-            <RouterLink :to="`/${lang}`">{{ $t("contact") }}</RouterLink>
+            <RouterLink :to="`/`">{{ $t("contact") }}</RouterLink>
           </li>
         </ul>
 

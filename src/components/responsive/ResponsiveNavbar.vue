@@ -51,13 +51,13 @@ const setActive = (id) => {};
               <template #overlay>
                 <a-menu>
                   <a-menu-item key="0">
-                    <RouterLink :to="`/${lang}/board`" @click="handleToggle">{{ $t('board') }}</RouterLink>
+                    <RouterLink :to="`/board`" @click="handleToggle">{{ $t('board') }}</RouterLink>
                   </a-menu-item>
                   <a-menu-item key="1">
-                    <RouterLink :to="`/${lang}/council`" @click="handleToggle"> {{ $t('councilLink') }}</RouterLink>
+                    <RouterLink :to="`/council`" @click="handleToggle"> {{ $t('councilLink') }}</RouterLink>
                   </a-menu-item>
                   <a-menu-item>
-                    <RouterLink :to="`/${lang}/managment`" @click="handleToggle">{{ $t('managmentSenior') }}</RouterLink>
+                    <RouterLink :to="`/managment`" @click="handleToggle">{{ $t('managmentSenior') }}</RouterLink>
                   </a-menu-item>
                 </a-menu>
               </template>

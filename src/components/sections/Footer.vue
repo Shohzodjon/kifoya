@@ -12,9 +12,9 @@ import {
     <div class="container">
       <div class="footer_top">
         <div class="footer_logo">
-          <a href="#">
+          <RouterLink to="/">
             <img src="@/assets/images/logo.png" alt="footer logo" />
-          </a>
+          </RouterLink>
           <p>{{ $t('footerDesc') }}</p>
         </div>
 

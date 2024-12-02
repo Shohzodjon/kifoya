@@ -52,7 +52,7 @@ const toggle = () => {
   <nav class="navbar">
     <div class="container">
       <div class="navbar-flex">
-        <RouterLink :to="`/${lang}`" class="navbar-logo">
+        <RouterLink :to="`/`" class="navbar-logo">
           <div class="navbar-logo__img">
             <img src="@/assets/images/logo.png" alt="logo" />
           </div>
@@ -74,17 +74,17 @@ const toggle = () => {
               <template #overlay>
                 <a-menu>
                   <a-menu-item key="0">
-                    <RouterLink :to="`/${lang}/board`">{{
+                    <RouterLink :to="`/board`">{{
                       $t("board")
                     }}</RouterLink>
                   </a-menu-item>
                   <a-menu-item key="1">
-                    <RouterLink :to="`/${lang}/council`">
+                    <RouterLink :to="`/council`">
                       {{ $t("councilLink") }}</RouterLink
                     >
                   </a-menu-item>
                   <a-menu-item>
-                    <RouterLink :to="`/${lang}/managment`">{{
+                    <RouterLink :to="`/managment`">{{
                       $t("managmentSenior")
                     }}</RouterLink>
                   </a-menu-item>

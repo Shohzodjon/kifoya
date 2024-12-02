@@ -34,12 +34,12 @@ const setActive = (id) => {};
       <nav>
         <ul class="main-menu">
           <li>
-            <RouterLink @click="handleToggle" :to="`/${lang}`">{{
+            <RouterLink @click="handleToggle" :to="`/`">{{
               $t("about")
             }}</RouterLink>
           </li>
           <li>
-            <RouterLink @click="handleToggle" :to="`/${lang}`">{{
+            <RouterLink @click="handleToggle" :to="`/`">{{
               $t("howWorked")
             }}</RouterLink>
           </li>
@@ -52,17 +52,17 @@ const setActive = (id) => {};
               <template #overlay>
                 <a-menu>
                   <a-menu-item key="0">
-                    <RouterLink :to="`/${lang}/board`" @click="handleToggle">{{
+                    <RouterLink :to="`/board`" @click="handleToggle">{{
                       $t("board")
                     }}</RouterLink>
                   </a-menu-item>
                   <a-menu-item key="1">
-                    <RouterLink :to="`/${lang}/council`" @click="handleToggle">
+                    <RouterLink :to="`/council`" @click="handleToggle">
                       {{ $t("councilLink") }}</RouterLink
                     >
                   </a-menu-item>
                   <a-menu-item>
-                    <RouterLink :to="`/${lang}/managment`" @click="handleToggle">{{
+                    <RouterLink :to="`/managment`" @click="handleToggle">{{
                       $t("managmentSenior")
                     }}</RouterLink>
                   </a-menu-item>
@@ -71,7 +71,7 @@ const setActive = (id) => {};
             </a-dropdown>
           </li>
           <li>
-            <RouterLink @click="handleToggle" :to="`/${lang}`">{{
+            <RouterLink @click="handleToggle" :to="`/`">{{
               $t("contact")
             }}</RouterLink>
           </li>
