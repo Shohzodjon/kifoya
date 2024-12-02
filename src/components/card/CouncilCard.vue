@@ -19,17 +19,17 @@ defineProps({
 <style scoped>
 .council__card {
   background: #ebf1eb;
-  padding: 24px 30px;
+  padding: 15px 25px;
   border-radius: 10px;
 
   h4 {
-    font-size: 2.4rem;
-    line-height: 29px;
+    font-size: 2.2rem;
+    line-height: 27px;
     color: #000;
   }
   p {
     font-size: 1.6rem;
-    line-height: 19.36px;
+    line-height: 18px;
     color: #000;
   }
 

@@ -1,5 +1,5 @@
 .council {
-    margin-top: 40px;
+    margin-top: 100px;
 
     .council__flex {
         display: flex;
@@ -10,9 +10,7 @@
             width: 50%;
 
             h2 {
-                font-size: 5.6rem;
-                font-weight: 700;
-                line-height: 67.77px;
+                @include sectionTitle();
                 color: var(--dark-blue);
             }
 
@@ -39,14 +37,15 @@ $xxl: 1500px;
 
             .left__side {
                 width: 100%;
-    
+
                 h2 {
-                        line-height: 50px;
-                        font-size: 5rem;
+                    line-height: 50px;
+                    font-size: 5rem;
                 }
             }
         }
     }
+
     @media (max-width:992px) {
         .council__flex {
             gap: 20px;
@@ -59,6 +58,7 @@ $xxl: 1500px;
             }
         }
     }
+
     @media (max-width:768px) {
         .council__flex {
             .left__side {

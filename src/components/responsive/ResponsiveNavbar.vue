@@ -15,25 +15,7 @@ watch(
     counterStore.resnav = false;
   }
 );
-watch(
-  () => counterStore.resnav,
-  (newVal) => {
-    if (newVal) {
-      tl.from(".menu-bg span", {
-        duration: 1,
-        x: "100%",
-        stagger: 0.2,
-        ease: "Expo.easyInOut",
-      });
-      tl.from(".main-menu li a", {
-        duration: 1.5,
-        y: "100%",
-        stagger: 0.1,
-        ease: "Expo.easyInOut",
-      });
-    }
-  }
-);
+
 const handleToggle = () => {
   counterStore.toggleMenu();
 };
@@ -49,27 +31,21 @@ const setActive = (id) => {};
       <i class="icon-cancel"></i>
     </button>
     <div class="fullpage-menu-inner">
-      <div class="menu-bg">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
       <nav>
         <ul class="main-menu">
           <li>
-            <a href="#about" @click="handleToggle">Biz haqimizda</a>
+            <a href="#about" @click="handleToggle">{{ $t('about') }}</a>
           </li>
           <li>
             <a href="#constraction" @click="handleToggle"
-              >Bu qanday ishlaydi?</a
+              >{{ $t('howWorked') }}</a
             >
           </li>
           <li>
-            <a href="#team" @click="handleToggle">Bizning jamoa</a>
+            <a href="#team" @click="handleToggle">{{ $t('team') }}</a>
           </li>
           <li>
-            <a href="#contact" @click="handleToggle">Biz bilan aloqa</a>
+            <a href="#contact" @click="handleToggle">{{ $t('contact') }}</a>
           </li>
         </ul>
       </nav>
@@ -92,6 +68,7 @@ const setActive = (id) => {};
   width: 100%;
   height: 100vh;
   z-index: 9999999;
+  background: #0d1b2a;
 }
 .close-btn {
   border: none;
@@ -125,16 +102,11 @@ const setActive = (id) => {};
   flex-direction: column;
   gap: 0;
 }
-.menu-bg span {
-  display: block;
-  height: 25%;
-  width: 100%;
-  background: #0d1b2a;
-  margin: 0;
-}
+
 nav {
   position: relative;
   z-index: 99;
+  background: #0d1b2a;
 }
 nav li {
   overflow: hidden;
@@ -144,7 +116,7 @@ nav li + li {
   margin-top: 30px;
 }
 nav li a {
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 130%;
   text-transform: uppercase;
   font-weight: 400;
@@ -167,7 +139,7 @@ nav li:hover {
         display: block;
     }
   nav li a {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
   }
 }
 @media (max-width: 991px) {
@@ -175,7 +147,7 @@ nav li:hover {
   margin-top: 25px;
 }
   nav li a {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
 }
@@ -184,7 +156,7 @@ nav li:hover {
     padding: 20px;
   }
   nav li a {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }
 </style>

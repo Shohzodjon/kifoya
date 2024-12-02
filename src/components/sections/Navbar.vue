@@ -8,6 +8,7 @@ import oz from "../../assets/images/uz.png";
 import en from "../../assets/images/en.png";
 import { MenuOutlined } from "@ant-design/icons-vue";
 import $i18n from "@/plugins/i18n";
+import router from "@/router";
 const locale = ref("oz");
 const langFlag = ref(oz);
 const menuStore =useMenuStore();
@@ -17,7 +18,6 @@ const handleClick = (event) => {
     if (element.value == locale) return;
     $i18n.global.locale.value = element.value;
     localStorage.setItem('locale', element.value)
-    // window.location.reload();
 }
 
 onMounted( () => {

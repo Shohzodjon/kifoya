@@ -6,9 +6,7 @@
     h2 {
         margin-bottom: 25px;
         color: var(--dark-blue);
-        font-weight: 700;
-        line-height: 67.77px;
-        font-size: 5.6rem;
+        @include sectionTitle();
     }
 
     .employee__flex {

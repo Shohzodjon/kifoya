@@ -14,8 +14,8 @@
   background: var(--gray-300);
   border-radius: var(--border-radius);
   width: 100%;
-  max-width: 50%;
-  padding: 70px 35px;
+  max-width: 45%;
+  padding: 50px 30px;
   position: relative;
   overflow: hidden;
   &__img {
@@ -38,9 +38,9 @@
     left: 0;
   }
 
-  @media (max-width:1400px) {
-  max-width: 48%;
-  padding: 50px 35px;
+  @media (max-width: 1400px) {
+    max-width: 45%;
+    padding: 50px 30px;
   }
 
   @media (max-width: 1200px) {
@@ -54,7 +54,7 @@
   }
 
   @media (max-width: 1024px) {
-    max-width: 90%;
+    max-width: 70%;
     &__img {
       max-width: 94%;
       margin: 0 auto;
@@ -62,14 +62,15 @@
     }
   }
   @media (max-width: 768px) {
-    padding:30px 20px;
+    padding: 30px 20px;
+    max-width: 90%;
     &__img {
       max-width: 100%;
       height: 480px;
     }
   }
   @media (max-width: 576px) {
-    padding:20px 15px;
+    padding: 20px 15px;
     max-width: 100%;
     &__img {
       max-width: 96%;
