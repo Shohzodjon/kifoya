@@ -3,11 +3,10 @@ import { onMounted, reactive, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import { lang } from "@/uitiles/currentLang";
 import { useMenuStore } from "@/stores/menu";
-import { DownOutlined } from '@ant-design/icons-vue';
+import { DownOutlined } from "@ant-design/icons-vue";
 const route = useRoute();
 const currentPath = ref(route.path);
 const counterStore = useMenuStore();
-
 
 onMounted(async () => {});
 watch(
@@ -35,12 +34,14 @@ const setActive = (id) => {};
       <nav>
         <ul class="main-menu">
           <li>
-            <a href="#about" @click="handleToggle">{{ $t('about') }}</a>
+            <RouterLink @click="handleToggle" :to="`/${lang}`">{{
+              $t("about")
+            }}</RouterLink>
           </li>
           <li>
-            <a href="#constraction" @click="handleToggle"
-              >{{ $t('howWorked') }}</a
-            >
+            <RouterLink @click="handleToggle" :to="`/${lang}`">{{
+              $t("howWorked")
+            }}</RouterLink>
           </li>
           <li>
             <a-dropdown>
@@ -51,20 +52,28 @@ const setActive = (id) => {};
               <template #overlay>
                 <a-menu>
                   <a-menu-item key="0">
-                    <RouterLink :to="`/${lang}/board`" @click="handleToggle">{{ $t('board') }}</RouterLink>
+                    <RouterLink :to="`/${lang}/board`" @click="handleToggle">{{
+                      $t("board")
+                    }}</RouterLink>
                   </a-menu-item>
                   <a-menu-item key="1">
-                    <RouterLink :to="`/${lang}/council`" @click="handleToggle"> {{ $t('councilLink') }}</RouterLink>
+                    <RouterLink :to="`/${lang}/council`" @click="handleToggle">
+                      {{ $t("councilLink") }}</RouterLink
+                    >
                   </a-menu-item>
                   <a-menu-item>
-                    <RouterLink :to="`/${lang}/managment`" @click="handleToggle">{{ $t('managmentSenior') }}</RouterLink>
+                    <RouterLink :to="`/${lang}/managment`" @click="handleToggle">{{
+                      $t("managmentSenior")
+                    }}</RouterLink>
                   </a-menu-item>
                 </a-menu>
               </template>
             </a-dropdown>
           </li>
           <li>
-            <a href="#contact" @click="handleToggle">{{ $t('contact') }}</a>
+            <RouterLink @click="handleToggle" :to="`/${lang}`">{{
+              $t("contact")
+            }}</RouterLink>
           </li>
         </ul>
       </nav>
@@ -147,28 +156,27 @@ nav li a {
   transform: translateX(50px);
 } */
 
-@media (max-width:1800px) {
-    .fullpage-menu{
+@media (max-width: 1800px) {
+  .fullpage-menu {
     display: none;
-    }
+  }
 }
 
 @media (max-width: 1024px) {
-    .fullpage-menu{
-        display: block;
-    }
+  .fullpage-menu {
+    display: block;
+  }
   nav li a {
     font-size: 1.8rem;
   }
 }
 @media (max-width: 991px) {
-    nav li + li {
-  margin-top: 25px;
-}
+  nav li + li {
+    margin-top: 25px;
+  }
   nav li a {
     font-size: 1.8rem;
   }
-
 }
 @media (max-width: 768px) {
   .fullpage-menu-inner {

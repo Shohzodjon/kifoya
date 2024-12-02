@@ -7,7 +7,7 @@ import ru from "../../assets/images/ru.png";
 import oz from "../../assets/images/uz.png";
 import en from "../../assets/images/en.png";
 import { MenuOutlined } from "@ant-design/icons-vue";
-import { DownOutlined } from '@ant-design/icons-vue';
+import { DownOutlined } from "@ant-design/icons-vue";
 import $i18n from "@/plugins/i18n";
 import router from "@/router";
 const locale = ref("oz");
@@ -22,7 +22,9 @@ const handleClick = (event) => {
 };
 
 onMounted(() => {
-  locale.value = localStorage.getItem("locale");
+  if (lang) {
+    locale.value = localStorage.getItem("locale");
+  }
 });
 
 watch(locale, (old, newVal) => {
@@ -72,13 +74,19 @@ const toggle = () => {
               <template #overlay>
                 <a-menu>
                   <a-menu-item key="0">
-                    <RouterLink :to="`/${lang}/board`">{{ $t('board') }}</RouterLink>
+                    <RouterLink :to="`/${lang}/board`">{{
+                      $t("board")
+                    }}</RouterLink>
                   </a-menu-item>
                   <a-menu-item key="1">
-                    <RouterLink :to="`/${lang}/council`"> {{ $t('councilLink') }}</RouterLink>
+                    <RouterLink :to="`/${lang}/council`">
+                      {{ $t("councilLink") }}</RouterLink
+                    >
                   </a-menu-item>
                   <a-menu-item>
-                    <RouterLink :to="`/${lang}/managment`">{{ $t('managmentSenior') }}</RouterLink>
+                    <RouterLink :to="`/${lang}/managment`">{{
+                      $t("managmentSenior")
+                    }}</RouterLink>
                   </a-menu-item>
                 </a-menu>
               </template>
@@ -92,13 +100,12 @@ const toggle = () => {
         <div class="navbar-lang">
           <div class="lang-box">
             <span><img :src="langFlag" alt="flag" /></span>
-            <select name="" id="" v-model="locale" @change="handleClick">
+            <select v-model="locale" @change="handleClick">
               <option value="oz">O'zbek</option>
               <option value="en">English</option>
               <option value="ru">Русский</option>
             </select>
           </div>
-          <!-- <button class="">{{ $t('contact') }}</button> -->
           <button class="menu_btn" @click="toggle"><MenuOutlined /></button>
         </div>
       </div>
