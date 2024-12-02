@@ -6,14 +6,11 @@ import { useMenuStore } from "@/stores/menu";
 import ru from "../../assets/images/ru.png";
 import oz from "../../assets/images/uz.png";
 import en from "../../assets/images/en.png";
-import { MenuOutlined } from "@ant-design/icons-vue";
-import { DownOutlined } from '@ant-design/icons-vue';
+import { MenuOutlined, DownOutlined } from "@ant-design/icons-vue";
 import $i18n from "@/plugins/i18n";
-import router from "@/router";
 const locale = ref("oz");
 const langFlag = ref(oz);
 const menuStore = useMenuStore();
-
 const handleClick = (event) => {
   let element = event.target;
   if (element.value == locale) return;
@@ -58,34 +55,36 @@ const toggle = () => {
 
         <ul class="navbar-list">
           <li>
-            <a href="#about">{{ $t("about") }}</a>
+            <RouterLink :to="`/${lang}`">{{ $t("about") }}</RouterLink>
           </li>
           <li>
-            <a href="#constraction">{{ $t("howWorked") }}</a>
+            <RouterLink :to="`/${lang}`">{{ $t("howWorked") }}</RouterLink>
           </li>
           <li>
             <a-dropdown>
-              <a class="ant-dropdown-link" @click.prevent>
+              <a class="ant-dropdown-link">
                 {{ $t("team") }}
                 <DownOutlined />
               </a>
               <template #overlay>
                 <a-menu>
                   <a-menu-item key="0">
-                    <RouterLink :to="`/${lang}/board`">{{ $t('board') }}</RouterLink>
+                    <RouterLink :to="`/${lang}/board`">Board</RouterLink>
                   </a-menu-item>
                   <a-menu-item key="1">
-                    <RouterLink :to="`/${lang}/council`"> {{ $t('councilLink') }}</RouterLink>
+                    <RouterLink :to="`/${lang}/council`"> Council</RouterLink>
                   </a-menu-item>
                   <a-menu-item>
-                    <RouterLink :to="`/${lang}/managment`">{{ $t('managmentSenior') }}</RouterLink>
+                    <RouterLink :to="`/${lang}/managment`"
+                      >Managment</RouterLink
+                    >
                   </a-menu-item>
                 </a-menu>
               </template>
             </a-dropdown>
           </li>
           <li>
-            <a href="#contact">{{ $t("contact") }}</a>
+            <RouterLink :to="`/${lang}`">{{ $t("contact") }}</RouterLink>
           </li>
         </ul>
 
@@ -98,11 +97,23 @@ const toggle = () => {
               <option value="ru">Русский</option>
             </select>
           </div>
-          <!-- <button class="">{{ $t('contact') }}</button> -->
           <button class="menu_btn" @click="toggle"><MenuOutlined /></button>
         </div>
       </div>
     </div>
   </nav>
 </template>
-<style scoped></style>
+<style>
+.ant-dropdown-trigger {
+  z-index: 9999999999 !important;
+}
+.ant-dropdown-menu-vertical {
+  box-shadow: none !important;
+  background: #ebf1eb !important;
+}
+.ant-dropdown-menu-title-content {
+  font-size: 1.6rem !important;
+  font-weight: 400 !important;
+  line-height: 19.09px !important;
+}
+</style>

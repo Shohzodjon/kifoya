@@ -2,27 +2,16 @@
 import { onMounted, onBeforeUnmount, ref, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import Navbar from "@/components/sections/Navbar.vue";
-import router from "./router";
 import Footer from "@/components/sections/Footer.vue";
 import ResponsiveNavbar from "./components/responsive/ResponsiveNavbar.vue";
-
-
-
-// router.beforeEach((to, from, next) => {
-//   isLoading.value = true;
-//   next();
-// });
-
-
-
-
-
+import NavbarSecond from "./components/sections/NavbarSecond.vue";
 const isScrolled = ref(false);
-
+const router = useRoute();
 function handleScroll() {
   isScrolled.value = window.scrollY > 100;
 }
 
+console.log(router.name);
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
 });
@@ -30,18 +19,15 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", handleScroll);
 });
-
 </script>
-
 <template>
   <section>
     <div class="page__header">
-      <Navbar :class="{ scrolled: isScrolled }" />
+      <Navbar :class="{ scrolled: isScrolled }" v-if="router.name == 'home'" />
+      <NavbarSecond :class="{ scrolled: isScrolled }" v-else />
       <ResponsiveNavbar />
     </div>
-   <RouterView/>
+    <RouterView />
     <Footer />
   </section>
 </template>
-
-

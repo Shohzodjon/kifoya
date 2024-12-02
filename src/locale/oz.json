@@ -49,5 +49,8 @@
   "privacy": "Maxfiylik siyosati",
   "useOf": "Foydalanish shartlari",
   "public": "Ommaviy taklif",
-  "submit":"Yuborish"
+  "submit":"Yuborish",
+  "board":"Kengash",
+  "councilLink":"Konsul",
+  "managmentSenior":"Asosiy boshqaruv"
 }

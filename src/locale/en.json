@@ -49,5 +49,8 @@
   "privacy": "Privacy Policy",
   "useOf": "Terms of Use",
   "public": "Public offer",
-   "submit":"Send"
+   "submit":"Send",
+   "board":"Board",
+   "councilLink":"Council",
+   "managmentSenior":"Senior managment"
 }
