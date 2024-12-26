@@ -35,13 +35,13 @@ const setActive = (id) => {};
         <ul class="main-menu">
           <li>
             <RouterLink @click="handleToggle" :to="`/`">{{
-              $t("about")
-            }}</RouterLink>
+              $t("about") 
+            }} </RouterLink>
           </li>
           <li>
             <RouterLink @click="handleToggle" :to="`/`">{{
               $t("howWorked")
-            }}</RouterLink>
+            }} ddddddddddddd</RouterLink>
           </li>
           <li>
             <a-dropdown>

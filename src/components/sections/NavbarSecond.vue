@@ -61,6 +61,12 @@ const toggle = () => {
             <RouterLink :to="`/`">{{ $t("howWorked") }}</RouterLink>
           </li>
           <li>
+            <RouterLink :to="`/long-term`">Uzoq muddatli investitsiyalar</RouterLink>
+          </li>
+          <li>
+            <RouterLink :to="`/short-term`">Qisqa muddatli investitsiyalar</RouterLink>
+          </li>
+          <li>
             <a-dropdown>
               <a class="ant-dropdown-link">
                 {{ $t("team") }}
@@ -69,15 +75,17 @@ const toggle = () => {
               <template #overlay>
                 <a-menu>
                   <a-menu-item key="0">
-                    <RouterLink :to="`/board`">Board</RouterLink>
+                    <RouterLink :to="`/board`">{{ $t("board") }}</RouterLink>
                   </a-menu-item>
                   <a-menu-item key="1">
-                    <RouterLink :to="`/council`"> Council</RouterLink>
+                    <RouterLink :to="`/council`">
+                      {{ $t("councilLink") }}</RouterLink
+                    >
                   </a-menu-item>
                   <a-menu-item>
-                    <RouterLink :to="`/managment`"
-                      >Managment</RouterLink
-                    >
+                    <RouterLink :to="`/managment`">{{
+                      $t("managmentSenior")
+                    }}</RouterLink>
                   </a-menu-item>
                 </a-menu>
               </template>
@@ -112,8 +120,8 @@ const toggle = () => {
   background: #ebf1eb !important;
 }
 .ant-dropdown-menu-title-content {
-  font-size: 1.6rem !important;
+  font-size: 1.5rem !important;
   font-weight: 400 !important;
-  line-height: 19.09px !important;
+  line-height: 19px !important;
 }
 </style>

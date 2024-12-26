@@ -1,0 +1,51 @@
+.long__term{
+    header{
+        background: url(@/assets/images/shape.png), var(--bg-color);
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        padding-top: 150px;
+        .title{
+            @include sectionTitle();
+            color: var(--dark-blue);
+            margin-bottom: 30px;
+        }
+
+         .invest__flex {
+            margin: 60px 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 60px;
+    
+            .invest__desc {
+                h3 {
+                    @include sectionTitle();
+                    color: var(--dark-blue);
+    
+                    span {
+                        color: var(--green-900);
+                    }
+                }
+    
+                .invest__info {
+                    color: var(--dark-blue);
+                    font-size: 1.6rem;
+                    line-height: 28.32px;
+                    font-weight: 400;
+                    margin-bottom: 50px;
+                    max-width: 400px;
+                }
+            }
+    
+        }
+    }
+    main{
+        border: 1px solid red;
+        padding-top: 20px;
+        .main__item{
+            h2{
+                @include sectionTitle();
+            }
+        }
+    }
+}

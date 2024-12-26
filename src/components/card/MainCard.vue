@@ -19,7 +19,7 @@
   position: relative;
   overflow: hidden;
   &__img {
-    height: 562px;
+    height: 420px;
     background-color: var(--gray-800);
     border-radius: var(--border-radius);
     position: relative;

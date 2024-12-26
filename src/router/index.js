@@ -27,6 +27,16 @@ const router = createRouter({
           path:'/managment',
           name:'managment',
           component:()=> import('../views/Managment.vue')
+        },
+        {
+          path:'/long-term',
+          name:'long-term',
+          component:()=> import('../views/LongTermInvest.vue')
+        },
+        {
+          path:'/short-term',
+          name:'short-term',
+          component:()=> import('../views/ShortTermInvest.vue')
         }
 
       ],

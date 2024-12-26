@@ -66,6 +66,12 @@ const toggle = () => {
             <a href="#constraction">{{ $t("howWorked") }}</a>
           </li>
           <li>
+            <RouterLink :to="`/long-term`">Uzoq muddatli investitsiyalar</RouterLink>
+          </li>
+          <li>
+            <RouterLink :to="`/short-term`">Qisqa muddatli investitsiyalar</RouterLink>
+          </li>
+          <li>
             <a-dropdown>
               <a class="ant-dropdown-link" @click.prevent>
                 {{ $t("team") }}

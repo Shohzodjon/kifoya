@@ -10,7 +10,6 @@ import {
   YoutubeFilled,
 } from "@ant-design/icons-vue";
 import ConstructionCard from "@/components/card/ConstructionCard.vue";
-
 import EmployeeCard from "@/components/card/EmployeeCard.vue";
 import CouncilCard from "@/components/card/CouncilCard.vue";
 import HomeSection from "@/components/sections/HomeSection.vue";

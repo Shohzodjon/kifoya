@@ -106,7 +106,6 @@
         h2 {
             @include sectionTitle();
             color: var(--dark-blue);
-
             span {
                 color: var(--green-900);
             }
@@ -119,8 +118,8 @@
         width: 100%;
         background-color: var(--gray-800);
         border-radius: var(--border-radius);
-        height: 700px;
-        max-height: 700px;
+        height: 600px;
+        max-height: 650px;
 
     }
 
