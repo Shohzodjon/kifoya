@@ -61,10 +61,10 @@ const toggle = () => {
             <RouterLink :to="`/`">{{ $t("howWorked") }}</RouterLink>
           </li>
           <li>
-            <RouterLink :to="`/long-term`">Uzoq muddatli investitsiyalar</RouterLink>
+            <RouterLink :to="`/long-term`">{{ $t('longInvest') }}</RouterLink>
           </li>
           <li>
-            <RouterLink :to="`/short-term`">Qisqa muddatli investitsiyalar</RouterLink>
+            <RouterLink :to="`/short-term`">{{ $t('shortInvest') }}</RouterLink>
           </li>
           <li>
             <a-dropdown>

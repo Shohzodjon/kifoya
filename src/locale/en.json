@@ -49,8 +49,10 @@
   "privacy": "Privacy Policy",
   "useOf": "Terms of Use",
   "public": "Public offer",
-   "submit":"Send",
-   "board":"Board",
-   "councilLink":"Council",
-   "managmentSenior":"Senior managment"
+  "submit": "Send",
+  "board": "Board",
+  "councilLink": "Council",
+  "managmentSenior": "Senior managment",
+  "longInvest": "Long-term investments",
+  "shortInvest": "Short-term investments"
 }

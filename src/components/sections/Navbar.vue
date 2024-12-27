@@ -66,10 +66,10 @@ const toggle = () => {
             <a href="#constraction">{{ $t("howWorked") }}</a>
           </li>
           <li>
-            <RouterLink :to="`/long-term`">Uzoq muddatli investitsiyalar</RouterLink>
+            <RouterLink :to="`/long-term`">{{ $t("longInvest") }}</RouterLink>
           </li>
           <li>
-            <RouterLink :to="`/short-term`">Qisqa muddatli investitsiyalar</RouterLink>
+            <RouterLink :to="`/short-term`">{{ $t("shortInvest") }}</RouterLink>
           </li>
           <li>
             <a-dropdown>
@@ -80,9 +80,7 @@ const toggle = () => {
               <template #overlay>
                 <a-menu>
                   <a-menu-item key="0">
-                    <RouterLink :to="`/board`">{{
-                      $t("board")
-                    }}</RouterLink>
+                    <RouterLink :to="`/board`">{{ $t("board") }}</RouterLink>
                   </a-menu-item>
                   <a-menu-item key="1">
                     <RouterLink :to="`/council`">

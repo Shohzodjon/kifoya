@@ -18,7 +18,7 @@ defineProps({
   <div class="card">
     <div class="left">
       <h2>{{ title }}</h2>
-      <p v-html=" desc"></p>
+      <p v-html="desc"></p>
     </div>
     <div class="right">
       <p>{{ desc_two }}</p>
@@ -62,5 +62,75 @@ defineProps({
       font-weight: 600;
     }
   }
+
+  @media (max-width: 1024px) {
+    padding: 32px 30px;
+
+    .left {
+      h2 {
+        font-size: 28px;
+        line-height: 30px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+    .right {
+      padding-left: 20px;
+      p {
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    padding: 25px 26px;
+    gap: 10px;
+
+    .left {
+      max-width: 100%;
+      h2 {
+        font-size: 25px;
+        line-height: 25px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+    .right {
+      width: 100%;
+      max-width: 100%;
+      padding-left: 0px;
+      align-items: flex-start;
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  @media (max-width: 700px) {
+    padding: 20px;
+    border-radius: 20px;
+    gap: 10px;
+
+    .left {
+      h2 {
+        font-size: 22px;
+        line-height: 25px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    .right {
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
 }
 </style>

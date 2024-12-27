@@ -21,6 +21,7 @@ defineProps({
   background: var(--gray-300);
   padding: 36px 30px;
   border-radius: 10px;
+  height: 100% !important;
 
   h3 {
     font-size: 2.4rem;

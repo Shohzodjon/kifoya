@@ -41,7 +41,13 @@ const setActive = (id) => {};
           <li>
             <RouterLink @click="handleToggle" :to="`/`">{{
               $t("howWorked")
-            }} ddddddddddddd</RouterLink>
+            }}</RouterLink>
+          </li>
+          <li>
+            <RouterLink :to="`/long-term`" @click="handleToggle">{{ $t("longInvest") }}</RouterLink>
+          </li>
+          <li>
+            <RouterLink :to="`/short-term`" @click="handleToggle">{{ $t("shortInvest") }}</RouterLink>
           </li>
           <li>
             <a-dropdown>
@@ -162,10 +168,12 @@ nav li a {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1300px) {
   .fullpage-menu {
     display: block;
   }
+}
+@media (max-width: 1024px) {
   nav li a {
     font-size: 1.8rem;
   }

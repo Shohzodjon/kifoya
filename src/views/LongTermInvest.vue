@@ -61,7 +61,7 @@ onUnmounted(() => {
     <header>
       <div class="container">
         <h2 class="title">
-          Uzoq muddatli jamg'arish <br />
+          Uzoq muddatli jamg'arish 
           va investitsiya instrumenti:
         </h2>
         <LongInvestCard
@@ -88,7 +88,7 @@ onUnmounted(() => {
               />
             </div>
           </div>
-          <MainCard />
+            <MainCard />
         </div>
       </div>
     </header>
@@ -111,20 +111,26 @@ onUnmounted(() => {
               :desc="$t(item.desc)"
             />
           </a-carousel>
-          <div class="construction_flex"></div>
         </div>
-        <div>
+        <div class="main__item">
           <h2>Kifoya Investments bilan investitsiya manfaatlari</h2>
-          <div class="construction_flex">
+          <a-carousel
+            :slides-to-show="slidesToShow"
+            :after-change="onChange"
+            :dots="false"
+            draggable
+            loop
+            autoplay
+          >
             <ConstructionCard
               v-for="(item, i) in constructionList"
               :key="i"
               :title="$t(item.title)"
               :desc="$t(item.desc)"
             />
-          </div>
+          </a-carousel>
         </div>
-        <div>
+        <div class="main__item">
           <h2>Uzoq muddatli jamg'arish va investitsiya instrumenti</h2>
           <a-collapse
             v-model:activeKey="activeKey"
@@ -179,7 +185,7 @@ onUnmounted(() => {
 .custom-collapse .ant-collapse-header-text span:nth-child(1) {
   font-size: 2rem;
   color: var(--dark-blue);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 28.64px;
 }
 .custom-collapse .ant-collapse-item .ant-collapse-content-active {
@@ -190,6 +196,9 @@ onUnmounted(() => {
   max-width: 100%;
   margin: 0 auto;
   margin-left: 13px !important;
+}
+.ant-collapse-expand-icon{
+  padding-inline-end: 0 !important;
 }
 
 .custom-collapse .ant-collapse-arrow {
@@ -240,7 +249,6 @@ onUnmounted(() => {
 <style scoped>
 :deep(.slick-slide > div) {
   margin: 0 10px;
-  border: 1px solid red;
-  min-height: 222px;
+  height: 200px;
 }
 </style>

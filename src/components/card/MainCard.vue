@@ -55,6 +55,7 @@
 
   @media (max-width: 1024px) {
     max-width: 70%;
+    margin: 0 auto;
     &__img {
       max-width: 94%;
       margin: 0 auto;
