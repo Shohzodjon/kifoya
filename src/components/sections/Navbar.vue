@@ -22,7 +22,7 @@ const handleClick = (event) => {
 };
 
 onMounted(() => {
-  if (lang) {
+  if (lang !=null) {
     locale.value = localStorage.getItem("locale");
   }
 });
@@ -105,7 +105,7 @@ const toggle = () => {
           <div class="lang-box">
             <span><img :src="langFlag" alt="flag" /></span>
             <select v-model="locale" @change="handleClick">
-              <option value="oz">O'zbek</option>
+              <option value="oz" selected>O'zbek</option>
               <option value="en">English</option>
               <option value="ru">Русский</option>
             </select>

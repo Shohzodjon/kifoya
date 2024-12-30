@@ -88,7 +88,13 @@ onUnmounted(() => {
               />
             </div>
           </div>
-          <MainCard />
+          <MainCard>
+            <template #img>
+              <div class="short__term">
+                <img src="@/assets/images/img4.png" alt="" />
+              </div>
+            </template>
+          </MainCard>
         </div>
       </div>
     </header>
@@ -174,6 +180,16 @@ onUnmounted(() => {
   </section>
 </template>
 <style lang="scss">
+.short__term {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  img {
+    width: 100%;
+    height: 86%;
+  }
+}
 .custom-collapse .ant-collapse-header-text {
   display: flex;
   justify-content: space-between;

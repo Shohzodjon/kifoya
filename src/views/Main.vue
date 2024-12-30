@@ -81,8 +81,6 @@ const constructionList = [
 
 const text = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore minima veritatis maxime, sed incidunt aut hic vitae unde ipsum amet nobis sunt, quo commodi illum quia magni neque nihil! Eveniet.`;
 
-
-
 const councilList = [
   {
     title: "Prof Dr Ashraf Md Hashim",
@@ -99,9 +97,9 @@ const councilList = [
 ];
 </script>
 <template>
- <section>
+  <section>
     <div class="page__header">
-      <HomeSection/>
+      <HomeSection />
     </div>
     <div class="purpose_section">
       <div class="container">
@@ -148,10 +146,22 @@ const councilList = [
             </li>
           </ul>
 
-          <MainCard />
+          <MainCard>
+            <template #img>
+              <div class="home__img">
+                <img src="@/assets/images/img1.png" alt="home img" />
+              </div>
+            </template>
+          </MainCard>
         </div>
         <div class="invest__flex">
-          <MainCard />
+          <MainCard>
+            <template #img>
+              <div class="home__img2">
+                <img src="@/assets/images/img2.png" alt="home img" />
+              </div>
+            </template>
+          </MainCard>
 
           <div class="invest__desc">
             <h3 v-html="$t('invest')"></h3>
@@ -172,46 +182,48 @@ const councilList = [
           <div class="finance_left">
             <h2 v-html="$t('financeTitle')"></h2>
             <!-- <div class="accordion_box"> -->
-              <a-collapse
-                v-model:activeKey="activeKey"
-                ghost="false"
-                class="custom-collapse"
-              >
-                <a-collapse-panel key="1">
-                  <template #header>
-                    <span>{{ $t("serviceType") }}</span>
-                    <DownOutlined
-                      style="font-size: 16px; color: #23b123"
-                      :class="{ 'rotate-icon': activeKey.includes('1') }"
-                    />
-                  </template>
-                  <p>{{ text }}</p>
-                </a-collapse-panel>
-                <a-collapse-panel key="2">
-                  <template #header>
-                    <span>{{ $t("allInvest") }}</span>
-                    <DownOutlined
-                      style="font-size: 16px; color: #23b123"
-                      :class="{ 'rotate-icon': activeKey.includes('2') }"
-                    />
-                  </template>
-                  <p>{{ text }}</p>
-                </a-collapse-panel>
-                <a-collapse-panel key="3">
-                  <template #header>
-                    <span>{{ $t("safeInvest") }}</span>
-                    <DownOutlined
-                      style="font-size: 16px; color: #23b123"
-                      :class="{ 'rotate-icon': activeKey.includes('3') }"
-                    />
-                  </template>
-                  <p>{{ text }}</p>
-                </a-collapse-panel>
-              </a-collapse>
+            <a-collapse
+              v-model:activeKey="activeKey"
+              ghost="false"
+              class="custom-collapse"
+            >
+              <a-collapse-panel key="1">
+                <template #header>
+                  <span>{{ $t("serviceType") }}</span>
+                  <DownOutlined
+                    style="font-size: 16px; color: #23b123"
+                    :class="{ 'rotate-icon': activeKey.includes('1') }"
+                  />
+                </template>
+                <p>{{ text }}</p>
+              </a-collapse-panel>
+              <a-collapse-panel key="2">
+                <template #header>
+                  <span>{{ $t("allInvest") }}</span>
+                  <DownOutlined
+                    style="font-size: 16px; color: #23b123"
+                    :class="{ 'rotate-icon': activeKey.includes('2') }"
+                  />
+                </template>
+                <p>{{ text }}</p>
+              </a-collapse-panel>
+              <a-collapse-panel key="3">
+                <template #header>
+                  <span>{{ $t("safeInvest") }}</span>
+                  <DownOutlined
+                    style="font-size: 16px; color: #23b123"
+                    :class="{ 'rotate-icon': activeKey.includes('3') }"
+                  />
+                </template>
+                <p>{{ text }}</p>
+              </a-collapse-panel>
+            </a-collapse>
             <!-- </div> -->
           </div>
 
-          <div class="finance_img"></div>
+          <div class="finance_img">
+            <img src="@/assets/images/img3.png" alt="finance img">
+          </div>
         </div>
       </div>
     </div>
@@ -336,10 +348,29 @@ const councilList = [
         </div>
       </div>
     </section>
-
   </section>
 </template>
 <style lang="scss">
+.home__img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  img {
+    width: 100%;
+    height: 80%;
+  }
+}
+.home__img2 {
+  width: 100%;
+  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
@@ -387,10 +418,10 @@ const councilList = [
   transition: transform 0.3s ease;
 }
 
-@media (max-width:1200px){
+@media (max-width: 1200px) {
   .custom-collapse .ant-collapse-header-text {
-  padding: 18px 25px;
-} 
+    padding: 18px 25px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -401,8 +432,8 @@ const councilList = [
     margin-left: 8px !important;
   }
   .custom-collapse .ant-collapse-header-text {
-  padding: 18px 25px;
-}
+    padding: 18px 25px;
+  }
 }
 @media (max-width: 992px) {
   .custom-collapse .ant-collapse-header-text {

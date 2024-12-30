@@ -1,1 +1,1 @@
-export const lang = localStorage.getItem("locale") || "oz";
+export const lang = localStorage.getItem("locale");
