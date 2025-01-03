@@ -68,7 +68,7 @@ const toggle = () => {
           <li>
             <RouterLink :to="`/short-term`">{{ $t('shortInvest') }}</RouterLink>
           </li>
-          <li>
+          <!-- <li>
             <a-dropdown>
               <a class="ant-dropdown-link">
                 {{ $t("team") }}
@@ -92,7 +92,7 @@ const toggle = () => {
                 </a-menu>
               </template>
             </a-dropdown>
-          </li>
+          </li> -->
           <li>
             <RouterLink :to="`/`">{{ $t("contact") }}</RouterLink>
           </li>

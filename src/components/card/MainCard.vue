@@ -20,7 +20,7 @@
   overflow: hidden;
   &__img {
     height: 420px;
-    background-color: var(--gray-800);
+    background-color: var(--gray-300);
     border-radius: var(--border-radius);
     position: relative;
     z-index: 999;

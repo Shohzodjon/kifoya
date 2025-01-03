@@ -60,24 +60,18 @@ onUnmounted(() => {
   <section class="long__term">
     <header>
       <div class="container">
-        <h2 class="title">
-          Uzoq muddatli jamg'arish 
-          va investitsiya instrumenti:
-        </h2>
+        <h2 class="title" v-html="$t('longTerm')"></h2>
         <LongInvestCard
-          title='Shirkat: "Kifoya Investments Kommandit Shirkati" Kommandit shirkati'
-          desc="Investitsiya boshlanish sanasi: 01.01.2025 <br/>
-          Investitsiya hajmi: 10 000 000 000 (o'n milliard) so'm <br/>
-           Muddati: kamida 5 yil"
-          desc_two="Ushbu Shirkat – sizga O'zbekistonning mulk bozoriga qulay tarzda kirish imkoni ta'minlaydi. Bunda, Investor har oyda ma'lum miqdorda Shirkatga pul kiritib boradi va Shirkatda jamlangan pul mablag'lari kuchmas mulkka investitsiya qilinadi."
+          title='investTitle'
+          desc="investDescThree"
+          desc_two="investDescFive"
         />
 
         <div class="invest__flex">
           <div class="invest__desc">
-            <h3>Investitsiya maqsadlari</h3>
+            <h3>{{ $t('investPurpose') }}</h3>
             <p class="invest__info">
-              Ushbu instrument asosan quyidagi maqsadlarda pul jamg'arish
-              imkoniyatini beradi:
+              {{ $t('investDescFour') }}
             </p>
             <div>
               <InvestCard
@@ -91,7 +85,7 @@ onUnmounted(() => {
             <MainCard >
               <template #img>
               <div class="long__term__img">
-                <img src="@/assets/images/img2.png" alt="" />
+                <img src="@/assets/picture/img5.png" alt="" />
               </div>
             </template>
             </MainCard>
@@ -101,7 +95,7 @@ onUnmounted(() => {
     <main>
       <div class="container">
         <div class="main__item">
-          <h2>Bu qanday ishlaydi</h2>
+          <h2>{{ $t('howWorked') }}</h2>
           <a-carousel
             :slides-to-show="slidesToShow"
             :after-change="onChange"
@@ -119,7 +113,7 @@ onUnmounted(() => {
           </a-carousel>
         </div>
         <div class="main__item">
-          <h2>Kifoya Investments bilan investitsiya manfaatlari</h2>
+          <h2>{{ $t('kifoyaInvest') }}</h2>
           <a-carousel
             :slides-to-show="slidesToShow"
             :after-change="onChange"
@@ -137,7 +131,7 @@ onUnmounted(() => {
           </a-carousel>
         </div>
         <div class="main__item">
-          <h2>Uzoq muddatli jamg'arish va investitsiya instrumenti</h2>
+          <h2>{{ $t('longInvestTool') }}</h2>
           <a-collapse
             v-model:activeKey="activeKey"
             ghost="false"
@@ -185,9 +179,10 @@ onUnmounted(() => {
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   img {
     width: 100%;
-    height: 80%;
+    height: 90%;
   }
 }
 .custom-collapse .ant-collapse-header-text {

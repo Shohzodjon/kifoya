@@ -54,5 +54,15 @@
   "councilLink": "Council",
   "managmentSenior": "Senior managment",
   "longInvest": "Long-term investments",
-  "shortInvest": "Short-term investments"
+  "shortInvest": "Short-term investments",
+  "longTerm":"Long-term <span style='color:#04896C'>saving</span> and <span style='color:#04896C'>investment</span> instrument."
+  ,"shortTerm":" Short-term <span style='color:#04896C'>savings</span>  and <span style='color:#04896C'>investment</span> instruments:"
+,"investTitle":"Company: 'Kifoya Investments Kommandit Shirkati' (Limited Partnership)"
+,"investDescThree":"Investment start date: 01.01.2025 <br/> Investment amount: 10,000,000,000 (ten billion) UZS <br/> Duration: at least 5 years"
+,"investDescFour":"This instrument mainly provides an opportunity to save money for the following purposes:"
+,"investDescFive":"This company enables you to conveniently enter Uzbekistan's real estate market. In this case, the investor deposits a certain amount of money into the company every month, and the accumulated funds are invested in real estate."
+,"investPurpose":"Investment Purposes",
+"kifoyaInvest":"Investment Benefits with Kifoya Investments",
+"shortInvestTool":"Short-term saving and investment instrument",
+ "longInvestTool":"Long-term savings and investment instrument"
 }

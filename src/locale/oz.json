@@ -54,5 +54,18 @@
   "councilLink": "Konsul",
   "managmentSenior": "Asosiy boshqaruv",
   "longInvest": "Uzoq muddatli investitsiyalar",
-  "shortInvest": "Qisqa muddatli investitsiyalar"
+  "shortInvest": "Qisqa muddatli investitsiyalar",
+  "longTerm":"Uzoq muddatli <span style='color:#04896C'>jamg'arish</span> va <span style='color:#04896C'>investitsiya</span> instrumenti.",
+  "shortTerm":" Qisqa muddatli <span style='color:#04896C'>jamg'arish</span>  va <span style='color:#04896C'>investitsiya</span> instrumenti:"
+, "investTitle":"Shirkat: 'Kifoya Investments Kommandit Shirkati' Kommandit shirkati"
+,"investDescThree":"Investitsiya boshlanish sanasi: 01.01.2025 <br/> Investitsiya hajmi: 10 000 000 000 (o'n milliard) so'm <br/> Muddati: kamida 5 yil"
+,"investDescFour":" Ushbu instrument asosan quyidagi maqsadlarda pul jamg'arish imkoniyatini beradi:",
+"investDescFive":"Ushbu Shirkat – sizga O'zbekistonning mulk bozoriga qulay tarzda kirish imkoni ta'minlaydi. Bunda, Investor har oyda ma'lum miqdorda Shirkatga pul kiritib boradi va Shirkatda jamlangan pul mablag'lari kuchmas mulkka investitsiya qilinadi."
+,"investPurpose":"Investitsiya maqsadlari",
+"kifoyaInvest":"Kifoya Investments bilan investitsiya manfaatlari",
+"shortInvestTool":"Qisqa muddatli jamg'arish va investitsiya instrumenti",
+"longInvestTool":"Uzoq muddatli jamg'arish va investitsiya instrumenti"
 }
+
+
+

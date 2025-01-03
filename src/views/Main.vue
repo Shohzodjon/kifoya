@@ -149,7 +149,7 @@ const councilList = [
           <MainCard>
             <template #img>
               <div class="home__img">
-                <img src="@/assets/images/img1.png" alt="home img" />
+                <img src="@/assets/picture/oliy2.png" alt="home img" />
               </div>
             </template>
           </MainCard>
@@ -158,7 +158,7 @@ const councilList = [
           <MainCard>
             <template #img>
               <div class="home__img2">
-                <img src="@/assets/images/img2.png" alt="home img" />
+                <img src="@/assets/picture/img6.png" alt="home img" />
               </div>
             </template>
           </MainCard>
@@ -222,7 +222,7 @@ const councilList = [
           </div>
 
           <div class="finance_img">
-            <img src="@/assets/images/img3.png" alt="finance img">
+            <img src="@/assets/picture/img.png" alt="finance img">
           </div>
         </div>
       </div>
@@ -356,9 +356,11 @@ const councilList = [
   height: 100%;
   display: flex;
   align-items: center;
+  // justify-content: center;
   img {
     width: 100%;
-    height: 80%;
+    height: 100%;
+    // object-fit: cover;
   }
 }
 .home__img2 {

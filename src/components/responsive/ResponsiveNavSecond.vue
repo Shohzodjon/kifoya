@@ -49,7 +49,7 @@ const setActive = (id) => {};
           <li>
             <RouterLink :to="`/short-term`" @click="handleToggle">{{ $t("shortInvest") }}</RouterLink>
           </li>
-          <li>
+          <!-- <li>
             <a-dropdown>
               <a class="ant-dropdown-link" @click.prevent>
                 {{ $t("team") }}
@@ -75,7 +75,7 @@ const setActive = (id) => {};
                 </a-menu>
               </template>
             </a-dropdown>
-          </li>
+          </li> -->
           <li>
             <RouterLink @click="handleToggle" :to="`/`">{{
               $t("contact")
