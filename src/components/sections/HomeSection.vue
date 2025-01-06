@@ -28,7 +28,7 @@ onBeforeUnmount(() => {
       </p>
 
       <div class="home_btn_group">
-        <button class="home_btn_left">{{ $t('contact') }}</button>
+        <a href="#contact" class="home_btn_left">{{ $t('contact') }}</a>
       </div>
 
       <Vue3Marquee
