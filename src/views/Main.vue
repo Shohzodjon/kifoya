@@ -158,7 +158,7 @@ const councilList = [
           <MainCard>
             <template #img>
               <div class="home__img2">
-                <img src="@/assets/picture/img6.png" alt="home img" />
+                <img src="@/assets/picture/img9.png" alt="home img" />
               </div>
             </template>
           </MainCard>
@@ -222,7 +222,7 @@ const councilList = [
           </div>
 
           <div class="finance_img">
-            <img src="@/assets/picture/img.png" alt="finance img">
+            <img src="@/assets/picture/img7.png" alt="finance img">
           </div>
         </div>
       </div>
