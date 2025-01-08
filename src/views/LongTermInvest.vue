@@ -62,16 +62,16 @@ onUnmounted(() => {
       <div class="container">
         <h2 class="title" v-html="$t('longTerm')"></h2>
         <LongInvestCard
-          title='investTitle'
+          title="investTitle"
           desc="investDescThree"
           desc_two="investDescFive"
         />
 
         <div class="invest__flex">
           <div class="invest__desc">
-            <h3>{{ $t('investPurpose') }}</h3>
+            <h3>{{ $t("investPurpose") }}</h3>
             <p class="invest__info">
-              {{ $t('investDescFour') }}
+              {{ $t("investDescFour") }}
             </p>
             <div>
               <InvestCard
@@ -82,20 +82,20 @@ onUnmounted(() => {
               />
             </div>
           </div>
-            <MainCard >
-              <template #img>
+          <MainCard>
+            <template #img>
               <div class="long__term__img">
-                <img src="@/assets/picture/img5.png" alt="" />
+                <img src="@/assets/picture/img4.png" alt="" />
               </div>
             </template>
-            </MainCard>
+          </MainCard>
         </div>
       </div>
     </header>
     <main>
       <div class="container">
         <div class="main__item">
-          <h2>{{ $t('howWorked') }}</h2>
+          <h2>{{ $t("howWorked") }}</h2>
           <a-carousel
             :slides-to-show="slidesToShow"
             :after-change="onChange"
@@ -113,7 +113,7 @@ onUnmounted(() => {
           </a-carousel>
         </div>
         <div class="main__item">
-          <h2>{{ $t('kifoyaInvest') }}</h2>
+          <h2>{{ $t("kifoyaInvest") }}</h2>
           <a-carousel
             :slides-to-show="slidesToShow"
             :after-change="onChange"
@@ -131,7 +131,7 @@ onUnmounted(() => {
           </a-carousel>
         </div>
         <div class="main__item">
-          <h2>{{ $t('longInvestTool') }}</h2>
+          <h2>{{ $t("longInvestTool") }}</h2>
           <a-collapse
             v-model:activeKey="activeKey"
             ghost="false"
@@ -175,14 +175,17 @@ onUnmounted(() => {
 </template>
 <style lang="scss">
 .long__term__img {
+  position: absolute !important;
+  z-index: 20;
+  height: calc(100% - 104px);
+  bottom: 0;
+  left: 50%;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-width: 350px;
+  transform: translateX(-50%);
   img {
     width: 100%;
-    height: 90%;
+    height: 100%;
   }
 }
 .custom-collapse .ant-collapse-header-text {
@@ -208,7 +211,7 @@ onUnmounted(() => {
   margin: 0 auto;
   margin-left: 13px !important;
 }
-.ant-collapse-expand-icon{
+.ant-collapse-expand-icon {
   padding-inline-end: 0 !important;
 }
 
@@ -254,6 +257,16 @@ onUnmounted(() => {
   .custom-collapse .ant-collapse-header-text span:nth-child(1) {
     font-size: 1.7rem;
     line-height: 20px;
+  }
+}
+@media (max-width: 576px) {
+  .long__term__img {
+    height: calc(100% - 70px);
+  }
+}
+@media (max-width:450px) {
+  .long__term__img {
+    max-width: 320px;
   }
 }
 </style>

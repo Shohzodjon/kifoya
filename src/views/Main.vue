@@ -149,7 +149,7 @@ const councilList = [
           <MainCard>
             <template #img>
               <div class="home__img">
-                <img src="@/assets/picture/oliy2.png" alt="home img" />
+                <img src="@/assets/picture/img3.png" alt="home img" />
               </div>
             </template>
           </MainCard>
@@ -158,7 +158,7 @@ const councilList = [
           <MainCard>
             <template #img>
               <div class="home__img2">
-                <img src="@/assets/picture/img9.png" alt="home img" />
+                <img src="@/assets/picture/img2.png" alt="home img" />
               </div>
             </template>
           </MainCard>
@@ -222,7 +222,33 @@ const councilList = [
           </div>
 
           <div class="finance_img">
-            <img src="@/assets/picture/img7.png" alt="finance img">
+            <span class="shape">
+              <svg
+                width="100%"
+                height="100%"
+                viewBox="0 0 694 760"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="364.36"
+                  cy="673.332"
+                  r="464.914"
+                  transform="rotate(-47.2933 364.36 673.332)"
+                  stroke="#008000"
+                />
+                <circle
+                  cx="359.406"
+                  cy="549.668"
+                  r="464.914"
+                  transform="rotate(-47.2933 359.406 549.668)"
+                  stroke="#008000"
+                />
+              </svg>
+            </span>
+            <div>
+              <img src="@/assets/picture/img.png" alt="finance img" />
+            </div>
           </div>
         </div>
       </div>
@@ -298,7 +324,6 @@ const councilList = [
                     stroke="black"
                   />
                 </svg>
-
                 <span>User name</span>
               </a>
             </li>
@@ -352,24 +377,31 @@ const councilList = [
 </template>
 <style lang="scss">
 .home__img {
+  position: absolute !important;
+  z-index: 20;
+  height: calc(100% - 104px);
+  bottom: 0;
+  left: 50%;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  // justify-content: center;
+  max-width: 350px;
+  transform: translateX(-50%);
   img {
     width: 100%;
     height: 100%;
-    // object-fit: cover;
   }
 }
 .home__img2 {
+  position: absolute !important;
+  z-index: 20;
+  height: calc(100% - 104px);
+  bottom: 0;
+  left: 50%;
   width: 100%;
-  height: 100%;
+  max-width: 340px;
+  transform: translateX(-50%);
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
   }
 }
 
@@ -453,6 +485,19 @@ const councilList = [
   .custom-collapse .ant-collapse-header-text span:nth-child(1) {
     font-size: 1.7rem;
     line-height: 20px;
+  }
+}
+@media (max-width: 576px) {
+  .home__img,
+  .home__img2 {
+    height: calc(100% - 70px);
+  }
+}
+
+@media (max-width: 450px) {
+  .home__img,
+  .home__img2 {
+    max-width: 310px;
   }
 }
 </style>

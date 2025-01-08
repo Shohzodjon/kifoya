@@ -87,7 +87,7 @@ onUnmounted(() => {
           <MainCard>
             <template #img>
               <div class="short__term">
-                <img src="@/assets/picture/img3.png" alt="" />
+                <img src="@/assets/picture/img4.png" alt="" />
               </div>
             </template>
           </MainCard>
@@ -177,14 +177,17 @@ onUnmounted(() => {
 </template>
 <style lang="scss">
 .short__term {
+  position: absolute !important;
+  z-index: 20;
+  height: calc(100% - 104px);
+  bottom: 0;
+  left: 50%;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-width: 350px;
+  transform: translateX(-50%);
   img {
-    width: 96%;
-    height: 96%;
+    width: 100%;
+    height: 100%;
   }
 }
 .custom-collapse .ant-collapse-header-text {
@@ -253,6 +256,16 @@ onUnmounted(() => {
   .custom-collapse .ant-collapse-header-text span:nth-child(1) {
     font-size: 1.7rem;
     line-height: 20px;
+  }
+}
+@media (max-width: 576px) {
+  .long__term__img {
+    height: calc(100% - 70px);
+  }
+}
+@media (max-width:450px) {
+  .long__term__img {
+    max-width: 320px;
   }
 }
 </style>
