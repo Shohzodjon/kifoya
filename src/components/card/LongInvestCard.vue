@@ -45,8 +45,8 @@ defineProps({
     p {
       font-size: 16px;
       line-height: 19.09px;
-      color: #263238;
-      font-weight: 500;
+      color: #828282;
+      font-weight: 400;
     }
   }
   .right {
@@ -59,7 +59,8 @@ defineProps({
       font-size: 16px;
       line-height: 19.09px;
       color: #263238;
-      font-weight: 600;
+      font-weight: 400;
+      font-style: italic;
     }
   }
 

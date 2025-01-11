@@ -40,7 +40,6 @@ const constructionList = [
     desc: "dividentDesc",
   },
 ];
-const text = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore minima veritatis maxime, sed incidunt aut hic vitae unde ipsum amet nobis sunt, quo commodi illum quia magni neque nihil! Eveniet.`;
 
 const updateSlidesToShow = () => {
   const width = window.innerWidth;
@@ -71,7 +70,7 @@ onUnmounted(() => {
           <div class="invest__desc">
             <h3>{{ $t("investPurpose") }}</h3>
             <p class="invest__info">
-              {{ $t("investDescFour") }}
+              {{ $t("investDescFour") }} 
             </p>
             <div>
               <InvestCard
@@ -121,6 +120,7 @@ onUnmounted(() => {
             draggable
             loop
             autoplay
+            :rtl="true"
           >
             <ConstructionCard
               v-for="(item, i) in constructionList"
@@ -145,7 +145,9 @@ onUnmounted(() => {
                   :class="{ 'rotate-icon': activeKey.includes('1') }"
                 />
               </template>
-              <p>{{ text }}</p>
+              <p>
+               {{ $t('serviceTypeDesc') }}
+              </p>
             </a-collapse-panel>
             <a-collapse-panel key="2">
               <template #header>
@@ -155,7 +157,7 @@ onUnmounted(() => {
                   :class="{ 'rotate-icon': activeKey.includes('2') }"
                 />
               </template>
-              <p>{{ text }}</p>
+              <p>{{ $t('allInvestDesc') }}</p>
             </a-collapse-panel>
             <a-collapse-panel key="3">
               <template #header>
@@ -165,7 +167,19 @@ onUnmounted(() => {
                   :class="{ 'rotate-icon': activeKey.includes('3') }"
                 />
               </template>
-              <p>{{ text }}</p>
+              <p>
+                {{ $t('safeInvestDesc') }}
+              </p>
+            </a-collapse-panel>
+            <a-collapse-panel key="4">
+              <template #header>
+                <span>{{ $t('stableIncome') }}</span>
+                <DownOutlined
+                  style="font-size: 16px; color: #23b123"
+                  :class="{ 'rotate-icon': activeKey.includes('4') }"
+                />
+              </template>
+              <p>{{ $t('stableIncomeDesc') }}</p>
             </a-collapse-panel>
           </a-collapse>
         </div>
@@ -181,7 +195,7 @@ onUnmounted(() => {
   bottom: 0;
   left: 50%;
   width: 100%;
-  max-width: 350px;
+  max-width: 355px;
   transform: translateX(-50%);
   img {
     width: 100%;
@@ -258,15 +272,21 @@ onUnmounted(() => {
     font-size: 1.7rem;
     line-height: 20px;
   }
+  .long__term__img {
+    height: calc(100% - 100px);
+    max-width: 300px;
+  }
 }
 @media (max-width: 576px) {
   .long__term__img {
-    height: calc(100% - 70px);
+    height: calc(100% - 90px);
+    max-width: 290px;
   }
 }
-@media (max-width:450px) {
+@media (max-width: 450px) {
   .long__term__img {
-    max-width: 320px;
+    max-width: 280px;
+    height: calc(100% - 100px);
   }
 }
 </style>

@@ -13,7 +13,8 @@ import {
       <div class="footer_top">
         <div class="footer_logo">
           <RouterLink to="/">
-            <img src="@/assets/images/logo.png" alt="footer logo" />
+           <h2>Kifoya</h2>
+           <span>Investments</span>
           </RouterLink>
           <p>{{ $t('footerDesc') }}</p>
         </div>
@@ -99,7 +100,7 @@ import {
           </div>
           <div class="contact">
             <h2>{{ $t('footerContact') }}</h2>
-            <a href="tel:+998900096009">+998900096009</a>
+            <a href="tel:+998773155099">+998773155099</a>
           </div>
         </div>
       </div>

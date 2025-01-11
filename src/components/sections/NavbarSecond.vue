@@ -3,70 +3,85 @@ import { ref, onMounted, watch } from "vue";
 import { lang } from "@/uitiles/currentLang";
 import { RouterLink, useRoute } from "vue-router";
 import { useMenuStore } from "@/stores/menu";
-import ru from "../../assets/images/ru.png";
-import oz from "../../assets/images/uz.png";
-import en from "../../assets/images/en.png";
-import { MenuOutlined, DownOutlined } from "@ant-design/icons-vue";
+import { MenuOutlined } from "@ant-design/icons-vue";
 import $i18n from "@/plugins/i18n";
-const locale = ref("oz");
-const langFlag = ref(oz);
+
 const menuStore = useMenuStore();
-const handleClick = (event) => {
-  let element = event.target;
-  if (element.value == locale) return;
-  $i18n.global.locale.value = element.value;
-  localStorage.setItem("locale", element.value);
-};
+const route = useRoute();
+const selectedLanguage = ref("oz");
 
 onMounted(() => {
-  if(lang!=null){
-    locale.value = localStorage.getItem("locale");
+  if (lang != null) {
+    selectedLanguage.value = localStorage.getItem("locale");
   }
 });
 
-watch(locale, (old, newVal) => {
-  switch (old) {
-    case "oz": {
-      langFlag.value = oz;
-      return;
-    }
-    case "en": {
-      langFlag.value = en;
-      return;
-    }
-    case "ru": {
-      langFlag.value = ru;
-      return;
-    }
-  }
-});
+
 
 const toggle = () => {
   menuStore.toggleMenu();
 };
+
+const isActiveRoute = (path) => {
+  return route.path === path;
+};
+
+const options = ref([
+  {
+    value: "oz",
+    label: "O'zbek",
+    flag: "https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg",
+  },
+  {
+    value: "ru",
+    label: "Русский",
+    flag: "https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg",
+  },
+  {
+    value: "en",
+    label: "English",
+    flag: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
+  },
+]);
+const handleChange = (lang) => {
+  $i18n.global.locale.value = lang.value;
+  localStorage.setItem("locale", lang.value);
+};
+
 </script>
 <template>
   <nav class="navbar">
     <div class="container">
       <div class="navbar-flex">
         <RouterLink :to="`/`" class="navbar-logo">
-          <div class="navbar-logo__img">
-            <img src="@/assets/images/logo.png" alt="logo" />
-          </div>
+          <h2>Kifoya</h2>
+          <span>Investments</span>
         </RouterLink>
 
         <ul class="navbar-list">
           <li>
-            <RouterLink :to="`/`">{{ $t("about") }}</RouterLink>
+            <RouterLink :to="`/`" :class="{ active: isActiveRoute('/') }">{{
+              $t("about")
+            }}</RouterLink>
           </li>
           <li>
-            <RouterLink :to="`/`">{{ $t("howWorked") }}</RouterLink>
+            <RouterLink :to="`/`" :class="{ active: isActiveRoute('/') }">{{
+              $t("howWorked")
+            }}</RouterLink>
           </li>
           <li>
-            <RouterLink :to="`/long-term`">{{ $t('longInvest') }}</RouterLink>
+            <RouterLink
+              :to="`/long-term`"
+              :class="{ active: isActiveRoute('/long-term') }"
+              >{{ $t("longInvest") }}</RouterLink
+            >
           </li>
           <li>
-            <RouterLink :to="`/short-term`">{{ $t('shortInvest') }}</RouterLink>
+            <RouterLink
+              :to="`/short-term`"
+              :class="{ active: isActiveRoute('/short-term') }"
+              >{{ $t("shortInvest") }}</RouterLink
+            >
           </li>
           <!-- <li>
             <a-dropdown>
@@ -94,25 +109,44 @@ const toggle = () => {
             </a-dropdown>
           </li> -->
           <li>
-            <RouterLink :to="`/`">{{ $t("contact") }}</RouterLink>
+            <RouterLink :to="`/`" :class="{ active: isActiveRoute('/') }">{{
+              $t("contact")
+            }}</RouterLink>
           </li>
         </ul>
 
         <div class="navbar-lang">
-          <div class="lang-box">
-            <span><img :src="langFlag" alt="flag" /></span>
-            <select  v-model="locale" @change="handleClick">
-              <option value="oz" selected>O'zbek</option>
-              <option value="en">English</option>
-              <option value="ru">Русский</option>
-            </select>
-          </div>
+          <a-select
+            v-model:value="selectedLanguage"
+            label-in-value
+            style="width: 130px"
+            @change="handleChange"
+           
+          >
+            <a-select-option
+              v-for="option in options"
+              :key="option.value"
+              :value="option.value"
+            >
+              <img
+                :src="option.flag"
+                alt="flag"
+                style="width: 20px; height: 20px; margin-right: 8px; border-radius: 50%;"
+              />
+              {{ option.label }}
+            </a-select-option>
+          </a-select>
           <button class="menu_btn" @click="toggle"><MenuOutlined /></button>
         </div>
       </div>
     </div>
   </nav>
 </template>
+<style scoped>
+.active {
+  color: #04896C; 
+}
+</style>
 <style>
 .ant-dropdown-trigger {
   z-index: 9999999999 !important;
@@ -125,5 +159,17 @@ const toggle = () => {
   font-size: 1.5rem !important;
   font-weight: 400 !important;
   line-height: 19px !important;
+}
+.navbar-lang .ant-select-selector{
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+.navbar-lang .ant-select-selection-item{
+  font-size: 15px;
+  font-weight: 600;
+}
+.navbar-lang .ant-select-arrow svg path{
+ fill: #000 !important;
 }
 </style>

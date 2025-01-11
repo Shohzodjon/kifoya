@@ -79,8 +79,6 @@ const constructionList = [
   },
 ];
 
-const text = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore minima veritatis maxime, sed incidunt aut hic vitae unde ipsum amet nobis sunt, quo commodi illum quia magni neque nihil! Eveniet.`;
-
 const councilList = [
   {
     title: "Prof Dr Ashraf Md Hashim",
@@ -195,27 +193,45 @@ const councilList = [
                     :class="{ 'rotate-icon': activeKey.includes('1') }"
                   />
                 </template>
-                <p>{{ text }}</p>
+                <p>
+                  {{ $t("serviceDesc") }}
+                </p>
               </a-collapse-panel>
               <a-collapse-panel key="2">
                 <template #header>
-                  <span>{{ $t("allInvest") }}</span>
+                  <span> {{ $t('honestInvest') }}</span>
                   <DownOutlined
                     style="font-size: 16px; color: #23b123"
                     :class="{ 'rotate-icon': activeKey.includes('2') }"
                   />
                 </template>
-                <p>{{ text }}</p>
+                <p>
+                  {{ $t("honestInvestDesc") }}
+                </p>
               </a-collapse-panel>
               <a-collapse-panel key="3">
                 <template #header>
-                  <span>{{ $t("safeInvest") }}</span>
+                  <span>{{ $t("smartInvest") }}</span>
                   <DownOutlined
                     style="font-size: 16px; color: #23b123"
                     :class="{ 'rotate-icon': activeKey.includes('3') }"
                   />
                 </template>
-                <p>{{ text }}</p>
+                <p>
+                  {{ $t("smartInvestDesc") }}
+                </p>
+              </a-collapse-panel>
+              <a-collapse-panel key="4">
+                <template #header>
+                  <span>{{ $t('stableIncome') }} </span>
+                  <DownOutlined
+                    style="font-size: 16px; color: #23b123"
+                    :class="{ 'rotate-icon': activeKey.includes('4') }"
+                  />
+                </template>
+                <p>
+                  {{ $t('stableIncomeDesc') }}
+                </p>
               </a-collapse-panel>
             </a-collapse>
             <!-- </div> -->
@@ -324,13 +340,13 @@ const councilList = [
                     stroke="black"
                   />
                 </svg>
-                <span>User name</span>
+                <span>Kifoya investment</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <InstagramOutlined style="font-size: 20px" />
-                <span>User name</span>
+                <span>Kifoya investment</span>
               </a>
             </li>
             <li>
@@ -348,13 +364,13 @@ const councilList = [
                   />
                 </svg>
 
-                <span>User name</span>
+                <span>Kifoya investment</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <YoutubeFilled style="font-size: 20px" />
-                <span>User name</span>
+                <span>Kifoya investment</span>
               </a>
             </li>
           </ul>
@@ -383,7 +399,7 @@ const councilList = [
   bottom: 0;
   left: 50%;
   width: 100%;
-  max-width: 350px;
+  max-width: 335px;
   transform: translateX(-50%);
   img {
     width: 100%;
@@ -397,7 +413,7 @@ const councilList = [
   bottom: 0;
   left: 50%;
   width: 100%;
-  max-width: 340px;
+  max-width: 335px;
   transform: translateX(-50%);
   img {
     width: 100%;
@@ -486,18 +502,25 @@ const councilList = [
     font-size: 1.7rem;
     line-height: 20px;
   }
+  .home__img,
+  .home__img2 {
+    height: calc(100% - 100px);
+    max-width: 300px;
+
+  }
 }
 @media (max-width: 576px) {
   .home__img,
   .home__img2 {
     height: calc(100% - 70px);
+    max-width: 290px;
   }
 }
 
 @media (max-width: 450px) {
   .home__img,
   .home__img2 {
-    max-width: 310px;
+    max-width: 280px;
   }
 }
 </style>

@@ -40,7 +40,6 @@ const constructionList = [
     desc: "dividentDesc",
   },
 ];
-const text = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore minima veritatis maxime, sed incidunt aut hic vitae unde ipsum amet nobis sunt, quo commodi illum quia magni neque nihil! Eveniet.`;
 
 const updateSlidesToShow = () => {
   const width = window.innerWidth;
@@ -60,20 +59,18 @@ onUnmounted(() => {
   <section class="long__term">
     <header>
       <div class="container">
-        <h2 class="title" v-html="$t('shortTerm')">
-         
-        </h2>
+        <h2 class="title" v-html="$t('shortTerm')"></h2>
         <LongInvestCard
-          title='investTitle'
+          title="investTitle"
           desc="investDescThree"
           desc_two="investDescFive"
         />
 
         <div class="invest__flex">
           <div class="invest__desc">
-            <h3>{{ $t('investPurpose') }}</h3>
+            <h3>{{ $t("investPurpose") }}</h3>
             <p class="invest__info">
-             {{ $t('investDescFour') }}
+              {{ $t("investDescFour") }}
             </p>
             <div>
               <InvestCard
@@ -97,7 +94,7 @@ onUnmounted(() => {
     <main>
       <div class="container">
         <div class="main__item">
-          <h2>{{ $t('howWorked') }}</h2>
+          <h2>{{ $t("howWorked") }}</h2>
           <a-carousel
             :slides-to-show="slidesToShow"
             :after-change="onChange"
@@ -115,7 +112,7 @@ onUnmounted(() => {
           </a-carousel>
         </div>
         <div class="main__item">
-          <h2>{{ $t('kifoyaInvest') }}</h2>
+          <h2>{{ $t("kifoyaInvest") }}</h2>
           <a-carousel
             :slides-to-show="slidesToShow"
             :after-change="onChange"
@@ -133,7 +130,7 @@ onUnmounted(() => {
           </a-carousel>
         </div>
         <div class="main__item">
-          <h2>{{ $t('shortInvestTool') }}</h2>
+          <h2>{{ $t("shortInvestTool") }}</h2>
           <a-collapse
             v-model:activeKey="activeKey"
             ghost="false"
@@ -147,7 +144,7 @@ onUnmounted(() => {
                   :class="{ 'rotate-icon': activeKey.includes('1') }"
                 />
               </template>
-              <p>{{ text }}</p>
+              <p>{{ $t("serviceTypeDesc") }}</p>
             </a-collapse-panel>
             <a-collapse-panel key="2">
               <template #header>
@@ -157,17 +154,31 @@ onUnmounted(() => {
                   :class="{ 'rotate-icon': activeKey.includes('2') }"
                 />
               </template>
-              <p>{{ text }}</p>
+              <p>{{ $t("allInvestDesc") }}</p>
             </a-collapse-panel>
             <a-collapse-panel key="3">
               <template #header>
-                <span>{{ $t("safeInvest") }}</span>
+                <span>{{ $t("riskManagment") }} </span>
                 <DownOutlined
                   style="font-size: 16px; color: #23b123"
                   :class="{ 'rotate-icon': activeKey.includes('3') }"
                 />
               </template>
-              <p>{{ text }}</p>
+              <p>
+                {{ $t("riskManagmentDesc") }}
+              </p>
+            </a-collapse-panel>
+            <a-collapse-panel key="4">
+              <template #header>
+                <span>{{ $t("stableIncome") }} </span>
+                <DownOutlined
+                  style="font-size: 16px; color: #23b123"
+                  :class="{ 'rotate-icon': activeKey.includes('4') }"
+                />
+              </template>
+              <p>
+                {{ $t("shortTermStable") }}
+              </p>
             </a-collapse-panel>
           </a-collapse>
         </div>
@@ -252,20 +263,26 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .custom-collapse .ant-collapse-header-text {
     padding: 15px 20px;
+   
   }
   .custom-collapse .ant-collapse-header-text span:nth-child(1) {
     font-size: 1.7rem;
     line-height: 20px;
   }
+  .short__term {
+      height: calc(100% - 110px);
+      max-width: 300px;
+    }
 }
 @media (max-width: 576px) {
-  .long__term__img {
+  .short__term {
     height: calc(100% - 70px);
+    max-width: 290px;
   }
 }
-@media (max-width:450px) {
-  .long__term__img {
-    max-width: 320px;
+@media (max-width: 450px) {
+  .short__term {
+    max-width: 280px;
   }
 }
 </style>
