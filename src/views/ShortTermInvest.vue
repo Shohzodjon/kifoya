@@ -17,30 +17,35 @@ const investData = [
 const constructionList = [
   {
     title: "investTwo",
-    desc: "investDescTwo",
+    desc: "shortWorkOneDesc",
   },
   {
-    title: "grow",
-    desc: "growDesc",
-  },
-  {
-    title: "divident",
-    desc: "dividentDesc",
-  },
-  {
-    title: "investTwo",
-    desc: "investDescTwo",
-  },
-  {
-    title: "grow",
-    desc: "growDesc",
+    title: "shortWorkThree",
+    desc: "shortWorkThreeDesc",
   },
   {
     title: "divident",
-    desc: "dividentDesc",
-  },
+    desc: "shortWorkFourDesc",
+  }
 ];
-
+const benefitList=[
+{
+    title: "serviceType",
+    desc: "serviceTypeDesc",
+  },
+  {
+    title: "allInvest",
+    desc: "allInvestDesc",
+  },
+  {
+    title: "riskManagment",
+    desc: "riskManagmentDesc",
+  },
+  {
+    title: "stableIncome",
+    desc: "stableIncomeDesc",
+  }
+]
 const updateSlidesToShow = () => {
   const width = window.innerWidth;
   slidesToShow.value = width > 1024 ? 3 : width > 768 ? 2 : 1;
@@ -122,7 +127,7 @@ onUnmounted(() => {
             autoplay
           >
             <ConstructionCard
-              v-for="(item, i) in constructionList"
+              v-for="(item, i) in benefitList"
               :key="i"
               :title="$t(item.title)"
               :desc="$t(item.desc)"
@@ -138,46 +143,70 @@ onUnmounted(() => {
           >
             <a-collapse-panel key="1">
               <template #header>
-                <span>{{ $t("serviceType") }}</span>
+                <span>{{ $t("longFaqOne") }}</span>
                 <DownOutlined
                   style="font-size: 16px; color: #23b123"
                   :class="{ 'rotate-icon': activeKey.includes('1') }"
                 />
               </template>
-              <p>{{ $t("serviceTypeDesc") }}</p>
+              <p>{{ $t("shortFaqOneDesc") }}</p>
             </a-collapse-panel>
             <a-collapse-panel key="2">
               <template #header>
-                <span>{{ $t("allInvest") }}</span>
+                <span>{{ $t("shortFaqTwo") }}</span>
                 <DownOutlined
                   style="font-size: 16px; color: #23b123"
                   :class="{ 'rotate-icon': activeKey.includes('2') }"
                 />
               </template>
-              <p>{{ $t("allInvestDesc") }}</p>
+              <p>{{ $t("shortFaqTwoDesc") }}</p>
             </a-collapse-panel>
             <a-collapse-panel key="3">
               <template #header>
-                <span>{{ $t("riskManagment") }} </span>
+                <span>{{ $t("shortFaqThree") }} </span>
                 <DownOutlined
                   style="font-size: 16px; color: #23b123"
                   :class="{ 'rotate-icon': activeKey.includes('3') }"
                 />
               </template>
               <p>
-                {{ $t("riskManagmentDesc") }}
+                {{ $t("shortFaqThreeDesc") }}
               </p>
             </a-collapse-panel>
             <a-collapse-panel key="4">
               <template #header>
-                <span>{{ $t("stableIncome") }} </span>
+                <span>{{ $t("shortFaqFour") }} </span>
                 <DownOutlined
                   style="font-size: 16px; color: #23b123"
                   :class="{ 'rotate-icon': activeKey.includes('4') }"
                 />
               </template>
               <p>
-                {{ $t("shortTermStable") }}
+                {{ $t("shortFaqFourDesc") }}
+              </p>
+            </a-collapse-panel>
+            <a-collapse-panel key="5">
+              <template #header>
+                <span>{{ $t("shortFaqFive") }} </span>
+                <DownOutlined
+                  style="font-size: 16px; color: #23b123"
+                  :class="{ 'rotate-icon': activeKey.includes('4') }"
+                />
+              </template>
+              <p>
+                {{ $t("shortFaqFiveDesc") }}
+              </p>
+            </a-collapse-panel>
+            <a-collapse-panel key="6">
+              <template #header>
+                <span>{{ $t("shortFaqSix") }} </span>
+                <DownOutlined
+                  style="font-size: 16px; color: #23b123"
+                  :class="{ 'rotate-icon': activeKey.includes('4') }"
+                />
+              </template>
+              <p>
+                {{ $t("shortFaqSixDesc") }}
               </p>
             </a-collapse-panel>
           </a-collapse>
