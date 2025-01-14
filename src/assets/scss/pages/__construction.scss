@@ -9,9 +9,12 @@
 
     .construction_flex {
         display: flex;
-        align-items: center;
+        align-items: baseline;
         gap: 20px;
 
+        .card {
+            height: 200px !important;
+        }
     }
 
     /* 
@@ -48,6 +51,10 @@ $xxl: 1500px;
 
         .construction_flex {
             gap: 15px;
+            
+        .card {
+            height: 170px !important;
+        }
         }
     }
 
@@ -63,6 +70,9 @@ $xxl: 1500px;
         .construction_flex {
             gap: 15px;
             flex-direction: column;
+            .card{
+                height: auto  !important;
+            }
         }
     }
 

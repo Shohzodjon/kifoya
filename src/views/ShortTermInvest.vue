@@ -67,8 +67,8 @@ onUnmounted(() => {
         <h2 class="title" v-html="$t('shortTerm')"></h2>
         <LongInvestCard
           title="investTitle"
-          desc="investDescThree"
-          desc_two="investDescFive"
+          desc="shortInvestDesc"
+          desc_two="shortInvestDescTwo"
         />
 
         <div class="invest__flex">

@@ -1,6 +1,7 @@
 <script setup>
-import { onMounted, onBeforeUnmount, ref, watch } from "vue";
-import { useRouter, useRoute } from "vue-router";
+import { onMounted, onBeforeUnmount, ref } from "vue";
+import { useRouter } from "vue-router";
+import axios from "axios";
 import PurposeDesc from "@/components/card/PurposeDesc.vue";
 import MainCard from "@/components/card/MainCard.vue";
 import InvestCard from "@/components/card/InvestCard.vue";
@@ -10,48 +11,23 @@ import {
   YoutubeFilled,
 } from "@ant-design/icons-vue";
 import ConstructionCard from "@/components/card/ConstructionCard.vue";
-import EmployeeCard from "@/components/card/EmployeeCard.vue";
-import CouncilCard from "@/components/card/CouncilCard.vue";
 import HomeSection from "@/components/sections/HomeSection.vue";
 
 const isLoading = ref(true);
-const router = useRouter();
+// const router = useRouter();
 const phone = ref("");
-const status = ref(false);
 const activeKey = ref("");
 
-router.beforeEach((to, from, next) => {
-  isLoading.value = true;
-  next();
-});
+// router.beforeEach((to, from, next) => {
+//   isLoading.value = true;
+//   next();
+// });
 
-router.afterEach(() => {
-  setTimeout(() => {
-    isLoading.value = false;
-  }, 600);
-});
-
-function formatPhone(value) {
-  if (!value.startsWith("+998")) {
-    phone.value = "+998";
-  } else if (value.length > 13) {
-    phone.value = value.slice(0, 13);
-  }
-}
-
-const isScrolled = ref(false);
-
-function handleScroll() {
-  isScrolled.value = window.scrollY > 100;
-}
-
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
+// router.afterEach(() => {
+//   setTimeout(() => {
+//     isLoading.value = false;
+//   }, 600);
+// });
 
 const investData = [
   { title: "buyHouse" },
@@ -93,6 +69,82 @@ const councilList = [
     desc: "Chairman",
   },
 ];
+
+const userData = ref({
+  name: "",
+  phone: "",
+  description: "",
+  agree: false,
+});
+
+const errors = ref({
+  name: null,
+  phone: null,
+  description: null,
+  agree: null,
+});
+
+const formatPhone = (event) => {
+  let input = event.target.value;
+
+  input = input.replace(/[^\d+]/g, "");
+
+  if (!input.startsWith("+998")) {
+    input = "+998";
+  }
+
+  if (input.length > 17) {
+    input = input.slice(0, 17);
+  }
+
+  userData.value.phone = input;
+};
+
+const handleClick = () => {
+  errors.value = validateForm();
+  if (Object.values(errors.value).every((error) => !error)) {
+    try {
+      axios.post(
+        "https://kifoyainvestments.uz/api/v1/site/contact/form/create/",
+        userData.value
+      );
+    } catch (error) {
+      console.log(error, "error");
+    }
+  }
+};
+
+const validateForm = () => {
+  const uzbekPhoneRegex = /^\+998\d{9}$/; // +998 bilan boshlanadigan 9 ta raqam bo'lishi kerak
+
+  const newErrors = {
+    name: userData.value.name ? null : "Name is required",
+    phone: uzbekPhoneRegex.test(userData.value.phone)
+      ? null
+      : "Valid Uzbekistan phone number is required",
+    description: userData.value.description ? null : "Message is required",
+    agree: userData.value.agree ? null : "You must agree to the privacy policy",
+  };
+
+  return newErrors;
+};
+
+const handleCheck = () => {
+  userData.value.agree = !userData.value.agree;
+};
+const isScrolled = ref(false);
+
+function handleScroll() {
+  isScrolled.value = window.scrollY > 100;
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 <template>
   <section>
@@ -199,7 +251,7 @@ const councilList = [
               </a-collapse-panel>
               <a-collapse-panel key="2">
                 <template #header>
-                  <span> {{ $t('honestInvest') }}</span>
+                  <span> {{ $t("honestInvest") }}</span>
                   <DownOutlined
                     style="font-size: 16px; color: #23b123"
                     :class="{ 'rotate-icon': activeKey.includes('2') }"
@@ -223,14 +275,14 @@ const councilList = [
               </a-collapse-panel>
               <a-collapse-panel key="4">
                 <template #header>
-                  <span>{{ $t('stableIncome') }} </span>
+                  <span>{{ $t("stableIncome") }} </span>
                   <DownOutlined
                     style="font-size: 16px; color: #23b123"
                     :class="{ 'rotate-icon': activeKey.includes('4') }"
                   />
                 </template>
                 <p>
-                  {{ $t('stableIncomeDesc') }}
+                  {{ $t("stableIncomeDesc") }}
                 </p>
               </a-collapse-panel>
             </a-collapse>
@@ -292,35 +344,50 @@ const councilList = [
             </p>
           </div>
 
-          <form action="" class="order_form">
+          <form action="" class="order_form" @submit.prevent="handleClick">
             <div>
               <input
                 type="text"
                 placeholder="Name"
                 class="custom_input input"
+                v-model="userData.name"
               />
+              <span v-if="errors.name" class="error">{{ errors.name }}</span>
             </div>
             <div>
-              <vue-tel-input
-                v-model="phone"
-                class="custom_input"
-                :input-options="{ maxlength: 13 }"
+              <input
+                type="tel"
+                class="custom_input input"
+                v-model="userData.phone"
                 @input="formatPhone"
-              ></vue-tel-input>
+                maxlength="17"
+                placeholder="+998 (__) ___ __ __"
+              />
+              <span v-if="errors.phone" class="error">{{ errors.phone }}</span>
             </div>
             <div>
               <textarea
-                name=""
-                id=""
                 rows="5"
                 class="custom_input custom_text"
+                v-model="userData.description"
+                placeholder="Message"
               ></textarea>
+              <span v-if="errors.description" class="error">{{
+                errors.description
+              }}</span>
             </div>
             <div class="form_flex">
-              <a-checkbox name="type"></a-checkbox>
-              <p>Я соглашаюсь с Политикой конфиденциальности</p>
+              <a-checkbox
+                name="type"
+                v-model="userData.agree"
+                @click="handleCheck"
+              ></a-checkbox>
+              <p>{{ $t("warming") }}</p>
+              <span v-if="errors.agree" class="error">{{ errors.agree }}</span>
             </div>
-            <button class="form_btn" type="button">{{ $t("submit") }}</button>
+            <button class="form_btn" type="submit">
+              {{ $t("submit") }}
+            </button>
           </form>
         </main>
         <div class="order_bottom">
@@ -392,6 +459,12 @@ const councilList = [
   </section>
 </template>
 <style lang="scss">
+.error {
+  color: red;
+  text-wrap-style: balance;
+  display: inline-block;
+  margin-top: 5px;
+}
 .home__img {
   position: absolute !important;
   z-index: 20;
@@ -506,7 +579,6 @@ const councilList = [
   .home__img2 {
     height: calc(100% - 100px);
     max-width: 300px;
-
   }
 }
 @media (max-width: 576px) {
