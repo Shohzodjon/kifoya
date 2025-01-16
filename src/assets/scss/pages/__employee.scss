@@ -1,53 +1,39 @@
-// employee section
-.employee__section {
-    padding-top: 20px;
-    margin-top: 70px;
+ .employee__section {
+     padding-top: 20px;
+     margin-top: 70px;
 
-    h2 {
-        margin-bottom: 25px;
-        color: var(--dark-blue);
-        @include sectionTitle();
-    }
+     h2 {
+         margin-bottom: 25px;
+         color: var(--dark-blue);
+         @include sectionTitle();
+     }
 
-    .employee__flex {
-        display: flex;
-        align-items: center;
-        gap: 25px;
-        flex-wrap: wrap;
+     .second__title {
+         margin: 20px 0;
+     }
 
-        &>div {
-            width: 22%;
-        }
-    }
+     .employee__flex {
+         display: flex;
+         align-items: center;
+         gap: 25px;
+         flex-wrap: wrap;
 
-    @media (max-width:1278px) {
-        .employee__flex {
-            &>div {
-                width: 24%;
-            }
-        }
-    }
+         &>div {
+             width: 22%;
+         }
+     }
 
-    @media (max-width:1024px) {
-        h2 {
-            margin-bottom: 25px;
-            line-height: 50px;
-            font-size: 5rem;
-        }
-    }
+     @media (max-width:1278px) {
+         .employee__flex {
+             &>div {
+                 width: 24%;
+             }
+         }
+     }
+ @media (max-width:576px) {
+         h2 {
+             text-align: center;
+         }
+     }
 
-    @media (max-width:992px) {
-        h2 {
-            line-height: 50px;
-            font-size: 4.5rem;
-        }
-    }
-
-    @media (max-width:768px) {
-        h2 {
-            line-height: 40px;
-            font-size: 3rem;
-        }
-    }
-
-}
+ }

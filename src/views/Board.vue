@@ -40,7 +40,7 @@ const controlList = [
           :position="item.position"
         />
       </div>
-      <h2>{{ $t("manageTeam") }}</h2>
+      <h2 class="second__title">{{ $t("manageTeam") }}</h2>
       <div class="employee__flex">
         <EmployeeCard
           v-for="(item, i) in controlList"

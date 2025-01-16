@@ -9,6 +9,7 @@
             @include sectionTitle();
             color: var(--dark-blue);
             margin-bottom: 30px;
+            border: 1px solid red;
         }
 
         .invest__flex {

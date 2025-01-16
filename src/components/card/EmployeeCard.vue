@@ -41,6 +41,7 @@ defineProps({
   transition: all linear 0.4s;
   border-radius: 10px;
   width: 100%;
+  border: 1px solid rgba(128, 128, 128,0.1);
 
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
