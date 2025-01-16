@@ -51,7 +51,7 @@ const setActive = (id) => {};
               $t("shortInvest")
             }}</RouterLink>
           </li>
-          <!-- <li>
+          <li>
             <a-dropdown>
               <a class="ant-dropdown-link" @click.prevent>
                 {{ $t("team") }}
@@ -64,7 +64,7 @@ const setActive = (id) => {};
                       $t("board")
                     }}</RouterLink>
                   </a-menu-item>
-                  <a-menu-item key="1">
+                  <!-- <a-menu-item key="1">
                     <RouterLink :to="`/council`" @click="handleToggle">
                       {{ $t("councilLink") }}</RouterLink
                     >
@@ -73,11 +73,11 @@ const setActive = (id) => {};
                     <RouterLink :to="`/managment`" @click="handleToggle">{{
                       $t("managmentSenior")
                     }}</RouterLink>
-                  </a-menu-item>
+                  </a-menu-item> -->
                 </a-menu>
               </template>
             </a-dropdown>
-          </li> -->
+          </li>
           <li>
             <a href="#contact" @click="handleToggle">{{ $t("contact") }}</a>
           </li>
@@ -100,7 +100,7 @@ const setActive = (id) => {};
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: 1040;
   background: #0d1b2a;
 }
@@ -116,7 +116,7 @@ const setActive = (id) => {};
   cursor: pointer;
   float: right;
   margin-right: 60px;
-  font-size: 30px;
+  font-size: 23px;
   color: #fff;
 }
 .fullpage-menu-inner {
@@ -140,21 +140,21 @@ const setActive = (id) => {};
 nav {
   position: relative;
   z-index: 99;
-  background: #0d1b2a;
 }
 nav li {
   overflow: hidden;
   transition: transform 300ms ease-in-out 0s;
 }
 nav li + li {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 nav li a {
-  font-size: 2rem;
-  line-height: 130%;
+  font-size: 1.5rem;
+  line-height: 120%;
   text-transform: uppercase;
   font-weight: 400;
   color: #fff;
+  text-wrap-style: balance;
   display: inline-block;
   font-family: "Hanken Grotesk", sans-serif;
 }
@@ -172,24 +172,15 @@ nav li a {
   .fullpage-menu {
     display: block;
   }
-  nav li a {
-    font-size: 1.8rem;
-  }
 }
 @media (max-width: 991px) {
   nav li + li {
-    margin-top: 25px;
-  }
-  nav li a {
-    font-size: 1.8rem;
+    margin-top: 15px;
   }
 }
 @media (max-width: 768px) {
   .fullpage-menu-inner {
-    padding: 20px;
-  }
-  nav li a {
-    font-size: 1.8rem;
+    padding: 15px 5px 15px 20px;
   }
 }
 </style>

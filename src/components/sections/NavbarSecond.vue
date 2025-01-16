@@ -83,7 +83,7 @@ const handleChange = (lang) => {
               >{{ $t("shortInvest") }}</RouterLink
             >
           </li>
-          <!-- <li>
+          <li>
             <a-dropdown>
               <a class="ant-dropdown-link">
                 {{ $t("team") }}
@@ -94,7 +94,7 @@ const handleChange = (lang) => {
                   <a-menu-item key="0">
                     <RouterLink :to="`/board`">{{ $t("board") }}</RouterLink>
                   </a-menu-item>
-                  <a-menu-item key="1">
+                  <!-- <a-menu-item key="1">
                     <RouterLink :to="`/council`">
                       {{ $t("councilLink") }}</RouterLink
                     >
@@ -103,11 +103,11 @@ const handleChange = (lang) => {
                     <RouterLink :to="`/managment`">{{
                       $t("managmentSenior")
                     }}</RouterLink>
-                  </a-menu-item>
+                  </a-menu-item> -->
                 </a-menu>
               </template>
             </a-dropdown>
-          </li> -->
+          </li>
           <li>
             <RouterLink :to="`/`" :class="{ active: isActiveRoute('/') }">{{
               $t("contact")
@@ -153,7 +153,8 @@ const handleChange = (lang) => {
 }
 .ant-dropdown-menu-vertical {
   box-shadow: none !important;
-  background: #ebf1eb !important;
+  background: #eaeaea !important;
+  width: 105%;
 }
 .ant-dropdown-menu-title-content {
   font-size: 1.5rem !important;

@@ -14,6 +14,18 @@
         align-items: center;
         gap: 25px;
         flex-wrap: wrap;
+
+        &>div {
+            width: 22%;
+        }
+    }
+
+    @media (max-width:1278px) {
+        .employee__flex {
+            &>div {
+                width: 24%;
+            }
+        }
     }
 
     @media (max-width:1024px) {

@@ -45,8 +45,6 @@ const options = ref([
   },
 ]);
 
-
-
 const handleChange = (lang) => {
   $i18n.global.locale.value = lang.value;
   localStorage.setItem("locale", lang.value);
@@ -88,7 +86,7 @@ const handleChange = (lang) => {
               >{{ $t("shortInvest") }}</RouterLink
             >
           </li>
-          <!-- <li>
+          <li>
             <a-dropdown>
               <a class="ant-dropdown-link" @click.prevent>
                 {{ $t("team") }}
@@ -99,7 +97,7 @@ const handleChange = (lang) => {
                   <a-menu-item key="0">
                     <RouterLink :to="`/board`">{{ $t("board") }}</RouterLink>
                   </a-menu-item>
-                  <a-menu-item key="1">
+                  <!-- <a-menu-item key="1">
                     <RouterLink :to="`/council`">
                       {{ $t("councilLink") }}</RouterLink
                     >
@@ -108,11 +106,11 @@ const handleChange = (lang) => {
                     <RouterLink :to="`/managment`">{{
                       $t("managmentSenior")
                     }}</RouterLink>
-                  </a-menu-item>
+                  </a-menu-item> -->
                 </a-menu>
               </template>
             </a-dropdown>
-          </li> -->
+          </li>
           <li>
             <a href="#contact" :class="{ active: route.hash === '#contact' }">{{
               $t("contact")
@@ -121,13 +119,11 @@ const handleChange = (lang) => {
         </ul>
 
         <div class="navbar-lang">
-          
           <a-select
             v-model:value="selectedLanguage"
             label-in-value
             style="width: 130px"
             @change="handleChange"
-           
           >
             <a-select-option
               v-for="option in options"
@@ -137,7 +133,12 @@ const handleChange = (lang) => {
               <img
                 :src="option.flag"
                 alt="flag"
-                style="width: 20px; height: 20px; margin-right: 8px; border-radius: 50%;"
+                style="
+                  width: 20px;
+                  height: 20px;
+                  margin-right: 8px;
+                  border-radius: 50%;
+                "
               />
               {{ option.label }}
             </a-select-option>
@@ -151,5 +152,12 @@ const handleChange = (lang) => {
 <style scoped>
 .active {
   color: #04896c;
+}
+</style>
+<style>
+.ant-dropdown-menu-vertical {
+  box-shadow: none !important;
+  background: #eaeaea !important;
+  width: 105%;
 }
 </style>

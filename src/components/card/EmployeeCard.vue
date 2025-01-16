@@ -24,9 +24,9 @@ defineProps({
       <img :src="img" alt="employee img" />
     </div>
     <div class="employee__info">
-      <h3>{{ title }}</h3>
-      <h6>{{ position }}</h6>
-      <p v-if="desc">{{ desc }}</p>
+      <h3>{{ $t(`${title}` )}}</h3>
+      <h6>{{ $t(`${position}`) }}</h6>
+      <p v-if="desc">{{ $t(`${desc}`) }}</p>
     </div>
   </div>
 </template>
@@ -40,6 +40,7 @@ defineProps({
   padding: 13px;
   transition: all linear 0.4s;
   border-radius: 10px;
+  width: 100%;
 
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
@@ -50,11 +51,9 @@ defineProps({
     height: 140px;
     border-radius: 100%;
     overflow: hidden;
-
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
     }
   }
   .employee__info {
@@ -80,37 +79,43 @@ defineProps({
     }
   }
 
-  @media (max-width:992px) {
+  @media (max-width: 992px) {
     width: 45% !important;
     .employee__info {
-    h3 {
-      font-size: 2rem;
-      line-height: 25px;
+      h3 {
+        font-size: 2rem;
+        line-height: 25px;
+      }
     }
   }
-  }
 
-  @media (max-width:660px) {
-    width: 100% !important;
+  @media (max-width: 660px) {
+    width: 50% !important;
+    margin: 0 auto;
     .employee__img {
-    width: 120px;
-    height: 120px;
-
-  }
+      width: 120px;
+      height: 120px;
+    }
     .employee__info {
-    h3 {
-      font-size: 1.8rem;
-      line-height: 20px;
-    }
-    h6 {
-      font-size: 1.4rem;
-      line-height: 16px;
-    }
-    p {
-      font-size: 1.4rem;
-      line-height: 16px;
+      h3 {
+        font-size: 1.8rem;
+        line-height: 20px;
+      }
+      h6 {
+        font-size: 1.4rem;
+        line-height: 16px;
+      }
+      p {
+        font-size: 1.4rem;
+        line-height: 16px;
+      }
     }
   }
+  @media (max-width: 567px) {
+    width: 70% !important;
+  }
+  @media (max-width: 450px) {
+    width: 80% !important;
   }
 }
 </style>

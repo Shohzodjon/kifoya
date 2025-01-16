@@ -407,13 +407,13 @@ onBeforeUnmount(() => {
                     stroke="black"
                   />
                 </svg>
-                <span>Kifoya investment</span>
+                <span>Kifoya investments</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <InstagramOutlined style="font-size: 20px" />
-                <span>Kifoya investment</span>
+                <span>Kifoya investments</span>
               </a>
             </li>
             <li>
@@ -431,13 +431,13 @@ onBeforeUnmount(() => {
                   />
                 </svg>
 
-                <span>Kifoya investment</span>
+                <span>Kifoya investments</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <YoutubeFilled style="font-size: 20px" />
-                <span>Kifoya investment</span>
+                <span>Kifoya investments</span>
               </a>
             </li>
           </ul>

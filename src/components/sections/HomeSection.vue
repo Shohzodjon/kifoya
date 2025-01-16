@@ -31,7 +31,7 @@ onBeforeUnmount(() => {
         <a href="#contact" class="home_btn_left">{{ $t('contact') }}</a>
       </div>
 
-      <Vue3Marquee
+      <!-- <Vue3Marquee
         :gradient="gradientEnabled"
         :pauseOnHover="true"
        
@@ -67,7 +67,7 @@ onBeforeUnmount(() => {
         <div class="desc_item">
           <img src="@/assets/images/header_seven.png" alt="" />
         </div>
-      </Vue3Marquee>
+      </Vue3Marquee> -->
     </div>
   </section>
 </template>
