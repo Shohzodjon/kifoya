@@ -34,12 +34,18 @@ const setActive = (id) => {};
       <nav>
         <ul class="main-menu">
           <li>
-            <RouterLink to="/" @click="handleToggle">{{ $t("about") }}</RouterLink>
+            <RouterLink
+              :to="{ path: '/', hash: '#about' }"
+              @click="handleToggle"
+              >{{ $t("about") }}</RouterLink
+            >
           </li>
           <li>
-            <RouterLink to="/" @click="handleToggle">{{
-              $t("howWorked")
-            }}</RouterLink>
+            <RouterLink
+              :to="{ path: '/', hash: '#constraction' }"
+              @click="handleToggle"
+              >{{ $t("howWorked") }}</RouterLink
+            >
           </li>
           <li>
             <RouterLink :to="`/long-term`" @click="handleToggle">{{
@@ -52,7 +58,10 @@ const setActive = (id) => {};
             }}</RouterLink>
           </li>
           <li>
-            <a-dropdown>
+            <RouterLink to="/board" @click="handleToggle">{{
+              $t("team")
+            }}</RouterLink>
+            <!-- <a-dropdown>
               <a class="ant-dropdown-link" @click.prevent>
                 {{ $t("team") }}
                 <DownOutlined />
@@ -64,22 +73,16 @@ const setActive = (id) => {};
                       $t("board")
                     }}</RouterLink>
                   </a-menu-item>
-                  <!-- <a-menu-item key="1">
-                    <RouterLink :to="`/council`" @click="handleToggle">
-                      {{ $t("councilLink") }}</RouterLink
-                    >
-                  </a-menu-item>
-                  <a-menu-item>
-                    <RouterLink :to="`/managment`" @click="handleToggle">{{
-                      $t("managmentSenior")
-                    }}</RouterLink>
-                  </a-menu-item> -->
                 </a-menu>
               </template>
-            </a-dropdown>
+            </a-dropdown> -->
           </li>
           <li>
-            <RouterLink to="/" @click="handleToggle">{{ $t("contact") }}</RouterLink>
+            <RouterLink
+              :to="{ path: '/', hash: '#contact' }"
+              @click="handleToggle"
+              >{{ $t("contact") }}</RouterLink
+            >
           </li>
         </ul>
       </nav>

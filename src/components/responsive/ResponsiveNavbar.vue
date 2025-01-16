@@ -52,7 +52,8 @@ const setActive = (id) => {};
             }}</RouterLink>
           </li>
           <li>
-            <a-dropdown>
+            <RouterLink to="/board" @click="handleToggle"> {{ $t("team") }}</RouterLink>
+            <!-- <a-dropdown>
               <a class="ant-dropdown-link" @click.prevent>
                 {{ $t("team") }}
                 <DownOutlined />
@@ -64,19 +65,9 @@ const setActive = (id) => {};
                       $t("board")
                     }}</RouterLink>
                   </a-menu-item>
-                  <!-- <a-menu-item key="1">
-                    <RouterLink :to="`/council`" @click="handleToggle">
-                      {{ $t("councilLink") }}</RouterLink
-                    >
-                  </a-menu-item>
-                  <a-menu-item>
-                    <RouterLink :to="`/managment`" @click="handleToggle">{{
-                      $t("managmentSenior")
-                    }}</RouterLink>
-                  </a-menu-item> -->
                 </a-menu>
               </template>
-            </a-dropdown>
+            </a-dropdown> -->
           </li>
           <li>
             <a href="#contact" @click="handleToggle">{{ $t("contact") }}</a>

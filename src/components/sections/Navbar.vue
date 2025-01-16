@@ -87,7 +87,8 @@ const handleChange = (lang) => {
             >
           </li>
           <li>
-            <a-dropdown>
+            <RouterLink to="/board"  :class="{ active: isActiveLink('/board') }"> {{ $t("team") }}</RouterLink>
+            <!-- <a-dropdown>
               <a class="ant-dropdown-link" @click.prevent>
                 {{ $t("team") }}
                 <DownOutlined />
@@ -97,19 +98,9 @@ const handleChange = (lang) => {
                   <a-menu-item key="0">
                     <RouterLink :to="`/board`">{{ $t("board") }}</RouterLink>
                   </a-menu-item>
-                  <!-- <a-menu-item key="1">
-                    <RouterLink :to="`/council`">
-                      {{ $t("councilLink") }}</RouterLink
-                    >
-                  </a-menu-item>
-                  <a-menu-item>
-                    <RouterLink :to="`/managment`">{{
-                      $t("managmentSenior")
-                    }}</RouterLink>
-                  </a-menu-item> -->
                 </a-menu>
               </template>
-            </a-dropdown>
+            </a-dropdown> -->
           </li>
           <li>
             <a href="#contact" :class="{ active: route.hash === '#contact' }">{{
