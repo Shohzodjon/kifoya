@@ -16,6 +16,7 @@ defineProps({
     type: String,
     default: "",
   },
+
 });
 </script>
 <template>
@@ -24,7 +25,7 @@ defineProps({
       <img :src="img" alt="employee img" />
     </div>
     <div class="employee__info">
-      <h3>{{ $t(`${title}` )}}</h3>
+     <slot name="employee__name"/>
       <h6>{{ $t(`${position}`) }}</h6>
       <p v-if="desc">{{ $t(`${desc}`) }}</p>
     </div>
@@ -58,12 +59,6 @@ defineProps({
     }
   }
   .employee__info {
-    h3 {
-      font-size: 2.4rem;
-      line-height: 29px;
-      font-weight: 700;
-      text-align: center;
-    }
     h6 {
       font-size: 1.6rem;
       line-height: 19.36px;

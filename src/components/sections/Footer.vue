@@ -100,7 +100,7 @@ import {
           </div>
           <div class="contact">
             <h2>{{ $t('footerContact') }}</h2>
-            <a href="tel:+998773155099">+998773155099</a>
+            <a href="tel:+998773155099">+99877 315 50 99</a>
           </div>
         </div>
       </div>
