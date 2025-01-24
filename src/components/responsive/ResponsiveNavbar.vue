@@ -36,11 +36,11 @@ const setActive = (id) => {};
           <li>
             <a href="#about" @click="handleToggle">{{ $t("about") }}</a>
           </li>
-          <li>
+          <!-- <li>
             <a href="#constraction" @click="handleToggle">{{
               $t("howWorked")
             }}</a>
-          </li>
+          </li> -->
           <li>
             <RouterLink :to="`/long-term`" @click="handleToggle">{{
               $t("longInvest")

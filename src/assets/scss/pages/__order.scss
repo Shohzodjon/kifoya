@@ -1,6 +1,6 @@
 .order_section {
     background: var(--bg-color);
-    padding: 100px 0 70px;
+    padding: 80px 0 70px;
     margin: 60px 0 40px;
 
     main {
@@ -170,6 +170,7 @@
     }
 
     @media (max-width:1024px) {
+     
         main {
             padding: 20px;
             gap: 15px;

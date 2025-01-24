@@ -9,10 +9,13 @@ import { DownOutlined } from "@ant-design/icons-vue";
 const activeKey = ref("");
 const slidesToShow = ref(3);
 const investData = [
-  { title: "buyHouse" },
   { title: "buyCar" },
-  { title: "pension" },
+  { title: "physicalOne" },
+  { title: "physicalTwo" },
+  { title: "physicalThree" },
+  { title: "physicalFour" },
 ];
+const investData2 = [{ title: "legalOne" }, { title: "legalTwo" }];
 
 const constructionList = [
   {
@@ -26,10 +29,10 @@ const constructionList = [
   {
     title: "divident",
     desc: "shortWorkFourDesc",
-  }
+  },
 ];
-const benefitList=[
-{
+const benefitList = [
+  {
     title: "serviceType",
     desc: "serviceTypeDesc",
   },
@@ -44,8 +47,8 @@ const benefitList=[
   {
     title: "stableIncome",
     desc: "stableIncomeDesc",
-  }
-]
+  },
+];
 const updateSlidesToShow = () => {
   const width = window.innerWidth;
   slidesToShow.value = width > 1024 ? 3 : width > 768 ? 2 : 1;
@@ -78,8 +81,16 @@ onUnmounted(() => {
               {{ $t("investDescFour") }}
             </p>
             <div>
+              <h5 class="invest__title">{{ $t("physical") }} :</h5>
               <InvestCard
                 v-for="(item, i) in investData"
+                :title="$t(item.title)"
+                :order="i + 1"
+                :key="i"
+              />
+              <h5 class="invest__title">{{ $t("legal") }} :</h5>
+              <InvestCard
+                v-for="(item, i) in investData2"
                 :title="$t(item.title)"
                 :order="i + 1"
                 :key="i"
@@ -106,7 +117,6 @@ onUnmounted(() => {
             :dots="false"
             draggable
             loop
-            autoplay
           >
             <ConstructionCard
               v-for="(item, i) in constructionList"
@@ -124,7 +134,6 @@ onUnmounted(() => {
             :dots="false"
             draggable
             loop
-            autoplay
           >
             <ConstructionCard
               v-for="(item, i) in benefitList"
@@ -292,16 +301,15 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .custom-collapse .ant-collapse-header-text {
     padding: 15px 20px;
-   
   }
   .custom-collapse .ant-collapse-header-text span:nth-child(1) {
     font-size: 1.7rem;
     line-height: 20px;
   }
   .short__term {
-      height: calc(100% - 110px);
-      max-width: 300px;
-    }
+    height: calc(100% - 110px);
+    max-width: 300px;
+  }
 }
 @media (max-width: 576px) {
   .short__term {

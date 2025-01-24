@@ -4,6 +4,7 @@ defineProps({
     type: String,
     default: "",
   },
+
   title: {
     type: String,
     default: "",
@@ -16,16 +17,17 @@ defineProps({
     type: String,
     default: "",
   },
-
 });
+
+const emit = defineEmits(["cardClick"]);
 </script>
 <template>
-  <div class="employee__card">
+  <div class="employee__card"  @click="emit('cardClick')">
     <div class="employee__img">
       <img :src="img" alt="employee img" />
     </div>
     <div class="employee__info">
-     <slot name="employee__name"/>
+      <h3>{{ title }}</h3>
       <h6>{{ $t(`${position}`) }}</h6>
       <p v-if="desc">{{ $t(`${desc}`) }}</p>
     </div>
@@ -42,7 +44,8 @@ defineProps({
   transition: all linear 0.4s;
   border-radius: 10px;
   width: 100%;
-  border: 1px solid rgba(128, 128, 128,0.1);
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  cursor: pointer;
 
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
@@ -59,6 +62,12 @@ defineProps({
     }
   }
   .employee__info {
+    h3 {
+      font-size: 2.4rem;
+      line-height: 29px;
+      font-weight: 700;
+      text-align: center;
+    }
     h6 {
       font-size: 1.6rem;
       line-height: 19.36px;

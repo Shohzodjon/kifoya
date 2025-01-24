@@ -111,7 +111,6 @@ onUnmounted(() => {
             :dots="false"
             draggable
             loop
-            autoplay
           >
             <ConstructionCard
               v-for="(item, i) in constructionList"
@@ -129,7 +128,6 @@ onUnmounted(() => {
             :dots="false"
             draggable
             loop
-            autoplay
             :rtl="true"
           >
             <ConstructionCard
@@ -213,7 +211,7 @@ onUnmounted(() => {
             </a-collapse-panel>
             <a-collapse-panel key="7">
             <template #header>
-              <span>{{ $t("longFaqSeven") }}</span>
+              <span>{{ $t("longFaqSeven") }} </span>
               <DownOutlined
                 style="font-size: 16px; color: #23b123"
                 :class="{ 'rotate-icon': activeKey.includes('4') }"

@@ -40,13 +40,13 @@ const setActive = (id) => {};
               >{{ $t("about") }}</RouterLink
             >
           </li>
-          <li>
+          <!-- <li>
             <RouterLink
               :to="{ path: '/', hash: '#constraction' }"
               @click="handleToggle"
               >{{ $t("howWorked") }}</RouterLink
             >
-          </li>
+          </li> -->
           <li>
             <RouterLink :to="`/long-term`" @click="handleToggle">{{
               $t("longInvest")

@@ -17,7 +17,7 @@ defineProps({
 <template>
   <div class="card">
     <div class="left">
-      <h2>{{ $t(`${title}`) }}</h2>
+      <h2>{{ $t(`${title}`) }} </h2>
       <p v-html="$t(`${desc}`)"></p>
     </div>
     <div class="right">

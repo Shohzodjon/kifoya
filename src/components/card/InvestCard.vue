@@ -19,36 +19,37 @@ defineProps({
 <style scoped lang="scss">
 .invest__card {
   display: flex;
-  align-items: center;
+  align-items: center !important;
   gap: 20px;
-  margin: 15px 0;
+  margin: 12px 0;
 
   span {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     background-color: var(--green-200);
     border-radius: 100%;
-    font-size: 1.6rem;
-    line-height: 19.09px;
+    font-size: 1.5rem;
+    line-height: 18px;
     font-weight: 600;
     color: #008000;
   }
   p {
     font-weight: 500;
     font-size: 1.6rem;
-    line-height: 20px;
+    line-height: 18px;
     color: var(--dark-blue);
     max-width: 88%;
+    height: max-content !important;
   }
 
   @media (max-width: 1200px) {
     span {
       width: 40px;
       height: 40px;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
   
   }

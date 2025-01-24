@@ -58,14 +58,11 @@ const closeModal = () => {
           v-for="(item, i) in chiefList"
           :key="i"
           :img="item.img"
-          :desc="item.desc"
           :position="item.position"
+          :title="item.title"
+          @cardClick="showModal(item)"
         >
-          <template #employee__name>
-            <button @click="showModal(item)" class="employee__btn">
-              {{ $t(`${item.title}`) }}
-            </button>
-          </template>
+         
         </EmployeeCard>
       </div>
       <h2 class="second__title">{{ $t("manageTeam") }}</h2>
@@ -75,14 +72,10 @@ const closeModal = () => {
           :key="i"
           :title="item.title"
           :img="item.img"
-          :desc="item.desc"
           :position="item.position"
+          @cardClick="showModal(item)"
         >
-          <template #employee__name>
-            <button @click="showModal(item)" class="employee__btn">
-              {{ $t(`${item.title}`) }}
-            </button>
-          </template>
+       
         </EmployeeCard>
       </div>
     </div>

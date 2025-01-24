@@ -187,9 +187,6 @@ onBeforeUnmount(() => {
                     </li>
                     <li>{{ $t("innovation") }}</li>
                     <li>{{ $t("profession") }}</li>
-                    <li>
-                      {{ $t("services") }}
-                    </li>
                   </ul>
                 </template>
               </PurposeDesc>
@@ -321,7 +318,7 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </div>
-    <div class="construction_section" id="constraction">
+    <!-- <div class="construction_section" id="constraction">
       <div class="container">
         <h2 class="title">{{ $t("howWorked") }}</h2>
         <div class="construction_flex">
@@ -333,7 +330,7 @@ onBeforeUnmount(() => {
           />
         </div>
       </div>
-    </div>
+    </div> -->
     <section class="order_section" id="contact">
       <div class="container">
         <main>
@@ -450,8 +447,8 @@ onBeforeUnmount(() => {
           <h2 v-html="$t('app')"></h2>
 
           <div class="app_group">
-            <a href="#"><img src="@/assets/images/app.png" alt="app" /></a>
-            <a href="#"><img src="@/assets/images/play.png" alt="app" /></a>
+            <a href="https://www.apple.com/app-store/" target="_blank"><img src="@/assets/images/app.png" alt="app" /></a>
+            <a href="https://play.google.com/store/apps?hl=en" target="_blank"><img src="@/assets/images/play.png" alt="app" /></a>
           </div>
         </div>
       </div>

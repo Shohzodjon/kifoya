@@ -1,0 +1,1 @@
+import{_ as s,o as r,c as n,a as t,t as a}from"./index-BPHDoV3V.js";const o={class:"invest__card"},c={__name:"InvestCard",props:{order:{type:Number,default:0},title:{type:String,default:""}},setup(e){return(d,l)=>(r(),n("div",o,[t("span",null,a(e.order),1),t("p",null,a(e.title),1)]))}},p=s(c,[["__scopeId","data-v-97a954d1"]]);export{p as I};

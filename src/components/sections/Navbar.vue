@@ -65,13 +65,13 @@ const handleChange = (lang) => {
               $t("about")
             }}</a>
           </li>
-          <li>
+          <!-- <li>
             <a
               href="#constraction"
               :class="{ active: route.hash === '#constraction' }"
               >{{ $t("howWorked") }}</a
             >
-          </li>
+          </li> -->
           <li>
             <RouterLink
               :to="`/long-term`"
